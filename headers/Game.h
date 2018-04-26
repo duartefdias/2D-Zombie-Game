@@ -5,6 +5,9 @@
 
 class Game {
 public:
+
+    int gameOver = 0;
+
     Game();
 
     void createWindow();
@@ -13,8 +16,8 @@ public:
 
     void renderBackground();
 
-    /*sf::RenderWindow & getWindow();
-    sf::RectangleShape & getBackground();*/
+    sf::RenderWindow & getWindow();
+    sf::RectangleShape & getBackground();
 
 private:
     sf::RenderWindow window;

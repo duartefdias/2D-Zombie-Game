@@ -14,9 +14,12 @@ void Game::createWindow(){
     {
         sf::Event event;
         while(window.pollEvent(event)){
-            if (event.type == sf::Event::Closed)
+            if (event.type == sf::Event::Closed) {
+                gameOver = 1;
                 window.close();
+            }
         }
+        //std::cout << "loopz for years" << std::endl;
     }
 }
 
@@ -33,10 +36,10 @@ void Game::renderBackground() {
     window.draw(background);
 }
 
-/*sf::RenderWindow & Game::getWindow() {
+sf::RenderWindow & Game::getWindow() {
         return window;
 }
 
 sf::RectangleShape & Game::getBackground() {
         return background;
-}*/
+}
