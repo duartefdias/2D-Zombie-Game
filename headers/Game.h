@@ -5,17 +5,20 @@
 
 class Game {
 public:
-  static void Start();
+    Game();
+
+    void createWindow();
+
+    void setupBackground(std::string fileName, int width = 900, int height = 700);
+
+    void renderBackground();
+
+    /*sf::RenderWindow & getWindow();
+    sf::RectangleShape & getBackground();*/
 
 private:
-  static bool IsExiting();
-  static void GameLoop();
-
-  enum GameState { Uninitialized, ShowingSplash, Paused,
-          ShowingMenu, Playing, Exiting };
-
-  static GameState _gameState;
-  static sf::RenderWindow _mainWindow;
+    sf::RenderWindow window;
+    sf::RectangleShape background;
 };
 
 #endif //GAME_H

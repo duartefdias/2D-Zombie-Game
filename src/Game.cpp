@@ -3,52 +3,40 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 
-void Game::Start(void)
-{
-  if(_gameState != Uninitialized)
-    return;
-
-  _mainWindow.create(sf::VideoMode(1024,768,32),"Pang!");
-  _gameState = Game::Playing;
-
-  while(!IsExiting())
-  {
-    GameLoop();
-  }
-
-  _mainWindow.close();
+Game::Game() {
+    window.create(sf::VideoMode(640, 480), "2D Zombies");
+    window.setFramerateLimit(60);
+    window.setVerticalSyncEnabled(true);
 }
 
-bool Game::IsExiting()
-{
-  if(_gameState == Game::Exiting)
-    return true;
-  else
-    return false;
-}
-
-void Game::GameLoop()
-{
-  sf::Event currentEvent;
-  while(_mainWindow.waitEvent(currentEvent))
-  {
-
-    switch(_gameState)
+void Game::createWindow(){
+    while (window.isOpen())
     {
-      case Game::Playing:
-        {
-          _mainWindow.clear(sf::Color(255,0,0));
-          _mainWindow.display();
-
-          if(currentEvent.type == sf::Event::Closed)
-            {
-              _gameState = Game::Exiting;
-            }
-          break;
+        sf::Event event;
+        while(window.pollEvent(event)){
+            if (event.type == sf::Event::Closed)
+                window.close();
         }
     }
-  }
 }
 
-Game::GameState Game::_gameState = Uninitialized;
-sf::RenderWindow Game::_mainWindow;
+void Game::setupBackground(std::string fileName, int width, int height) {
+    sf::RectangleShape background(sf::Vector2f(width, height));
+    sf::Texture bgTexture;
+    if (!bgTexture.loadFromFile(fileName)) {
+        std::cout << "\nError loading texture!" << std::endl;
+    }
+    background.setTexture(&bgTexture);
+}
+
+void Game::renderBackground() {
+    window.draw(background);
+}
+
+/*sf::RenderWindow & Game::getWindow() {
+        return window;
+}
+
+sf::RectangleShape & Game::getBackground() {
+        return background;
+}*/
