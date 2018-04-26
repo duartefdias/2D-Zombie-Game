@@ -32,3 +32,25 @@ sf::RenderWindow & Game::getWindow() {
 sf::RectangleShape & Game::getBackground() {
         return background;
 }
+
+void Game::setScoreText() {
+
+
+    scoreText.setString("Current score: ");
+    scoreText.setCharacterSize(30);
+    scoreText.setFillColor(sf::Color::Red);
+    scoreText.setStyle(sf::Text::Bold);
+    scoreText.setPosition(20, 15);
+}
+
+void Game::renderScoreText() {
+    window.draw(scoreText);
+}
+
+sf::Text & Game::getScoreText() {
+        return scoreText;
+}
+
+sf::Font & Game::getScoreTextFont() {
+        return scoreTextFont;
+}

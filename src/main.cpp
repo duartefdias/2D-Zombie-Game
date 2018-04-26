@@ -20,6 +20,13 @@ int main() {
     }
     game->getBackground().setTexture(&bgTexture);
 
+    //Set text styles
+    game->setScoreText();
+    if(!game->getScoreTextFont().loadFromFile("assets/fonts/Raleway-Medium.ttf")) {
+        std::cout << "\nProblem loading game.scoreTextFont" << std::endl;
+    }
+    game->getScoreText().setFont(game->getScoreTextFont());
+
     while (game->getWindow().isOpen())
     {
         sf::Event event;
@@ -31,6 +38,7 @@ int main() {
         //Everything that needs to be drawn goes between clear() and display()
         game->getWindow().clear();
         game->renderBackground();
+        game->renderScoreText();
         game->getWindow().display();
     }
 
