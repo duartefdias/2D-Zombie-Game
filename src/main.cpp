@@ -20,12 +20,19 @@ int main() {
     }
     game->getBackground().setTexture(&bgTexture);
 
-    //Set text styles
+    //Set scoreText styles
     game->setScoreText();
     if(!game->getScoreTextFont().loadFromFile("assets/fonts/Raleway-Medium.ttf")) {
         std::cout << "\nProblem loading game.scoreTextFont" << std::endl;
     }
     game->getScoreText().setFont(game->getScoreTextFont());
+
+    //Set scoreString styles
+    game->setScoreString(game->getGameScore());
+    if(!game->getScoreStringFont().loadFromFile("assets/fonts/Raleway-Medium.ttf")) {
+        std::cout << "\nProblem loading game.scoreTextFont" << std::endl;
+    }
+    game->getScoreString().setFont(game->getScoreStringFont());
 
     while (game->getWindow().isOpen())
     {
@@ -39,10 +46,11 @@ int main() {
         game->getWindow().clear();
         game->renderBackground();
         game->renderScoreText();
+        game->renderScoreString();
         game->getWindow().display();
     }
 
-    std::cout << "the end" << std::endl;
+    std::cout << "Thanks for playing! Bye!" << std::endl;
 
     return 0;
 

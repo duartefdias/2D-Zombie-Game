@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <SFML/Graphics.hpp>
+//#include <string>
 
 Game::Game(int windowWidth, int windowHeight) {
     window.create(sf::VideoMode(windowWidth, windowHeight), "2D Zombies");
@@ -34,8 +35,6 @@ sf::RectangleShape & Game::getBackground() {
 }
 
 void Game::setScoreText() {
-
-
     scoreText.setString("Current score: ");
     scoreText.setCharacterSize(30);
     scoreText.setFillColor(sf::Color::Red);
@@ -53,4 +52,29 @@ sf::Text & Game::getScoreText() {
 
 sf::Font & Game::getScoreTextFont() {
         return scoreTextFont;
+}
+
+int Game::getGameScore() {
+    return gameScore;
+}
+
+void Game::setScoreString(int gameScore) {
+    std::string score = std::to_string(gameScore);
+    scoreString.setString(score);
+    scoreString.setCharacterSize(30);
+    scoreString.setFillColor(sf::Color::Red);
+    scoreString.setStyle(sf::Text::Bold);
+    scoreString.setPosition(250, 15);
+}
+
+void Game::renderScoreString() {
+    window.draw(scoreString);
+}
+
+sf::Text & Game::getScoreString() {
+        return scoreString;
+}
+
+sf::Font & Game::getScoreStringFont() {
+        return scoreStringFont;
 }

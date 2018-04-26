@@ -19,11 +19,21 @@ public:
     sf::Text & getScoreText();
     sf::Font & getScoreTextFont();
 
+    int getGameScore();
+    void setScoreString(int score);
+    void renderScoreString();
+    sf::Text & getScoreString();
+    sf::Font & getScoreStringFont();
+
 private:
     sf::RenderWindow window;
     sf::RectangleShape background;
     sf::Text scoreText;
     sf::Font scoreTextFont;
+
+    int gameScore = 0;
+    sf::Text scoreString;
+    sf::Font scoreStringFont;
 };
 
 #endif //GAME_H
