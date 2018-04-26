@@ -8,7 +8,7 @@
 int main() {
 
     //Create Window
-    Game* game = new Game();
+    Game* game = new Game(900, 700);
 
     //Create a rectangle for the background and set a texture for it
     game->setupBackground("assets/textures/background1.jpg", 900, 700);

@@ -3,8 +3,8 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 
-Game::Game() {
-    window.create(sf::VideoMode(1000, 780), "2D Zombies");
+Game::Game(int windowWidth, int windowHeight) {
+    window.create(sf::VideoMode(windowWidth, windowHeight), "2D Zombies");
     window.setFramerateLimit(60);
     window.setVerticalSyncEnabled(true);
 }

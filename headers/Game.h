@@ -8,7 +8,7 @@ public:
 
     int gameOver = 0;
 
-    Game();
+    Game(int windowWidth = 900, int windowHeight = 700);
 
     void setupBackground(std::string fileName, int width = 900, int height = 700);
 
