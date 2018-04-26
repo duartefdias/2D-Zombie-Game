@@ -4,32 +4,21 @@
 #include <SFML/Graphics.hpp>
 
 Game::Game() {
-    window.create(sf::VideoMode(640, 480), "2D Zombies");
+    window.create(sf::VideoMode(1000, 780), "2D Zombies");
     window.setFramerateLimit(60);
     window.setVerticalSyncEnabled(true);
 }
 
-void Game::createWindow(){
-    while (window.isOpen())
-    {
-        sf::Event event;
-        while(window.pollEvent(event)){
-            if (event.type == sf::Event::Closed) {
-                gameOver = 1;
-                window.close();
-            }
-        }
-        //std::cout << "loopz for years" << std::endl;
-    }
-}
-
 void Game::setupBackground(std::string fileName, int width, int height) {
-    sf::RectangleShape background(sf::Vector2f(width, height));
-    sf::Texture bgTexture;
+    background.setSize(sf::Vector2f(width, height));
+
+    //The white square problem... the code below won't work
+    /*sf::Texture bgTexture;
+    std::cout << "texture path: " << fileName << std::endl;
     if (!bgTexture.loadFromFile(fileName)) {
         std::cout << "\nError loading texture!" << std::endl;
     }
-    background.setTexture(&bgTexture);
+    background.setTexture(&bgTexture);*/
 }
 
 void Game::renderBackground() {

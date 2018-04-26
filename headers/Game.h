@@ -10,8 +10,6 @@ public:
 
     Game();
 
-    void createWindow();
-
     void setupBackground(std::string fileName, int width = 900, int height = 700);
 
     void renderBackground();
