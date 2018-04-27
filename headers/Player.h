@@ -14,10 +14,7 @@ public:
     sf::CircleShape & getSprite();
 
     //Movement
-    void moveUp();
-    void moveRight();
-    void moveDown();
-    void moveLeft();
+    void move(float speed = 1);
 
 
 private:

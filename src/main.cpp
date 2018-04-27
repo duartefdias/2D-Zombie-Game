@@ -55,15 +55,9 @@ int main() {
         player->renderSprite(game);
         game->getWindow().display();
 
-        //Key presses
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
-            player->moveUp();
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
-            player->moveRight();
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
-            player->moveDown();
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
-            player->moveLeft();
+        //W, D, S, A movement keys
+        player->move();
+
     }
 
     std::cout << "Thanks for playing! Bye!" << std::endl;
