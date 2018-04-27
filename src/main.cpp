@@ -34,6 +34,10 @@ int main() {
     }
     game->getScoreString().setFont(game->getScoreStringFont());
 
+    //Create player
+    Player* player = new Player(game->getWindow().getSize().x, game->getWindow().getSize().y);
+
+    //MAIN GAME LOOP
     while (game->getWindow().isOpen())
     {
         sf::Event event;
@@ -51,6 +55,8 @@ int main() {
     }
 
     std::cout << "Thanks for playing! Bye!" << std::endl;
+    std::cout << "Window width: " << game->getWindow().getSize().x << std::endl;
+    std::cout << "Window height: " << game->getWindow().getSize().y << std::endl;
 
     return 0;
 

@@ -2,7 +2,6 @@
 
 #include <iostream>
 #include <SFML/Graphics.hpp>
-//#include <string>
 
 Game::Game(int windowWidth, int windowHeight) {
     window.create(sf::VideoMode(windowWidth, windowHeight), "2D Zombies");
