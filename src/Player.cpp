@@ -76,3 +76,20 @@ void Player::rotate(Game* game) {
     //std::cout << "Mouse " << "x: " << x << " " << "y: " << y << std::endl;
     //std::cout << angle << std::endl;
 }
+
+int Player::getPlayerX() {
+    return playerX;
+}
+int Player::getPlayerY() {
+    return playerY;
+}
+
+bool Player::shoot() {
+    if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+        /*Bullet* bullet = new Bullet(100, 100, 10, 10);
+        bullet->renderSprite(game);*/
+        std::cout << "BAAAAAM" << std::endl;
+        return true;
+    }
+    return false;
+}

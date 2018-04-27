@@ -1,9 +1,12 @@
 #include <iostream>
 #include <string>
 #include <SFML/Graphics.hpp>
+#include <chrono>
 
 #include "../headers/Game.h"
 #include "../headers/Player.h"
+#include "../headers/Linked_list.h"
+#include "../headers/Bullet.h"
 
 int main() {
 
@@ -38,6 +41,11 @@ int main() {
     Player* player = new Player((game->getWindow().getSize().x)/2, (game->getWindow().getSize().y)/2);
     player->setupSprite();
 
+    //Create list to store bullets
+    //List* bulletList = new List();
+    int bu = 0;
+    Bullet* bullet;
+
     //MAIN GAME LOOP
     while (game->getWindow().isOpen())
     {
@@ -53,11 +61,21 @@ int main() {
         game->renderScoreText();
         game->renderScoreString();
         player->renderSprite(game);
+
+        if(bu) {
+            bullet->renderSprite(game);
+            bullet->move(2);
+        }
         game->getWindow().display();
 
         //W, D, S, A movement keys
         player->move(game);
         player->rotate(game);
+
+        if(player->shoot()) {
+            bullet = new Bullet(player->getPlayerX(), player->getPlayerY(), game->getMouse().getPosition(game->getWindow()).x, game->getMouse().getPosition(game->getWindow()).y);
+            bu = 1;
+        }
 
     }
 

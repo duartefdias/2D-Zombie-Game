@@ -3,6 +3,7 @@
 
 #include <SFML/Graphics.hpp>
 #include "../headers/Game.h"
+#include "../headers/Bullet.h"
 
 class Player {
 public:
@@ -17,6 +18,10 @@ public:
     void move(Game* game, float speed = 1);
     void rotate(Game* game);
 
+    bool shoot();
+
+    int getPlayerX();
+    int getPlayerY();
 
 private:
     int playerX;
