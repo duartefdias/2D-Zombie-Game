@@ -22,34 +22,36 @@ sf::CircleShape & Player::getSprite() {
     return sprite;
 }
 
-void Player::move(float speed) {
+void Player::move(Game* game, float speed) {
+    int windowWidth = game->getWindow().getSize().x;
+    int windowHeight = game->getWindow().getSize().y;
     //Move UP
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
-        if (playerY >= 20)
+        if (playerY >= 10)
             playerY -= 5 * speed;
         else
-            playerY = 20;
+            playerY = 10;
     }
     //Move RIGHT
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
-        if (playerX <= 880)
+        if (playerX <= windowWidth - 80)
             playerX += 5 * speed;
         else
-            playerX = 880;
+            playerX = 820;
     }
     //Move DOWN
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
-        if (playerY <= 680)
+        if (playerY <= windowHeight - 80)
             playerY += 5 * speed;
         else
-            playerY = 680;
+            playerY = 620;
     }
     //Move LEFT
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
-        if (playerX >= 20)
+        if (playerX >= 10)
             playerX -= 5 * speed;
         else
-            playerX = 20;
+            playerX = 10;
     }
     sprite.setPosition(playerX, playerY);
 }

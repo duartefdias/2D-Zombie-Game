@@ -56,7 +56,7 @@ int main() {
         game->getWindow().display();
 
         //W, D, S, A movement keys
-        player->move();
+        player->move(game);
 
     }
 

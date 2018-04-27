@@ -14,7 +14,7 @@ public:
     sf::CircleShape & getSprite();
 
     //Movement
-    void move(float speed = 1);
+    void move(Game* game, float speed = 1);
 
 
 private:
