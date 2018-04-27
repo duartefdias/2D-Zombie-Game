@@ -2,13 +2,16 @@
 #define  PLAYER_H
 
 #include <SFML/Graphics.hpp>
+#include "../headers/Game.h"
 
 class Player {
 public:
     Player(int x, int y);
 
     void setupSprite();
-    void renderSprite();
+    void renderSprite(Game* game);
+
+    sf::CircleShape & getSprite();
 
 
 private:

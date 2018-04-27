@@ -34,8 +34,9 @@ int main() {
     }
     game->getScoreString().setFont(game->getScoreStringFont());
 
-    //Create player
-    Player* player = new Player(game->getWindow().getSize().x, game->getWindow().getSize().y);
+    //Create player, set player to appear in middle of window
+    Player* player = new Player((game->getWindow().getSize().x)/2, (game->getWindow().getSize().y)/2);
+    player->setupSprite();
 
     //MAIN GAME LOOP
     while (game->getWindow().isOpen())
@@ -51,6 +52,7 @@ int main() {
         game->renderBackground();
         game->renderScoreText();
         game->renderScoreString();
+        player->renderSprite(game);
         game->getWindow().display();
     }
 
