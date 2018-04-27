@@ -15,6 +15,7 @@ public:
 
     //Movement
     void move(Game* game, float speed = 1);
+    void rotate(Game* game);
 
 
 private:

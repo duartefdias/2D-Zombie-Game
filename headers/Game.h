@@ -25,6 +25,8 @@ public:
     sf::Text & getScoreString();
     sf::Font & getScoreStringFont();
 
+    sf::Mouse & getMouse();
+
 private:
     sf::RenderWindow window;
     sf::RectangleShape background;
@@ -34,6 +36,8 @@ private:
     int gameScore = 0;
     sf::Text scoreString;
     sf::Font scoreStringFont;
+
+    sf::Mouse mouse;
 };
 
 #endif //GAME_H

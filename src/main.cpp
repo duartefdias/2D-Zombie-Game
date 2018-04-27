@@ -57,6 +57,7 @@ int main() {
 
         //W, D, S, A movement keys
         player->move(game);
+        player->rotate(game);
 
     }
 

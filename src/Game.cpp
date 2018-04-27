@@ -77,3 +77,7 @@ sf::Text & Game::getScoreString() {
 sf::Font & Game::getScoreStringFont() {
         return scoreStringFont;
 }
+
+sf::Mouse & Game::getMouse() {
+        return mouse;
+}

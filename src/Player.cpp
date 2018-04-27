@@ -2,6 +2,9 @@
 
 #include <iostream>
 #include <SFML/Graphics.hpp>
+#include <math.h>
+
+#define PI 3.14159265
 
 Player::Player(int x, int y) {
     playerX = x - 40;
@@ -56,4 +59,19 @@ void Player::move(Game* game, float speed) {
             playerX = 10;
     }
     sprite.setPosition(playerX, playerY);
+}
+
+void Player::rotate(Game* game) {
+    int x = game->getMouse().getPosition(game->getWindow()).x;
+    int y = game->getMouse().getPosition(game->getWindow()).y;
+
+    std::cout << "Player " << "x: " << playerX << " " << "y: " << playerY << std::endl;
+    std::cout << "Mouse " << "x: " << x << " " << "y: " << y << std::endl;
+
+    float angle = atan2(y - playerY, x - playerX);
+    angle *= 180 / PI;
+
+    std::cout << angle << std::endl;
+
+    sprite.setRotation(angle + 90);
 }
