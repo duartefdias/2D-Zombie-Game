@@ -9,22 +9,18 @@ Player::Player(int x, int y) {
 }
 
 void Player::setupSprite() {
-    sprite.setRadius(40);
-    sprite.setFillColor(sf::Color(150, 50, 250));
     sprite.setPosition(playerX, playerY);
-
-    spriteTexture.loadFromFile("assets/sprites/guns/player_sprite.png");
-    sf::IntRect rectSourceSprite(300, 0, 300, 400);
-    sprite1.setTexture(spriteTexture);
-    //sprite1.setTextureRect(sf::IntRect(0, 0, 400, 532)); //(minWidth, minHeight, maxWidth, maxHeight)
+    spriteTexture.loadFromFile("assets/sprites/player/player_spriteT.png");
+    sprite.setTexture(spriteTexture);
+    sprite.setTextureRect(sf::IntRect(0, 0, 150, 190)); //(minWidth, minHeight, maxWidth, maxHeight)
+    sprite.setScale(0.5, 0.5);
 }
 
 void Player::renderSprite(Game* game) {
     game->getWindow().draw(sprite);
-    game->getWindow().draw(sprite1);
 }
 
-sf::CircleShape & Player::getSprite() {
+sf::Sprite & Player::getSprite() {
     return sprite;
 }
 

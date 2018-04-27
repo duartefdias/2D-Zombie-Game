@@ -11,7 +11,7 @@ public:
     void setupSprite();
     void renderSprite(Game* game);
 
-    sf::CircleShape & getSprite();
+    sf::Sprite & getSprite();
 
     //Movement
     void move(Game* game, float speed = 1);
@@ -21,8 +21,7 @@ private:
     int playerX;
     int playerY;
 
-    sf::CircleShape sprite;
-    sf::Sprite sprite1;
+    sf::Sprite sprite;
     sf::Texture spriteTexture;
 
 };
