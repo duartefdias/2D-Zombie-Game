@@ -21,3 +21,35 @@ void Player::renderSprite(Game* game) {
 sf::CircleShape & Player::getSprite() {
     return sprite;
 }
+
+void Player::moveUp() {
+    if (playerY >= 20)
+        playerY -= 5;
+    else
+        playerY = 20;
+    sprite.setPosition(playerX, playerY);
+}
+
+void Player::moveRight() {
+    if (playerX <= 880)
+        playerX += 5;
+    else
+        playerX = 880;
+    sprite.setPosition(playerX, playerY);
+}
+
+void Player::moveDown() {
+    if (playerY <= 680)
+        playerY += 5;
+    else
+        playerY = 680;
+    sprite.setPosition(playerX, playerY);
+}
+
+void Player::moveLeft() {
+    if (playerX >= 20)
+        playerX -= 5;
+    else
+        playerX = 20;
+    sprite.setPosition(playerX, playerY);
+}

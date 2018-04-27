@@ -13,6 +13,12 @@ public:
 
     sf::CircleShape & getSprite();
 
+    //Movement
+    void moveUp();
+    void moveRight();
+    void moveDown();
+    void moveLeft();
+
 
 private:
     int playerX;
