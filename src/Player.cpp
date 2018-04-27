@@ -17,6 +17,7 @@ void Player::setupSprite() {
     sprite.setTexture(spriteTexture);
     sprite.setTextureRect(sf::IntRect(0, 0, 150, 190)); //(minWidth, minHeight, maxWidth, maxHeight)
     sprite.setScale(0.5, 0.5);
+    sprite.setOrigin(75, 95);
 }
 
 void Player::renderSprite(Game* game) {
@@ -65,13 +66,13 @@ void Player::rotate(Game* game) {
     int x = game->getMouse().getPosition(game->getWindow()).x;
     int y = game->getMouse().getPosition(game->getWindow()).y;
 
-    std::cout << "Player " << "x: " << playerX << " " << "y: " << playerY << std::endl;
-    std::cout << "Mouse " << "x: " << x << " " << "y: " << y << std::endl;
-
+    //Calculate angle
     float angle = atan2(y - playerY, x - playerX);
     angle *= 180 / PI;
 
-    std::cout << angle << std::endl;
-
     sprite.setRotation(angle + 90);
+
+    //std::cout << "Player " << "x: " << playerX << " " << "y: " << playerY << std::endl;
+    //std::cout << "Mouse " << "x: " << x << " " << "y: " << y << std::endl;
+    //std::cout << angle << std::endl;
 }
