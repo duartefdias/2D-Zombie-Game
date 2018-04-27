@@ -22,6 +22,8 @@ private:
     int playerY;
 
     sf::CircleShape sprite;
+    sf::Sprite sprite1;
+    sf::Texture spriteTexture;
 
 };
 
