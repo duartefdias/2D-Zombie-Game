@@ -26,8 +26,8 @@ Bullet::Bullet(int startX, int startY, int endX, int endY) {
     }
 
 
-    std::cout << "moveX: " << moveX << std::endl;
-    std::cout << "moveY: " << moveY << "\n" << std::endl;
+    //std::cout << "moveX: " << moveX << std::endl;
+    //std::cout << "moveY: " << moveY << "\n" << std::endl;
 }
 
 void Bullet::move(int speed) {

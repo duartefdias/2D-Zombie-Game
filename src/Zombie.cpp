@@ -11,7 +11,7 @@ Zombie::Zombie(Game* game) {
     int windowY = game->getWindow().getSize().y;
 
     x = rand() % windowX;
-    y = windowY-40;
+    y = windowY-80;
 
     //Setup zombie sprite
     sprite.setRadius(40);
@@ -21,5 +21,29 @@ Zombie::Zombie(Game* game) {
 
 void Zombie::renderSprite(Game* game) {
     game->getWindow().draw(sprite);
-    std::cout << "Zombie created! Run!" << std::endl;
+}
+
+void Zombie::move(Player* player, int speed) {
+    //Based on linear interpolation
+    moveX = player->getPlayerX() - zombieX;
+    moveY = player->getPlayerY() - zombieY;
+    moveX = moveX / 200;
+    moveY = moveY / 200;
+
+    if(moveX == 0 && moveY == 0) {
+        moveX = 1;
+    }
+
+    zombieX += (moveX * speed);
+    zombieY += (moveY * speed);
+
+    sprite.setPosition(zombieX, zombieY);
+}
+
+int Zombie::getZombieX() {
+    return zombieX;
+}
+
+int Zombie::getZombieY() {
+    return zombieY;
 }

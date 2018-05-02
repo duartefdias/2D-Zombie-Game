@@ -94,8 +94,9 @@ int main() {
         if(zo) {
             for (int j = 0; j <= zombieIndex; j++) {
                 zombieList[j]->renderSprite(game);
-                //zombieList[j]->move(10);
-                std::cout << zombieIndex << std::endl;
+                zombieList[j]->move(player, 10);
+
+                std::cout << "Zombie "<< j << "x: " << zombieList[j]->getZombieX() << "Zombie y: " << zombieList[j]->getZombieY() << std::endl;
             }
         }
         game->getWindow().display();
@@ -112,6 +113,7 @@ int main() {
                 bu = 1;
                 bulletIndex += 1;
                 clock.restart();
+                std::cout << "BAAAAAM" << std::endl;
             }
         }
 
@@ -122,6 +124,7 @@ int main() {
             zo = 1;
             zombieIndex += 1;
             clockZombies.restart();
+            std::cout << "Zombie " << zombieIndex + 1 << " created! Run!" << std::endl;
         }
 
 

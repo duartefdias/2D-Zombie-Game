@@ -86,7 +86,6 @@ int Player::getPlayerY() {
 
 bool Player::shoot() {
     if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
-        std::cout << "BAAAAAM" << std::endl;
         return true;
     }
     return false;
