@@ -64,6 +64,8 @@ int main() {
     int zo = 0;
     int zombieIndex = -1;
 
+    int a = 0, b = 0;
+
 
     //MAIN GAME LOOP
     while (game->getWindow().isOpen())
@@ -105,6 +107,7 @@ int main() {
         player->move(game);
         player->rotate(game);
 
+        //Fire shots
         if(player->shoot()) {
             elapsedTime = clock.getElapsedTime();
                 if((int) elapsedTime.asMilliseconds() > 200) {
@@ -117,6 +120,7 @@ int main() {
             }
         }
 
+        //Create new zombie every 2 seconds
         elapsedTimeZombies = clockZombies.getElapsedTime();
         if ((int) elapsedTimeZombies.asSeconds() > 2) {
             zombieAux = new Zombie(game);
@@ -127,7 +131,17 @@ int main() {
             std::cout << "Zombie " << zombieIndex + 1 << " created! Run!" << std::endl;
         }
 
-
+        //Check bullet <-> zombie collisions and delete hit zombies
+        //This is really ineficient... definitely have to change it later
+        for ( a = 0; a < zombieIndex; a++) {
+            for ( b = 0; b < bulletIndex; b++) {
+                if(zombieList[a]->getZombieX() > bulletList[b]->getBulletX() - 30 && zombieList[a]->getZombieX() < bulletList[b]->getBulletX() + 30) {
+                    if (zombieList[a]->getZombieY() > bulletList[b]->getBulletY() - 30 && zombieList[a]->getZombieY() < bulletList[b]->getBulletY() + 30) {
+                        delete zombieList[a];
+                    }
+                }
+            }
+        }
 
     }
 

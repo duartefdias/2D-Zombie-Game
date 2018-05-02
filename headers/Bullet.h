@@ -14,6 +14,9 @@ public:
     //void createBullet(List* bulletList);
     void renderSprite(Game* game);
 
+    int getBulletX();
+    int getBulletY();
+
 private:
     int bulletX;
     int bulletY;
@@ -24,7 +27,7 @@ private:
     sf::CircleShape sprite;
 
     Bullet* bulletAux;
-    
+
 };
 
 #endif //BULLET_H

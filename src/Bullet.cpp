@@ -46,3 +46,11 @@ void Bullet::move(int speed) {
 void Bullet::renderSprite(Game* game) {
     game->getWindow().draw(sprite);
 }
+
+int Bullet::getBulletX() {
+    return bulletX;
+}
+
+int Bullet::getBulletY() {
+    return bulletY;
+}
