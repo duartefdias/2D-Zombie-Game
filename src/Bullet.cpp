@@ -21,6 +21,10 @@ Bullet::Bullet(int startX, int startY, int endX, int endY) {
     moveX = moveX / 200;
     moveY = moveY / 200;
 
+    if(moveX == 0 && moveY == 0) {
+        moveX = 1;
+    }
+
 
     std::cout << "moveX: " << moveX << std::endl;
     std::cout << "moveY: " << moveY << "\n" << std::endl;
