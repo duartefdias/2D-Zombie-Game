@@ -64,7 +64,7 @@ int main() {
 
         if(bu) {
             bullet->renderSprite(game);
-            bullet->move(2);
+            bullet->move(10);
         }
         game->getWindow().display();
 
