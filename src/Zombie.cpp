@@ -4,19 +4,19 @@
 #include <iostream>
 
 Zombie::Zombie(Game* game) {
-    int x = 20;
-    int y = 20;
+    zombieX = 20;
+    zombieY = 20;
 
     int windowX = game->getWindow().getSize().x;
     int windowY = game->getWindow().getSize().y;
 
-    x = rand() % windowX;
-    y = windowY-80;
+    zombieX = rand() % windowX;
+    zombieY = windowY-80;
 
     //Setup zombie sprite
     sprite.setRadius(40);
     sprite.setFillColor(sf::Color(220, 20, 60));
-    sprite.setPosition(x, y);
+    sprite.setPosition(zombieX, zombieY);
 }
 
 void Zombie::renderSprite(Game* game) {
@@ -36,6 +36,8 @@ void Zombie::move(Player* player, int speed) {
 
     zombieX += (moveX * speed);
     zombieY += (moveY * speed);
+    std::cout << "moveX: " << moveX*speed << std::endl;
+    std::cout << "moveY: " << moveY*speed << std::endl;
 
     sprite.setPosition(zombieX, zombieY);
 }

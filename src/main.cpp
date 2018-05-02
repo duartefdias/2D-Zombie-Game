@@ -94,7 +94,7 @@ int main() {
         if(zo) {
             for (int j = 0; j <= zombieIndex; j++) {
                 zombieList[j]->renderSprite(game);
-                zombieList[j]->move(player, 10);
+                zombieList[j]->move(player, 2);
 
                 std::cout << "Zombie "<< j << "x: " << zombieList[j]->getZombieX() << "Zombie y: " << zombieList[j]->getZombieY() << std::endl;
             }

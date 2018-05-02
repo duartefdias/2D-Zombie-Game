@@ -29,8 +29,8 @@ private:
     sf::CircleShape sprite;
 
     //Player direction
-    int moveX;
-    int moveY;
+    float moveX;
+    float moveY;
 
 };
 
