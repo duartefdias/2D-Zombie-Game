@@ -8,6 +8,7 @@
 #include "../headers/Player.h"
 #include "../headers/Linked_list.h"
 #include "../headers/Bullet.h"
+#include "../headers/Zombie.h"
 
 int main() {
 
@@ -42,16 +43,27 @@ int main() {
     Player* player = new Player((game->getWindow().getSize().x)/2, (game->getWindow().getSize().y)/2);
     player->setupSprite();
 
-    //Create list to store bullets
+    //Create array to store bullets
     //List* bulletList = new List();
     int bu = 0;
     int bulletIndex = -1;
     Bullet* bulletAux;
     std::vector<Bullet*> bulletList;
 
-    //Game Clock
+    //Game Clock for bullets
     sf::Clock clock;
     sf::Time elapsedTime;
+
+    //Game Clock for zombies
+    sf::Clock clockZombies;
+    sf::Time elapsedTimeZombies;
+
+    //Create array to store zombies
+    Zombie* zombieAux;
+    std::vector<Zombie*> zombieList;
+    int zo = 0;
+    int zombieIndex = -1;
+
 
     //MAIN GAME LOOP
     while (game->getWindow().isOpen())
@@ -69,14 +81,22 @@ int main() {
         game->renderScoreString();
         player->renderSprite(game);
 
-
+        //Draw bullets
         if(bu) {
             for (int i = 0; i <= bulletIndex; i++) {
                 bulletList[i]->renderSprite(game);
                 bulletList[i]->move(10);
-                std::cout << bulletIndex << std::endl;
+                //std::cout << bulletIndex << std::endl;
             }
+        }
 
+        //Draw zombies
+        if(zo) {
+            for (int j = 0; j <= zombieIndex; j++) {
+                zombieList[j]->renderSprite(game);
+                //zombieList[j]->move(10);
+                std::cout << zombieIndex << std::endl;
+            }
         }
         game->getWindow().display();
 
@@ -94,6 +114,17 @@ int main() {
                 clock.restart();
             }
         }
+
+        elapsedTimeZombies = clockZombies.getElapsedTime();
+        if ((int) elapsedTimeZombies.asSeconds() > 2) {
+            zombieAux = new Zombie(game);
+            zombieList.push_back(zombieAux);
+            zo = 1;
+            zombieIndex += 1;
+            clockZombies.restart();
+        }
+
+
 
     }
 
