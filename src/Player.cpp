@@ -86,8 +86,6 @@ int Player::getPlayerY() {
 
 bool Player::shoot() {
     if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
-        /*Bullet* bullet = new Bullet(100, 100, 10, 10);
-        bullet->renderSprite(game);*/
         std::cout << "BAAAAAM" << std::endl;
         return true;
     }

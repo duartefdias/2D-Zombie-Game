@@ -45,7 +45,7 @@ int main() {
     //Create list to store bullets
     //List* bulletList = new List();
     int bu = 0;
-    int b = -1;
+    int bulletIndex = -1;
     Bullet* bulletAux;
     std::vector<Bullet*> bulletList;
 
@@ -65,14 +65,14 @@ int main() {
         game->renderScoreString();
         player->renderSprite(game);
 
+
         if(bu) {
-            //bullet->renderSprite(game);
-            //bullet->move(10);
-            for (unsigned int i = 0; i < (sizeof(bulletList) / sizeof(Bullet*) - 2) + b; i++) {
+            for (int i = 0; i < bulletIndex; i++) {
                 bulletList[i]->renderSprite(game);
                 bulletList[i]->move(10);
-                std::cout << i+b << std::endl;
+                std::cout << bulletIndex << std::endl;
             }
+
         }
         game->getWindow().display();
 
@@ -84,7 +84,7 @@ int main() {
             bulletAux = new Bullet(player->getPlayerX(), player->getPlayerY(), game->getMouse().getPosition(game->getWindow()).x, game->getMouse().getPosition(game->getWindow()).y);
             bulletList.push_back(bulletAux);
             bu = 1;
-            b += 1;
+            bulletIndex += 1;
         }
 
     }

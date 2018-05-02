@@ -22,6 +22,9 @@ private:
     float moveY;
 
     sf::CircleShape sprite;
+
+    Bullet* bulletAux;
+    
 };
 
 #endif //BULLET_H

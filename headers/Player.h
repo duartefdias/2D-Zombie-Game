@@ -30,6 +30,9 @@ private:
     sf::Sprite sprite;
     sf::Texture spriteTexture;
 
+    int press = false;
+    int pressAux = false;
+
 };
 
 #endif //PLAYER_H
