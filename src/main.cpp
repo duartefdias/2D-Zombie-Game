@@ -49,6 +49,10 @@ int main() {
     Bullet* bulletAux;
     std::vector<Bullet*> bulletList;
 
+    //Game Clock
+    sf::Clock clock;
+    sf::Time elapsedTime;
+
     //MAIN GAME LOOP
     while (game->getWindow().isOpen())
     {
@@ -67,7 +71,7 @@ int main() {
 
 
         if(bu) {
-            for (int i = 0; i < bulletIndex; i++) {
+            for (int i = 0; i <= bulletIndex; i++) {
                 bulletList[i]->renderSprite(game);
                 bulletList[i]->move(10);
                 std::cout << bulletIndex << std::endl;
@@ -81,10 +85,14 @@ int main() {
         player->rotate(game);
 
         if(player->shoot()) {
-            bulletAux = new Bullet(player->getPlayerX(), player->getPlayerY(), game->getMouse().getPosition(game->getWindow()).x, game->getMouse().getPosition(game->getWindow()).y);
-            bulletList.push_back(bulletAux);
-            bu = 1;
-            bulletIndex += 1;
+            elapsedTime = clock.getElapsedTime();
+                if((int) elapsedTime.asMilliseconds() > 200) {
+                bulletAux = new Bullet(player->getPlayerX(), player->getPlayerY(), game->getMouse().getPosition(game->getWindow()).x, game->getMouse().getPosition(game->getWindow()).y);
+                bulletList.push_back(bulletAux);
+                bu = 1;
+                bulletIndex += 1;
+                clock.restart();
+            }
         }
 
     }
