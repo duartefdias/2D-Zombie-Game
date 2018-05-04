@@ -68,7 +68,7 @@ int main() {
 
 
     //MAIN GAME LOOP
-    while (game->getWindow().isOpen())
+    while (game->getWindow().isOpen() && !player->isDead())
     {
         sf::Event event;
         while(game->getWindow().pollEvent(event)){
@@ -81,7 +81,9 @@ int main() {
         game->renderBackground();
         game->renderScoreText();
         game->renderScoreString();
-        player->renderSprite(game);
+        if(!player->isDead()) {
+            player->renderSprite(game);
+        }
 
         //Draw bullets
         if(bu) {
@@ -107,6 +109,7 @@ int main() {
         player->move(game);
         player->rotate(game);
 
+        //TODO: Implement linked lists instead of arrays
         //Fire shots
         if(player->shoot()) {
             elapsedTime = clock.getElapsedTime();
@@ -120,6 +123,7 @@ int main() {
             }
         }
 
+        //TODO: Use sprites for the zombies like we do for the player
         //Create new zombie every 2 seconds
         elapsedTimeZombies = clockZombies.getElapsedTime();
         if ((int) elapsedTimeZombies.asSeconds() > 2) {
@@ -131,13 +135,26 @@ int main() {
             std::cout << "Zombie " << zombieIndex + 1 << " created! Run!" << std::endl;
         }
 
+        //TODO: Implement linked lists instead of arrays
         //Check bullet <-> zombie collisions and delete hit zombies
         //This is really ineficient... definitely have to change it later
         for ( a = 0; a < zombieIndex; a++) {
             for ( b = 0; b < bulletIndex; b++) {
-                if(zombieList[a]->getZombieX() > bulletList[b]->getBulletX() - 30 && zombieList[a]->getZombieX() < bulletList[b]->getBulletX() + 30) {
-                    if (zombieList[a]->getZombieY() > bulletList[b]->getBulletY() - 30 && zombieList[a]->getZombieY() < bulletList[b]->getBulletY() + 30) {
-                        delete zombieList[a];
+                if(zombieList[a]->getZombieX() > bulletList[b]->getBulletX() - 200 && zombieList[a]->getZombieX() < bulletList[b]->getBulletX() + 200) {
+                    if (zombieList[a]->getZombieY() > bulletList[b]->getBulletY() - 200 && zombieList[a]->getZombieY() < bulletList[b]->getBulletY() + 200) {
+                        //delete zombieList[a];
+                        zombieList[a]->kill(game);
+                    }
+                }
+            }
+        }
+
+        //TODO: Change this after implementing lists for the zombies
+        for( a = 0; a < zombieIndex; a++) {
+            if(zombieList[a]->getZombieX() > player->getPlayerX() - 40 && zombieList[a]->getZombieX() < player->getPlayerX() + 40) {
+                if (zombieList[a]->getZombieY() > player->getPlayerY() - 40 && zombieList[a]->getZombieY() < player->getPlayerY() + 40) {
+                    if(!zombieList[a]->isDead()) {
+                        player->kill();
                     }
                 }
             }

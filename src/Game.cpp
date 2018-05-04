@@ -81,3 +81,7 @@ sf::Font & Game::getScoreStringFont() {
 sf::Mouse & Game::getMouse() {
         return mouse;
 }
+
+void Game::incrementGameScore() {
+    gameScore++;
+}

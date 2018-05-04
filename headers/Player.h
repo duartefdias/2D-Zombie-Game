@@ -23,6 +23,9 @@ public:
     int getPlayerX();
     int getPlayerY();
 
+    void kill();
+    int isDead();
+
 private:
     int playerX;
     int playerY;
@@ -32,6 +35,8 @@ private:
 
     int press = false;
     int pressAux = false;
+
+    int dead;
 
 };
 

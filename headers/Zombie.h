@@ -19,6 +19,9 @@ public:
     int getZombieX();
     int getZombieY();
 
+    void kill(Game* game);
+    int isDead();
+
 private:
 
     //Player position
@@ -31,6 +34,8 @@ private:
     //Player direction
     float moveX;
     float moveY;
+
+    int dead;
 
 };
 

@@ -17,9 +17,13 @@ Zombie::Zombie(Game* game) {
     sprite.setRadius(40);
     sprite.setFillColor(sf::Color(220, 20, 60));
     sprite.setPosition(zombieX, zombieY);
+    sprite.setOrigin(20, 20);
+
+    dead = 0;
 }
 
 void Zombie::renderSprite(Game* game) {
+    if(!dead)
     game->getWindow().draw(sprite);
 }
 
@@ -48,4 +52,14 @@ int Zombie::getZombieX() {
 
 int Zombie::getZombieY() {
     return zombieY;
+}
+
+void Zombie::kill(Game* game) {
+    dead = 1;
+    game->incrementGameScore();
+    game->setScoreString(game->getGameScore());
+}
+
+int Zombie::isDead() {
+    return dead;
 }

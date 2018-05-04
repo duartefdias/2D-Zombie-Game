@@ -9,6 +9,8 @@
 Player::Player(int x, int y) {
     playerX = x - 40;
     playerY = y - 40;
+
+    dead = 0;
 }
 
 void Player::setupSprite() {
@@ -89,4 +91,12 @@ bool Player::shoot() {
         return true;
     }
     return false;
+}
+
+void Player::kill() {
+    dead = 1;
+}
+
+int Player::isDead() {
+    return dead;
 }

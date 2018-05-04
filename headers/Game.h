@@ -27,6 +27,8 @@ public:
 
     sf::Mouse & getMouse();
 
+    void incrementGameScore();
+
 private:
     sf::RenderWindow window;
     sf::RectangleShape background;
