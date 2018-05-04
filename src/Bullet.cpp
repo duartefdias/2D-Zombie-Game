@@ -54,3 +54,40 @@ int Bullet::getBulletX() {
 int Bullet::getBulletY() {
     return bulletY;
 }
+
+BulletList::BulletList() {
+    head->next = tail;
+    tail->next = nullptr;
+}
+
+void BulletList::insertNodeEnd(Bullet* newBullet) {
+    bulletNode *auxNode = {};
+    bulletNode *newNode = {};
+
+    newNode->bullet = newBullet;
+
+    for(auxNode = head; auxNode->next != tail; auxNode = auxNode->next) {
+        //Travels through the list to the last node before the head
+    }
+    newNode->next = auxNode;
+    auxNode->next = newNode;
+
+}
+
+bulletNode* BulletList::getNextNode(bulletNode* node) {
+    return node->next;
+}
+
+void BulletList::deleteNode(bulletNode* previousNode, bulletNode* node) {
+    previousNode->next = getNextNode(node);
+    node->next = nullptr;
+    delete node;
+}
+
+bulletNode* BulletList::getHead() {
+    return head;
+}
+
+bulletNode* BulletList::getTail() {
+    return tail;
+}

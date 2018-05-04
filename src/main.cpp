@@ -6,7 +6,6 @@
 
 #include "../headers/Game.h"
 #include "../headers/Player.h"
-#include "../headers/Linked_list.h"
 #include "../headers/Bullet.h"
 #include "../headers/Zombie.h"
 
@@ -48,7 +47,8 @@ int main() {
     int bu = 0;
     int bulletIndex = -1;
     Bullet* bulletAux;
-    std::vector<Bullet*> bulletList;
+    BulletList* bulletList = new BulletList();
+    bulletNode* auxBulletNode = {};
 
     //Game Clock for bullets
     sf::Clock clock;
@@ -63,9 +63,6 @@ int main() {
     std::vector<Zombie*> zombieList;
     int zo = 0;
     int zombieIndex = -1;
-
-    int a = 0, b = 0;
-
 
     //MAIN GAME LOOP
     while (game->getWindow().isOpen() && !player->isDead())
@@ -85,14 +82,13 @@ int main() {
             player->renderSprite(game);
         }
 
-        //Draw bullets
-        if(bu) {
-            for (int i = 0; i <= bulletIndex; i++) {
-                bulletList[i]->renderSprite(game);
-                bulletList[i]->move(10);
-                //std::cout << bulletIndex << std::endl;
+        //Iterate through bullet list and draw bullets
+        /*if(bu) {
+            for(auxBulletNode = bulletList->getHead(); auxBulletNode != bulletList->getTail(); auxBulletNode = bulletList->getNextNode(auxBulletNode)) {
+                auxBulletNode->bullet->renderSprite(game);
+                auxBulletNode->bullet->move(10);
             }
-        }
+        }*/
 
         //Draw zombies
         if(zo) {
@@ -115,7 +111,7 @@ int main() {
             elapsedTime = clock.getElapsedTime();
                 if((int) elapsedTime.asMilliseconds() > 200) {
                 bulletAux = new Bullet(player->getPlayerX(), player->getPlayerY(), game->getMouse().getPosition(game->getWindow()).x, game->getMouse().getPosition(game->getWindow()).y);
-                bulletList.push_back(bulletAux);
+                bulletList->insertNodeEnd(bulletAux); //NEW
                 bu = 1;
                 bulletIndex += 1;
                 clock.restart();
@@ -138,7 +134,7 @@ int main() {
         //TODO: Implement linked lists instead of arrays
         //Check bullet <-> zombie collisions and delete hit zombies
         //This is really ineficient... definitely have to change it later
-        for ( a = 0; a < zombieIndex; a++) {
+        /*for ( a = 0; a < zombieIndex; a++) {
             for ( b = 0; b < bulletIndex; b++) {
                 if(zombieList[a]->getZombieX() > bulletList[b]->getBulletX() - 200 && zombieList[a]->getZombieX() < bulletList[b]->getBulletX() + 200) {
                     if (zombieList[a]->getZombieY() > bulletList[b]->getBulletY() - 200 && zombieList[a]->getZombieY() < bulletList[b]->getBulletY() + 200) {
@@ -147,10 +143,10 @@ int main() {
                     }
                 }
             }
-        }
+        }*/
 
         //TODO: Change this after implementing lists for the zombies
-        for( a = 0; a < zombieIndex; a++) {
+        /*for( a = 0; a < zombieIndex; a++) {
             if(zombieList[a]->getZombieX() > player->getPlayerX() - 40 && zombieList[a]->getZombieX() < player->getPlayerX() + 40) {
                 if (zombieList[a]->getZombieY() > player->getPlayerY() - 40 && zombieList[a]->getZombieY() < player->getPlayerY() + 40) {
                     if(!zombieList[a]->isDead()) {
@@ -158,7 +154,7 @@ int main() {
                     }
                 }
             }
-        }
+        }*/
 
     }
 
