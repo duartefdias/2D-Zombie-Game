@@ -45,10 +45,9 @@ int main() {
     //Create array to store bullets
     //List* bulletList = new List();
     int bu = 0;
-    int bulletIndex = -1;
     Bullet* bulletAux;
     BulletList* bulletList = new BulletList();
-    bulletNode* auxBulletNode = {};
+    bulletNode* auxBulletNode = new bulletNode();
 
     //Game Clock for bullets
     sf::Clock clock;
@@ -83,12 +82,12 @@ int main() {
         }
 
         //Iterate through bullet list and draw bullets
-        /*if(bu) {
-            for(auxBulletNode = bulletList->getHead(); auxBulletNode != bulletList->getTail(); auxBulletNode = bulletList->getNextNode(auxBulletNode)) {
+        if(bu) {
+            for(auxBulletNode = bulletList->getNextNode(bulletList->getHead()); auxBulletNode != bulletList->getTail(); auxBulletNode = bulletList->getNextNode(auxBulletNode)) {
                 auxBulletNode->bullet->renderSprite(game);
                 auxBulletNode->bullet->move(10);
             }
-        }*/
+        }
 
         //Draw zombies
         if(zo) {
@@ -96,7 +95,7 @@ int main() {
                 zombieList[j]->renderSprite(game);
                 zombieList[j]->move(player, 2);
 
-                std::cout << "Zombie "<< j << "x: " << zombieList[j]->getZombieX() << "Zombie y: " << zombieList[j]->getZombieY() << std::endl;
+                //std::cout << "Zombie "<< j << "x: " << zombieList[j]->getZombieX() << "Zombie y: " << zombieList[j]->getZombieY() << std::endl;
             }
         }
         game->getWindow().display();
@@ -105,7 +104,7 @@ int main() {
         player->move(game);
         player->rotate(game);
 
-        //TODO: Implement linked lists instead of arrays
+        //TODO: Debug this
         //Fire shots
         if(player->shoot()) {
             elapsedTime = clock.getElapsedTime();
@@ -113,7 +112,6 @@ int main() {
                 bulletAux = new Bullet(player->getPlayerX(), player->getPlayerY(), game->getMouse().getPosition(game->getWindow()).x, game->getMouse().getPosition(game->getWindow()).y);
                 bulletList->insertNodeEnd(bulletAux); //NEW
                 bu = 1;
-                bulletIndex += 1;
                 clock.restart();
                 std::cout << "BAAAAAM" << std::endl;
             }

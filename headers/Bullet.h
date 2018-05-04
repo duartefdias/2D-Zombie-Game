@@ -30,10 +30,16 @@ private:
 };
 
 //LIST TO STORE BULLETS
-struct bulletNode {
+/*struct bulletNode {
     Bullet *bullet;
     bulletNode *next;
- };
+};*/
+
+class bulletNode {
+public:
+    Bullet *bullet;
+    bulletNode *next;
+};
 
  class BulletList{
  public:

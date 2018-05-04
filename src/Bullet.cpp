@@ -56,20 +56,22 @@ int Bullet::getBulletY() {
 }
 
 BulletList::BulletList() {
+    head = new bulletNode();
+    tail = new bulletNode();
     head->next = tail;
     tail->next = nullptr;
 }
 
 void BulletList::insertNodeEnd(Bullet* newBullet) {
-    bulletNode *auxNode = {};
-    bulletNode *newNode = {};
+    bulletNode *auxNode = new bulletNode();
+    bulletNode *newNode = new bulletNode();
 
-    newNode->bullet = newBullet;
+    newNode->bullet = newBullet; //XXX:Segmentation fault occurs here
 
     for(auxNode = head; auxNode->next != tail; auxNode = auxNode->next) {
         //Travels through the list to the last node before the head
     }
-    newNode->next = auxNode;
+    newNode->next = auxNode->next;
     auxNode->next = newNode;
 
 }
