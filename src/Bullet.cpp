@@ -55,6 +55,23 @@ int Bullet::getBulletY() {
     return bulletY;
 }
 
+int Bullet::isOutOfScreen(Game* game) {
+    int windowX = game->getWindow().getSize().x;
+    int windowY = game->getWindow().getSize().y;
+
+    if(bulletX < 0 || bulletX > windowX) {
+        std::cout << "Bullet is out of screen" << std::endl;
+        return 1;
+    }
+
+    if(bulletY < 0 || bulletY > windowY) {
+        std::cout << "Bullet is out of screen" << std::endl;
+        return 1;
+    }
+
+    return 0;
+}
+
 BulletList::BulletList() {
     head = new bulletNode();
     tail = new bulletNode();
@@ -66,7 +83,7 @@ void BulletList::insertNodeEnd(Bullet* newBullet) {
     bulletNode *auxNode = new bulletNode();
     bulletNode *newNode = new bulletNode();
 
-    newNode->bullet = newBullet; //XXX:Segmentation fault occurs here
+    newNode->bullet = newBullet;
 
     for(auxNode = head; auxNode->next != tail; auxNode = auxNode->next) {
         //Travels through the list to the last node before the head
@@ -80,10 +97,30 @@ bulletNode* BulletList::getNextNode(bulletNode* node) {
     return node->next;
 }
 
-void BulletList::deleteNode(bulletNode* previousNode, bulletNode* node) {
-    previousNode->next = getNextNode(node);
-    node->next = nullptr;
-    delete node;
+bulletNode* BulletList::deleteNode(bulletNode* node) {
+    bulletNode* previousNode;
+    bulletNode* deletedNode = node;
+
+    bulletNode* returnNode;
+    returnNode = node->next;
+
+    for(previousNode = head; previousNode->next != node; previousNode = previousNode->next) {
+        //Travels through the list to the last node before the head
+    }
+
+    if(previousNode == head) {
+        //node->next = nullptr;
+        delete deletedNode;
+        head->next = tail;
+        std::cout << "Deleted node after head" << std::endl;
+    }else if(previousNode != head) {
+        previousNode->next = node->next;
+        //node->next = nullptr;
+        delete deletedNode;
+        std::cout << "Deleted normal node" << std::endl;
+    }
+
+    return returnNode;
 }
 
 bulletNode* BulletList::getHead() {

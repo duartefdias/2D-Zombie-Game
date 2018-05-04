@@ -16,6 +16,8 @@ public:
     int getBulletX();
     int getBulletY();
 
+    int isOutOfScreen(Game* game);
+
 private:
     int bulletX;
     int bulletY;
@@ -48,7 +50,7 @@ public:
 
      void insertNodeEnd(Bullet* newBullet);
      bulletNode* getNextNode(bulletNode* node);
-     void deleteNode(bulletNode* previousNode, bulletNode* node);
+     bulletNode* deleteNode(bulletNode* node);
 
      bulletNode* getHead();
      bulletNode* getTail();

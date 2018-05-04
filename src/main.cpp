@@ -82,7 +82,7 @@ int main() {
         }
 
         //Iterate through bullet list and draw bullets
-        if(bu) {
+        if(bu && bulletList->getNextNode(bulletList->getHead()) != bulletList->getTail()) {
             for(auxBulletNode = bulletList->getNextNode(bulletList->getHead()); auxBulletNode != bulletList->getTail(); auxBulletNode = bulletList->getNextNode(auxBulletNode)) {
                 auxBulletNode->bullet->renderSprite(game);
                 auxBulletNode->bullet->move(10);
@@ -153,6 +153,22 @@ int main() {
                 }
             }
         }*/
+
+        //Delete bullet if out of screen
+        if(bulletList->getNextNode(bulletList->getHead()) != bulletList->getTail()) {
+            for(auxBulletNode = bulletList->getNextNode(bulletList->getHead()); auxBulletNode != bulletList->getTail(); auxBulletNode = bulletList->getNextNode(auxBulletNode)) {
+                if(auxBulletNode->bullet->isOutOfScreen(game)) {
+                    auxBulletNode = bulletList->deleteNode(auxBulletNode);
+
+                    if(bulletList->getNextNode(bulletList->getHead()) == bulletList->getTail()) {
+                        bu = 0;
+                    }
+                    if(auxBulletNode == bulletList->getTail()) {
+                        continue;
+                    }
+                }
+            }
+        }
 
     }
 
