@@ -4,6 +4,8 @@ In this game you control a 2D character through a top-view whose objective is to
 The character can shoot bullets whose speed and direction are controlled by the mouse.
 If a zombie touches the character the game ends.
 
+![Screenshot](https://github.com/DuarteDx/2D-Zombie-Game/blob/master/misc/screenshot1.png)
+
 ## UML
 
 ![UML](https://github.com/DuarteDx/2D-Zombie-Game/blob/master/UML/UML1.jpg)
