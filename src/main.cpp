@@ -59,7 +59,8 @@ int main() {
 
     //Create array to store zombies
     Zombie* zombieAux;
-    std::vector<Zombie*> zombieList;
+    ZombieList* zombieList = new ZombieList();
+    zombieNode* auxZombieNode = new zombieNode();
     int zo = 0;
     int zombieIndex = -1;
 
@@ -92,11 +93,11 @@ int main() {
             }
         }
 
-        //Draw zombies
-        if(zo) {
-            for (int j = 0; j <= zombieIndex; j++) {
-                zombieList[j]->renderSprite(game);
-                zombieList[j]->move(player, 2);
+        //Iterate through zombie list and draw zombies
+        if(zo && zombieList->getNextNode(zombieList->getHead()) != zombieList->getTail()) {
+            for(auxZombieNode = zombieList->getNextNode(zombieList->getHead()); auxZombieNode != zombieList->getTail(); auxZombieNode = zombieList->getNextNode(auxZombieNode)) {
+                auxZombieNode->zombie->renderSprite(game);
+                auxZombieNode->zombie->move(player, 2);
 
                 //std::cout << "Zombie "<< j << "x: " << zombieList[j]->getZombieX() << "Zombie y: " << zombieList[j]->getZombieY() << std::endl;
             }
@@ -125,7 +126,7 @@ int main() {
         elapsedTimeZombies = clockZombies.getElapsedTime();
         if ((int) elapsedTimeZombies.asSeconds() > 2) {
             zombieAux = new Zombie(game);
-            zombieList.push_back(zombieAux);
+            zombieList->insertNodeEnd(zombieAux); //NEW
             zo = 1;
             zombieIndex += 1;
             clockZombies.restart();
@@ -133,24 +134,26 @@ int main() {
         }
 
         //TODO: Implement linked lists instead of arrays
+        //TODO: Make bullet dissapear on hit
         //Check bullet <-> zombie collisions and delete hit zombies
         //This is really ineficient... definitely have to change it later
-        for ( a = 0; a < zombieIndex; a++) {
+        for ( auxZombieNode = zombieList->getNextNode(zombieList->getHead()); auxZombieNode != zombieList->getTail(); auxZombieNode = zombieList->getNextNode(auxZombieNode)) {
             for ( auxBulletNode = bulletList->getNextNode(bulletList->getHead()); auxBulletNode != bulletList->getTail(); auxBulletNode = bulletList->getNextNode(auxBulletNode)) {
-                if(zombieList[a]->getZombieX() > auxBulletNode->bullet->getBulletX() - 200 && zombieList[a]->getZombieX() < auxBulletNode->bullet->getBulletX() + 200) {
-                    if (zombieList[a]->getZombieY() > auxBulletNode->bullet->getBulletY() - 200 && zombieList[a]->getZombieY() < auxBulletNode->bullet->getBulletY() + 200) {
+                if(auxZombieNode->zombie->getZombieX() > auxBulletNode->bullet->getBulletX() - 40 && auxZombieNode->zombie->getZombieX() < auxBulletNode->bullet->getBulletX() + 40) {
+                    if (auxZombieNode->zombie->getZombieY() > auxBulletNode->bullet->getBulletY() - 40 && auxZombieNode->zombie->getZombieY() < auxBulletNode->bullet->getBulletY() + 40) {
                         //delete zombieList[a];
-                        zombieList[a]->kill(game);
+                        auxZombieNode->zombie->kill(game);
                     }
                 }
             }
         }
 
+        //Check player <-> zombie collisions
         //TODO: Change this after implementing lists for the zombies
-        for( a = 0; a < zombieIndex; a++) {
-            if(zombieList[a]->getZombieX() > player->getPlayerX() - 40 && zombieList[a]->getZombieX() < player->getPlayerX() + 40) {
-                if (zombieList[a]->getZombieY() > player->getPlayerY() - 40 && zombieList[a]->getZombieY() < player->getPlayerY() + 40) {
-                    if(!zombieList[a]->isDead()) {
+        for( auxZombieNode = zombieList->getNextNode(zombieList->getHead()); auxZombieNode != zombieList->getTail(); auxZombieNode = zombieList->getNextNode(auxZombieNode)) {
+            if(auxZombieNode->zombie->getZombieX() > player->getPlayerX() - 40 && auxZombieNode->zombie->getZombieX() < player->getPlayerX() + 40) {
+                if (auxZombieNode->zombie->getZombieY() > player->getPlayerY() - 40 && auxZombieNode->zombie->getZombieY() < player->getPlayerY() + 40) {
+                    if(!auxZombieNode->zombie->isDead()) {
                         player->kill();
                     }
                 }

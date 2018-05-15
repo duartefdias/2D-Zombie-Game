@@ -77,3 +77,64 @@ if(dead == 0) {
 int Zombie::isDead() {
     return dead;
 }
+
+
+
+ZombieList::ZombieList() {
+    head = new zombieNode();
+    tail = new zombieNode();
+    head->next = tail;
+    tail->next = nullptr;
+}
+
+void ZombieList::insertNodeEnd(Zombie* newZombie) {
+    zombieNode *auxNode = new zombieNode();
+    zombieNode *newNode = new zombieNode();
+
+    newNode->zombie = newZombie;
+
+    for(auxNode = head; auxNode->next != tail; auxNode = auxNode->next) {
+        //Travels through the list to the last node before the head
+    }
+    newNode->next = auxNode->next;
+    auxNode->next = newNode;
+
+}
+
+zombieNode* ZombieList::getNextNode(zombieNode* node) {
+    return node->next;
+}
+
+zombieNode* ZombieList::deleteNode(zombieNode* node) {
+    zombieNode* previousNode;
+    zombieNode* deletedNode = node;
+
+    zombieNode* returnNode;
+    returnNode = node->next;
+
+    for(previousNode = head; previousNode->next != node; previousNode = previousNode->next) {
+        //Travels through the list to the last node before the head
+    }
+
+    if(previousNode == head) {
+        //node->next = nullptr;
+        //delete deletedNode;
+        head->next = tail;
+        std::cout << "Deleted node after head" << std::endl;
+    }else if(previousNode != head) {
+        previousNode->next = node->next;
+        //node->next = nullptr;
+        //delete deletedNode;
+        std::cout << "Deleted normal node" << std::endl;
+    }
+
+    return returnNode;
+}
+
+zombieNode* ZombieList::getHead() {
+    return head;
+}
+
+zombieNode* ZombieList::getTail() {
+    return tail;
+}

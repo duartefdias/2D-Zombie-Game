@@ -2,7 +2,7 @@
 #define ZOMBIE_H
 
 #include "../headers/Game.h"
-#include "../headers/Bullet.h"
+#include "../headers/Zombie.h"
 #include "../headers/Player.h"
 #include <SFML/Graphics.hpp>
 
@@ -39,5 +39,32 @@ private:
     int dead;
 
 };
+
+class zombieNode {
+public:
+    Zombie *zombie;
+    zombieNode *next;
+};
+
+ class ZombieList{
+ public:
+
+     ZombieList();
+
+     void insertNodeEnd(Zombie* newZombie);
+     zombieNode* getNextNode(zombieNode* node);
+     zombieNode* deleteNode(zombieNode* node);
+
+     zombieNode* getHead();
+     zombieNode* getTail();
+
+     //TODO:~ZombieList();
+
+
+ private:
+
+     zombieNode *head, *tail;
+
+ };
 
 #endif // ZOMBIE_H
