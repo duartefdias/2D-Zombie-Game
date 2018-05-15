@@ -29,7 +29,8 @@ private:
     int zombieY;
 
     //Sprite
-    sf::CircleShape sprite;
+    sf::Sprite sprite;
+    sf::Texture spriteTexture;
 
     //Player direction
     float moveX;

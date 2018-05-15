@@ -2,6 +2,9 @@
 #include "../headers/Game.h"
 
 #include <iostream>
+#include <math.h>
+
+#define PI 3.14159265
 
 Zombie::Zombie(Game* game) {
     zombieX = 20;
@@ -14,10 +17,12 @@ Zombie::Zombie(Game* game) {
     zombieY = windowY-80;
 
     //Setup zombie sprite
-    sprite.setRadius(40);
-    sprite.setFillColor(sf::Color(220, 20, 60));
+    spriteTexture.loadFromFile("assets/sprites/zombie/zombieSprite.png");
+    sprite.setTexture(spriteTexture);
+    sprite.setTextureRect(sf::IntRect(30, 30, 220, 200)); //(minWidth, minHeight, maxWidth, maxHeight)
+    sprite.setScale(0.5, 0.5);
+    sprite.setOrigin(95, 85);
     sprite.setPosition(zombieX, zombieY);
-    sprite.setOrigin(20, 20);
 
     dead = 0;
 }
@@ -40,6 +45,13 @@ void Zombie::move(Player* player, int speed) {
 
     zombieX += (moveX * speed);
     zombieY += (moveY * speed);
+
+    //Calculate angle
+    float angle = atan2(player->getPlayerY() - zombieY, player->getPlayerX() - zombieX);
+    angle *= 180 / PI;
+
+    sprite.setRotation(angle);
+
     //std::cout << "moveX: " << moveX*speed << std::endl;
     //std::cout << "moveY: " << moveY*speed << std::endl;
 
@@ -55,9 +67,11 @@ int Zombie::getZombieY() {
 }
 
 void Zombie::kill(Game* game) {
-    dead = 1;
+if(dead == 0) {
     game->incrementGameScore();
     game->setScoreString(game->getGameScore());
+}
+    dead = 1;
 }
 
 int Zombie::isDead() {

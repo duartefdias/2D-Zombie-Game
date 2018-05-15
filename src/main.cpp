@@ -63,6 +63,9 @@ int main() {
     int zo = 0;
     int zombieIndex = -1;
 
+    //Misc variables
+    int a = 0;
+
     //MAIN GAME LOOP
     while (game->getWindow().isOpen() && !player->isDead())
     {
@@ -132,19 +135,19 @@ int main() {
         //TODO: Implement linked lists instead of arrays
         //Check bullet <-> zombie collisions and delete hit zombies
         //This is really ineficient... definitely have to change it later
-        /*for ( a = 0; a < zombieIndex; a++) {
-            for ( b = 0; b < bulletIndex; b++) {
-                if(zombieList[a]->getZombieX() > bulletList[b]->getBulletX() - 200 && zombieList[a]->getZombieX() < bulletList[b]->getBulletX() + 200) {
-                    if (zombieList[a]->getZombieY() > bulletList[b]->getBulletY() - 200 && zombieList[a]->getZombieY() < bulletList[b]->getBulletY() + 200) {
+        for ( a = 0; a < zombieIndex; a++) {
+            for ( auxBulletNode = bulletList->getNextNode(bulletList->getHead()); auxBulletNode != bulletList->getTail(); auxBulletNode = bulletList->getNextNode(auxBulletNode)) {
+                if(zombieList[a]->getZombieX() > auxBulletNode->bullet->getBulletX() - 200 && zombieList[a]->getZombieX() < auxBulletNode->bullet->getBulletX() + 200) {
+                    if (zombieList[a]->getZombieY() > auxBulletNode->bullet->getBulletY() - 200 && zombieList[a]->getZombieY() < auxBulletNode->bullet->getBulletY() + 200) {
                         //delete zombieList[a];
                         zombieList[a]->kill(game);
                     }
                 }
             }
-        }*/
+        }
 
         //TODO: Change this after implementing lists for the zombies
-        /*for( a = 0; a < zombieIndex; a++) {
+        for( a = 0; a < zombieIndex; a++) {
             if(zombieList[a]->getZombieX() > player->getPlayerX() - 40 && zombieList[a]->getZombieX() < player->getPlayerX() + 40) {
                 if (zombieList[a]->getZombieY() > player->getPlayerY() - 40 && zombieList[a]->getZombieY() < player->getPlayerY() + 40) {
                     if(!zombieList[a]->isDead()) {
@@ -152,23 +155,23 @@ int main() {
                     }
                 }
             }
-        }*/
+        }
 
         //Delete bullet if out of screen
-        if(bulletList->getNextNode(bulletList->getHead()) != bulletList->getTail()) {
-            for(auxBulletNode = bulletList->getNextNode(bulletList->getHead()); auxBulletNode != bulletList->getTail(); auxBulletNode = bulletList->getNextNode(auxBulletNode)) {
-                if(auxBulletNode->bullet->isOutOfScreen(game)) {
-                    auxBulletNode = bulletList->deleteNode(auxBulletNode);
+        /*if(bulletList->getNextNode(bulletList->getHead()) != bulletList->getTail()) {
+            for(bulletNode* auxBulletNode1 = bulletList->getNextNode(bulletList->getHead()); auxBulletNode1 != bulletList->getTail(); auxBulletNode1 = bulletList->getNextNode(auxBulletNode1)) {
+                if(auxBulletNode1->bullet->isOutOfScreen(game)) {
+                    auxBulletNode1 = bulletList->deleteNode(auxBulletNode1);
 
                     if(bulletList->getNextNode(bulletList->getHead()) == bulletList->getTail()) {
                         bu = 0;
                     }
-                    if(auxBulletNode == bulletList->getTail()) {
+                    if(auxBulletNode1 == bulletList->getTail()) {
                         continue;
                     }
                 }
             }
-        }
+        }*/
 
     }
 
