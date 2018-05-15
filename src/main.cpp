@@ -56,6 +56,7 @@ int main() {
     //Game Clock for zombies
     sf::Clock clockZombies;
     sf::Time elapsedTimeZombies;
+    int zombieFrequency = 1000; //In milliseconds (1000 milliseconds = 1 second)
 
     //Create array to store zombies
     Zombie* zombieAux;
@@ -63,9 +64,6 @@ int main() {
     zombieNode* auxZombieNode = new zombieNode();
     int zo = 0;
     int zombieIndex = -1;
-
-    //Misc variables
-    int a = 0;
 
     //MAIN GAME LOOP
     while (game->getWindow().isOpen() && !player->isDead())
@@ -124,7 +122,10 @@ int main() {
         //TODO: Use sprites for the zombies like we do for the player
         //Create new zombie every 2 seconds
         elapsedTimeZombies = clockZombies.getElapsedTime();
-        if ((int) elapsedTimeZombies.asSeconds() > 2) {
+        if ((int) elapsedTimeZombies.asMilliseconds() > zombieFrequency) {
+            if(zombieFrequency > 100) {
+                zombieFrequency -= 10;
+            }
             zombieAux = new Zombie(game);
             zombieList->insertNodeEnd(zombieAux); //NEW
             zo = 1;
