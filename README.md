@@ -6,9 +6,32 @@ If a zombie touches the character the game ends.
 
 ![Screenshot](https://github.com/DuarteDx/2D-Zombie-Game/blob/master/misc/screenshot2.png)
 
+##Try the game
+
+To try the game download this repo, cd into it and run it:
+
+    cd 2D-Zombie-Game
+    ./ZombieGame.exe
+
+You can try previous versions such as "ZombieGame2.0.exe":
+
+    ./ZombieGame2.0.exe
+
+To compile the project and run it's output you can use the make method:
+
+    cd 2D-Zombie-Game
+    make makeobject
+
+Or to compile and run it using [Valgrind](http://valgrind.org/) to check memory leaks:
+
+    cd 2D-Zombie-Game
+    make valgrind
+
 ## UML
 
 ![UML](https://github.com/DuarteDx/2D-Zombie-Game/blob/master/UML/UML1.jpg)
+
+This might not be the most updated version of the UML but it will probabbly be quite similar.
 
 ## Development environment
 
