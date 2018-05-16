@@ -8,7 +8,13 @@ If a zombie touches the character the game ends.
 
 ## Try the game
 
-To try the game download this repo, cd into it and run it:
+Requirements:
+- [X] Linux terminal
+- [X] A Mouse
+
+Using a laptop's touchpad doesn't allow you to move and shot at the same time.
+
+To try the game [download](https://github.com/DuarteDx/2D-Zombie-Game/archive/master.zip) this repository, cd into it and run it:
 
     cd 2D-Zombie-Game
     ./ZombieGame.exe
@@ -36,3 +42,7 @@ This might not be the most updated version of the UML but it will probabbly be q
 ## Development environment
 
 This game was developed in C++ using mainly the text editor [Atom](atom.io) and the [DDD](www.gnu.org/software/ddd/) debuger.
+
+## Bug Reporting
+
+If you find any bugs please describe them in the "Issues" section of this repository.

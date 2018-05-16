@@ -90,11 +90,8 @@ int Zombie::getZombieY() {
 }
 
 void Zombie::kill(Game* game) {
-if(dead == 0) {
     game->incrementGameScore();
     game->setScoreString(game->getGameScore());
-}
-    dead = 1;
 }
 
 int Zombie::isDead() {
@@ -140,14 +137,14 @@ zombieNode* ZombieList::deleteNode(zombieNode* node) {
     }
 
     if(previousNode == head) {
-        //node->next = nullptr;
-        //delete deletedNode;
-        head->next = tail;
+        head->next = node->next;
+        node->next = nullptr;
+        delete deletedNode;
         std::cout << "Deleted node after head" << std::endl;
     }else if(previousNode != head) {
         previousNode->next = node->next;
-        //node->next = nullptr;
-        //delete deletedNode;
+        node->next = nullptr;
+        delete deletedNode;
         std::cout << "Deleted normal node" << std::endl;
     }
 
