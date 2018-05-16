@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 #include <chrono>
 #include <vector>
 
@@ -111,7 +112,7 @@ int main() {
                 if((int) elapsedTime.asMilliseconds() > 200) {
                 bulletAux = new Bullet(player->getPlayerX(), player->getPlayerY(), game->getMouse().getPosition(game->getWindow()).x, game->getMouse().getPosition(game->getWindow()).y);
                 bulletList->insertNodeEnd(bulletAux); //NEW
-                bu = 1;
+                bu = 1; //TODO: remove this without crashing the game
                 clock.restart();
                 std::cout << "BAAAAAM" << std::endl;
             }

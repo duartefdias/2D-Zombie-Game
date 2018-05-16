@@ -2,6 +2,10 @@
 #define  PLAYER_H
 
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
+
+#include <unistd.h>
+
 #include "../headers/Game.h"
 #include "../headers/Bullet.h"
 
@@ -37,6 +41,9 @@ private:
     int pressAux = false;
 
     int dead;
+
+    sf::SoundBuffer buffer;
+    sf::Sound deathSFX;
 
 };
 

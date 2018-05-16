@@ -92,6 +92,12 @@ int Zombie::getZombieY() {
 void Zombie::kill(Game* game) {
     game->incrementGameScore();
     game->setScoreString(game->getGameScore());
+
+    if(buffer.loadFromFile("assets/sound/sfx/zombieDeath.ogg")){
+        deathSFX.setBuffer(buffer);
+        deathSFX.setVolume(30);
+        deathSFX.play();
+    }
 }
 
 int Zombie::isDead() {

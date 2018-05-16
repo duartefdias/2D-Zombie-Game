@@ -2,11 +2,18 @@
 
 #include <iostream>
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 
 Game::Game(int windowWidth, int windowHeight) {
     window.create(sf::VideoMode(windowWidth, windowHeight), "2D Zombies");
     window.setFramerateLimit(60);
     window.setVerticalSyncEnabled(true);
+
+    backgroundMusic.setVolume(50);
+    backgroundMusic.setLoop(true);
+    if (backgroundMusic.openFromFile("assets/sound/music/escape.ogg")){
+        backgroundMusic.play();
+    }
 }
 
 void Game::setupBackground(std::string fileName, int width, int height) {

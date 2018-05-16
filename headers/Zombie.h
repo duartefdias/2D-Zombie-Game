@@ -5,6 +5,7 @@
 #include "../headers/Zombie.h"
 #include "../headers/Player.h"
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 
 
 class Zombie {
@@ -37,6 +38,9 @@ private:
     float moveY;
 
     int dead;
+
+    sf::SoundBuffer buffer;
+    sf::Sound deathSFX;
 
 };
 

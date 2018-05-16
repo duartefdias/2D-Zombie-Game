@@ -25,6 +25,12 @@ Bullet::Bullet(int startX, int startY, int endX, int endY) {
         moveX = 1;
     }
 
+    if(buffer.loadFromFile("assets/sound/sfx/shooting.ogg")){
+        shootingSFX.setBuffer(buffer);
+        shootingSFX.setVolume(12);
+        shootingSFX.play();
+    }
+
 
     //std::cout << "moveX: " << moveX << std::endl;
     //std::cout << "moveY: " << moveY << "\n" << std::endl;

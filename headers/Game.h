@@ -2,6 +2,7 @@
 #define  GAME_H
 
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 
 class Game {
 public:
@@ -40,6 +41,7 @@ private:
     sf::Font scoreStringFont;
 
     sf::Mouse mouse;
+    sf::Music backgroundMusic;
 };
 
 #endif //GAME_H

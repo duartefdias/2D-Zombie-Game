@@ -3,6 +3,7 @@
 
 #include "../headers/Game.h"
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 
 class Bullet{
 public:
@@ -28,6 +29,9 @@ private:
     sf::CircleShape sprite;
 
     Bullet* bulletAux;
+
+    sf::SoundBuffer buffer;
+    sf::Sound shootingSFX;
 
 };
 
