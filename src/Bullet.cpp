@@ -109,14 +109,14 @@ bulletNode* BulletList::deleteNode(bulletNode* node) {
     }
 
     if(previousNode == head) {
-        //node->next = nullptr;
-        //delete deletedNode;
         head->next = node->next;
+        node->next = nullptr;
+        delete deletedNode;
         std::cout << "Deleted node after head" << std::endl;
     }else if(previousNode != head) {
         previousNode->next = node->next;
-        //node->next = nullptr;
-        //delete deletedNode;
+        node->next = nullptr;
+        delete deletedNode;
         std::cout << "Deleted normal node" << std::endl;
     }
 
