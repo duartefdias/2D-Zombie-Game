@@ -9,8 +9,13 @@ If a zombie touches the character the game ends.
 ## Try the game
 
 Requirements:
+- [X] SFML
 - [X] Linux terminal
 - [X] A mouse
+
+To install SFML just run the following command:
+
+    sudo apt-get install libsfml-dev
 
 Using a laptop's touchpad doesn't allow you to move and shot at the same time.
 
