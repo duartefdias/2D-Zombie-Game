@@ -6,7 +6,7 @@ If a zombie touches the character the game ends.
 
 ![Screenshot](https://github.com/DuarteDx/2D-Zombie-Game/blob/master/misc/screenshot2.png)
 
-##Try the game
+## Try the game
 
 To try the game download this repo, cd into it and run it:
 
