@@ -120,7 +120,7 @@ int main() {
         }
 
         //Create new zombie every 2 seconds
-        elapsedTimeZombies = clockZombies.getElapsedTime();
+        /*elapsedTimeZombies = clockZombies.getElapsedTime();
         if ((int) elapsedTimeZombies.asMilliseconds() > zombieFrequency) {
             if(zombieFrequency > 100) {
                 zombieFrequency -= 10;
@@ -131,7 +131,7 @@ int main() {
             zombieIndex += 1;
             clockZombies.restart();
             std::cout << "Zombie " << zombieIndex + 1 << " created! Run!" << std::endl;
-        }
+        }*/
 
         //TODO: Make bullet dissapear on hit
         //Check bullet <-> zombie collisions and delete hit zombies
@@ -160,20 +160,21 @@ int main() {
 
         //TODO: delete bullets from list
         //Delete bullet if out of screen
-        /*if(bulletList->getNextNode(bulletList->getHead()) != bulletList->getTail()) {
-            for(bulletNode* auxBulletNode1 = bulletList->getNextNode(bulletList->getHead()); auxBulletNode1 != bulletList->getTail(); auxBulletNode1 = bulletList->getNextNode(auxBulletNode1)) {
+        if(bulletList->getNextNode(bulletList->getHead()) != bulletList->getTail()) {
+            for(bulletNode* auxBulletNode1 = bulletList->getNextNode(bulletList->getHead()); auxBulletNode1 != bulletList->getTail() && auxBulletNode1 != NULL; auxBulletNode1 = bulletList->getNextNode(auxBulletNode1)) {
                 if(auxBulletNode1->bullet->isOutOfScreen(game)) {
-                    auxBulletNode1 = bulletList->deleteNode(auxBulletNode1);
-
+                    if(bulletList->getNextNode(bulletList->getHead()) != bulletList->getTail()) {
+                            auxBulletNode1 = bulletList->deleteNode(auxBulletNode1); //returns the next node
+                            if(auxBulletNode1 == bulletList->getTail()){
+                                std::cout << "Shit, it's gonna crash!" << std::endl;
+                            }
+                    }
                     if(bulletList->getNextNode(bulletList->getHead()) == bulletList->getTail()) {
                         bu = 0;
                     }
-                    if(auxBulletNode1 == bulletList->getTail()) {
-                        continue;
-                    }
                 }
             }
-        }*/
+        }
 
     }
 

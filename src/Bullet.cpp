@@ -111,7 +111,7 @@ bulletNode* BulletList::deleteNode(bulletNode* node) {
     if(previousNode == head) {
         //node->next = nullptr;
         //delete deletedNode;
-        head->next = tail;
+        head->next = node->next;
         std::cout << "Deleted node after head" << std::endl;
     }else if(previousNode != head) {
         previousNode->next = node->next;
