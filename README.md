@@ -10,7 +10,7 @@ If a zombie touches the character the game ends.
 
 Requirements:
 - [X] Linux terminal
-- [X] A Mouse
+- [X] A mouse
 
 Using a laptop's touchpad doesn't allow you to move and shot at the same time.
 
@@ -45,4 +45,4 @@ This game was developed in C++ using mainly the text editor [Atom](atom.io) and 
 
 ## Bug Reporting
 
-If you find any bugs please describe them in the "Issues" section of this repository.
+If you find any bugs please describe them in the ["Issues" section](https://github.com/DuarteDx/2D-Zombie-Game/issues) of this repository.
