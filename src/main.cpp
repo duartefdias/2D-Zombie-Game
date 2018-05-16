@@ -119,7 +119,6 @@ int main() {
             }
         }
 
-        //TODO: Use sprites for the zombies like we do for the player
         //Create new zombie every 2 seconds
         elapsedTimeZombies = clockZombies.getElapsedTime();
         if ((int) elapsedTimeZombies.asMilliseconds() > zombieFrequency) {
@@ -134,7 +133,6 @@ int main() {
             std::cout << "Zombie " << zombieIndex + 1 << " created! Run!" << std::endl;
         }
 
-        //TODO: Implement linked lists instead of arrays
         //TODO: Make bullet dissapear on hit
         //Check bullet <-> zombie collisions and delete hit zombies
         //This is really ineficient... definitely have to change it later
@@ -150,7 +148,6 @@ int main() {
         }
 
         //Check player <-> zombie collisions
-        //TODO: Change this after implementing lists for the zombies
         for( auxZombieNode = zombieList->getNextNode(zombieList->getHead()); auxZombieNode != zombieList->getTail(); auxZombieNode = zombieList->getNextNode(auxZombieNode)) {
             if(auxZombieNode->zombie->getZombieX() > player->getPlayerX() - 40 && auxZombieNode->zombie->getZombieX() < player->getPlayerX() + 40) {
                 if (auxZombieNode->zombie->getZombieY() > player->getPlayerY() - 40 && auxZombieNode->zombie->getZombieY() < player->getPlayerY() + 40) {
@@ -161,6 +158,7 @@ int main() {
             }
         }
 
+        //TODO: delete bullets from list
         //Delete bullet if out of screen
         /*if(bulletList->getNextNode(bulletList->getHead()) != bulletList->getTail()) {
             for(bulletNode* auxBulletNode1 = bulletList->getNextNode(bulletList->getHead()); auxBulletNode1 != bulletList->getTail(); auxBulletNode1 = bulletList->getNextNode(auxBulletNode1)) {

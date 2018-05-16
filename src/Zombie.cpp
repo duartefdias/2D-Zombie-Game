@@ -13,8 +13,31 @@ Zombie::Zombie(Game* game) {
     int windowX = game->getWindow().getSize().x;
     int windowY = game->getWindow().getSize().y;
 
-    zombieX = rand() % windowX;
-    zombieY = windowY-80;
+    //Choose side of window where zombie spawns
+    int side = rand() % 4;
+
+    switch (side) {
+        //Top
+        case 0:
+            zombieX = rand() % windowX;
+            zombieY = 80;
+        break;
+        //Right
+        case 1:
+            zombieX = windowX - 80;
+            zombieY = rand() % windowY;
+        break;
+        //Down
+        case 2:
+            zombieX = rand() % windowX;
+            zombieY = windowY-80;
+        break;
+        //Left
+        default:
+            zombieX = 80;
+            zombieY = rand() % windowY;
+        break;
+    }
 
     //Setup zombie sprite
     spriteTexture.loadFromFile("assets/sprites/zombie/zombieSprite.png");

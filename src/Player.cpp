@@ -94,6 +94,7 @@ bool Player::shoot() {
 }
 
 void Player::kill() {
+    std::cout << "\nYou got killed by a zombie :(" << std::endl;
     dead = 1;
 }
 
