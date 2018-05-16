@@ -120,7 +120,7 @@ int main() {
         }
 
         //Create new zombie every 2 seconds
-        /*elapsedTimeZombies = clockZombies.getElapsedTime();
+        elapsedTimeZombies = clockZombies.getElapsedTime();
         if ((int) elapsedTimeZombies.asMilliseconds() > zombieFrequency) {
             if(zombieFrequency > 100) {
                 zombieFrequency -= 10;
@@ -131,17 +131,20 @@ int main() {
             zombieIndex += 1;
             clockZombies.restart();
             std::cout << "Zombie " << zombieIndex + 1 << " created! Run!" << std::endl;
-        }*/
+        }
 
         //TODO: Make bullet dissapear on hit
         //Check bullet <-> zombie collisions and delete hit zombies
         //This is really ineficient... definitely have to change it later
         for ( auxZombieNode = zombieList->getNextNode(zombieList->getHead()); auxZombieNode != zombieList->getTail(); auxZombieNode = zombieList->getNextNode(auxZombieNode)) {
-            for ( auxBulletNode = bulletList->getNextNode(bulletList->getHead()); auxBulletNode != bulletList->getTail(); auxBulletNode = bulletList->getNextNode(auxBulletNode)) {
+            for ( auxBulletNode = bulletList->getNextNode(bulletList->getHead()); auxBulletNode != bulletList->getTail() && auxBulletNode != NULL; auxBulletNode = bulletList->getNextNode(auxBulletNode)) {
                 if(auxZombieNode->zombie->getZombieX() > auxBulletNode->bullet->getBulletX() - 40 && auxZombieNode->zombie->getZombieX() < auxBulletNode->bullet->getBulletX() + 40) {
                     if (auxZombieNode->zombie->getZombieY() > auxBulletNode->bullet->getBulletY() - 40 && auxZombieNode->zombie->getZombieY() < auxBulletNode->bullet->getBulletY() + 40) {
                         //delete zombieList[a];
-                        auxZombieNode->zombie->kill(game);
+                        if(!auxZombieNode->zombie->isDead()){
+                            auxZombieNode->zombie->kill(game);
+                            auxBulletNode = bulletList->deleteNode(auxBulletNode); //returns the next node
+                        }
                     }
                 }
             }
