@@ -1,3 +1,7 @@
+//
+// Created by bob on 18-05-2018.
+//
+
 #include "../headers/Game.h"
 
 #include <iostream>
@@ -11,7 +15,7 @@ Game::Game(int windowWidth, int windowHeight) {
 
     backgroundMusic.setVolume(50);
     backgroundMusic.setLoop(true);
-    if (backgroundMusic.openFromFile("assets/sound/music/escape.ogg")){
+    if (backgroundMusic.openFromFile("../assets/sound/music/escape.ogg")){
         backgroundMusic.play();
     }
 }
@@ -33,11 +37,11 @@ void Game::renderBackground() {
 }
 
 sf::RenderWindow & Game::getWindow() {
-        return window;
+    return window;
 }
 
 sf::RectangleShape & Game::getBackground() {
-        return background;
+    return background;
 }
 
 void Game::setScoreText() {
@@ -53,11 +57,11 @@ void Game::renderScoreText() {
 }
 
 sf::Text & Game::getScoreText() {
-        return scoreText;
+    return scoreText;
 }
 
 sf::Font & Game::getScoreTextFont() {
-        return scoreTextFont;
+    return scoreTextFont;
 }
 
 int Game::getGameScore() {
@@ -78,15 +82,15 @@ void Game::renderScoreString() {
 }
 
 sf::Text & Game::getScoreString() {
-        return scoreString;
+    return scoreString;
 }
 
 sf::Font & Game::getScoreStringFont() {
-        return scoreStringFont;
+    return scoreStringFont;
 }
 
 sf::Mouse & Game::getMouse() {
-        return mouse;
+    return mouse;
 }
 
 void Game::incrementGameScore() {

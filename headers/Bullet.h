@@ -1,9 +1,17 @@
-#ifndef BULLET_H
-#define  BULLET_H
+//
+// Created by bob on 18-05-2018.
+//
 
-#include "../headers/Game.h"
+#ifndef ZOMBIEGAME_BULLET_H
+#define ZOMBIEGAME_BULLET_H
+
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
+
+#include <iostream>
+
+#include "../headers/Game.h"
+#include "../headers/GameCharacter.h"
 
 class Bullet{
 public:
@@ -17,7 +25,7 @@ public:
     int getBulletX();
     int getBulletY();
 
-    int isOutOfScreen(Game* game);
+    bool isOutOfScreen(Game* game);
 
 private:
     int bulletX;
@@ -35,37 +43,4 @@ private:
 
 };
 
-//LIST TO STORE BULLETS
-/*struct bulletNode {
-    Bullet *bullet;
-    bulletNode *next;
-};*/
-
-class bulletNode {
-public:
-    Bullet *bullet;
-    bulletNode *next;
-};
-
- class BulletList{
- public:
-
-     BulletList();
-
-     void insertNodeEnd(Bullet* newBullet);
-     bulletNode* getNextNode(bulletNode* node);
-     bulletNode* deleteNode(bulletNode* node);
-
-     bulletNode* getHead();
-     bulletNode* getTail();
-
-     //TODO:~BulletList();
-
-
- private:
-
-     bulletNode *head, *tail;
-
- };
-
-#endif //BULLET_H
+#endif //ZOMBIEGAME_BULLET_H

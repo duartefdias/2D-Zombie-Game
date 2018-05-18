@@ -1,74 +1,37 @@
-#ifndef ZOMBIE_H
-#define ZOMBIE_H
+//
+// Created by bob on 18-05-2018.
+//
 
-#include "../headers/Game.h"
-#include "../headers/Zombie.h"
-#include "../headers/Player.h"
-#include <SFML/Graphics.hpp>
-#include <SFML/Audio.hpp>
+#ifndef ZOMBIEGAME_ZOMBIE_H
+#define ZOMBIEGAME_ZOMBIE_H
 
+#include "Game.h"
+#include "GameCharacter.h"
+#include "Player.h"
 
-class Zombie {
+#include <iostream>
+#include <math.h>
+
+#define PI 3.14159265
+
+class Zombie : GameCharacter{
 public:
 
     Zombie(Game* game);
 
-    void renderSprite(Game* game);
-
     void move(Player* player, int speed = 1);
 
-    int getZombieX();
-    int getZombieY();
+    void renderSprite(Game* game);
 
-    void kill(Game* game);
-    int isDead();
+    int getX();
+    int getY();
 
 private:
 
-    //Player position
-    int zombieX;
-    int zombieY;
-
-    //Sprite
-    sf::Sprite sprite;
-    sf::Texture spriteTexture;
-
-    //Player direction
+    //Movement direction
     float moveX;
     float moveY;
 
-    int dead;
-
-    sf::SoundBuffer buffer;
-    sf::Sound deathSFX;
-
 };
 
-class zombieNode {
-public:
-    Zombie *zombie;
-    zombieNode *next;
-};
-
- class ZombieList{
- public:
-
-     ZombieList();
-
-     void insertNodeEnd(Zombie* newZombie);
-     zombieNode* getNextNode(zombieNode* node);
-     zombieNode* deleteNode(zombieNode* node);
-
-     zombieNode* getHead();
-     zombieNode* getTail();
-
-     //TODO:~ZombieList();
-
-
- private:
-
-     zombieNode *head, *tail;
-
- };
-
-#endif // ZOMBIE_H
+#endif //ZOMBIEGAME_ZOMBIE_H

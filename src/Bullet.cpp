@@ -1,6 +1,8 @@
-#include "../headers/Bullet.h"
+//
+// Created by bob on 18-05-2018.
+//
 
-#include <iostream>
+#include "../headers/Bullet.h"
 
 Bullet::Bullet(int startX, int startY, int endX, int endY) {
     bulletX = startX;
@@ -25,7 +27,7 @@ Bullet::Bullet(int startX, int startY, int endX, int endY) {
         moveX = 1;
     }
 
-    if(buffer.loadFromFile("assets/sound/sfx/shooting.ogg")){
+    if(buffer.loadFromFile("../assets/sound/sfx/shooting.ogg")){
         shootingSFX.setBuffer(buffer);
         shootingSFX.setVolume(12);
         shootingSFX.play();
@@ -45,10 +47,6 @@ void Bullet::move(int speed) {
     sprite.setPosition(bulletX, bulletY);
 }
 
-/*void Bullet::createBullet(List* bulletList) {
-    //TODO: Add bullet to bulletList
-}*/
-
 void Bullet::renderSprite(Game* game) {
     game->getWindow().draw(sprite);
 }
@@ -61,78 +59,19 @@ int Bullet::getBulletY() {
     return bulletY;
 }
 
-int Bullet::isOutOfScreen(Game* game) {
+bool Bullet::isOutOfScreen(Game* game) {
     int windowX = game->getWindow().getSize().x;
     int windowY = game->getWindow().getSize().y;
 
     if(bulletX < 0 || bulletX > windowX) {
         std::cout << "Bullet is out of screen" << std::endl;
-        return 1;
+        return true;
     }
 
     if(bulletY < 0 || bulletY > windowY) {
         std::cout << "Bullet is out of screen" << std::endl;
-        return 1;
+        return true;
     }
 
-    return 0;
-}
-
-BulletList::BulletList() {
-    head = new bulletNode();
-    tail = new bulletNode();
-    head->next = tail;
-    tail->next = nullptr;
-}
-
-void BulletList::insertNodeEnd(Bullet* newBullet) {
-    bulletNode *auxNode = new bulletNode();
-    bulletNode *newNode = new bulletNode();
-
-    newNode->bullet = newBullet;
-
-    for(auxNode = head; auxNode->next != tail; auxNode = auxNode->next) {
-        //Travels through the list to the last node before the head
-    }
-    newNode->next = auxNode->next;
-    auxNode->next = newNode;
-
-}
-
-bulletNode* BulletList::getNextNode(bulletNode* node) {
-    return node->next;
-}
-
-bulletNode* BulletList::deleteNode(bulletNode* node) {
-    bulletNode* previousNode;
-    bulletNode* deletedNode = node;
-
-    bulletNode* returnNode;
-    returnNode = node->next;
-
-    for(previousNode = head; previousNode->next != node; previousNode = previousNode->next) {
-        //Travels through the list to the last node before the head
-    }
-
-    if(previousNode == head) {
-        head->next = node->next;
-        node->next = nullptr;
-        delete deletedNode;
-        //std::cout << "Deleted node after head" << std::endl;
-    }else if(previousNode != head) {
-        previousNode->next = node->next;
-        node->next = nullptr;
-        delete deletedNode;
-        //std::cout << "Deleted normal node" << std::endl;
-    }
-
-    return returnNode;
-}
-
-bulletNode* BulletList::getHead() {
-    return head;
-}
-
-bulletNode* BulletList::getTail() {
-    return tail;
+    return false;
 }

@@ -1,14 +1,12 @@
+//
+// Created by bob on 18-05-2018.
+//
+
 #include "../headers/Zombie.h"
-#include "../headers/Game.h"
-
-#include <iostream>
-#include <math.h>
-
-#define PI 3.14159265
 
 Zombie::Zombie(Game* game) {
-    zombieX = 20;
-    zombieY = 20;
+    X = 20;
+    Y = 20;
 
     int windowX = game->getWindow().getSize().x;
     int windowY = game->getWindow().getSize().y;
@@ -19,46 +17,39 @@ Zombie::Zombie(Game* game) {
     switch (side) {
         //Top
         case 0:
-            zombieX = rand() % windowX;
-            zombieY = 80;
-        break;
-        //Right
+            X = rand() % windowX;
+            Y = 80;
+            break;
+            //Right
         case 1:
-            zombieX = windowX - 80;
-            zombieY = rand() % windowY;
-        break;
-        //Down
+            X = windowX - 80;
+            Y = rand() % windowY;
+            break;
+            //Down
         case 2:
-            zombieX = rand() % windowX;
-            zombieY = windowY-80;
-        break;
-        //Left
+            X = rand() % windowX;
+            Y = windowY-80;
+            break;
+            //Left
         default:
-            zombieX = 80;
-            zombieY = rand() % windowY;
-        break;
+            X = 80;
+            Y = rand() % windowY;
+            break;
     }
 
     //Setup zombie sprite
-    spriteTexture.loadFromFile("assets/sprites/zombie/zombieSprite.png");
+    spriteTexture.loadFromFile("../assets/sprites/zombie/zombieSprite.png");
     sprite.setTexture(spriteTexture);
     sprite.setTextureRect(sf::IntRect(30, 30, 220, 200)); //(minWidth, minHeight, maxWidth, maxHeight)
     sprite.setScale(0.5, 0.5);
     sprite.setOrigin(95, 85);
-    sprite.setPosition(zombieX, zombieY);
-
-    dead = 0;
-}
-
-void Zombie::renderSprite(Game* game) {
-    if(!dead)
-    game->getWindow().draw(sprite);
+    sprite.setPosition(X, Y);
 }
 
 void Zombie::move(Player* player, int speed) {
     //Based on linear interpolation
-    moveX = player->getPlayerX() - zombieX;
-    moveY = player->getPlayerY() - zombieY;
+    moveX = player->getX() - X;
+    moveY = player->getY() - Y;
     moveX = moveX / 200;
     moveY = moveY / 200;
 
@@ -66,11 +57,11 @@ void Zombie::move(Player* player, int speed) {
         moveX = 1;
     }
 
-    zombieX += (moveX * speed);
-    zombieY += (moveY * speed);
+    X += (moveX * speed);
+    Y += (moveY * speed);
 
     //Calculate angle
-    float angle = atan2(player->getPlayerY() - zombieY, player->getPlayerX() - zombieX);
+    float angle = atan2(player->getY() - Y, player->getX() - X);
     angle *= 180 / PI;
 
     sprite.setRotation(angle);
@@ -78,89 +69,17 @@ void Zombie::move(Player* player, int speed) {
     //std::cout << "moveX: " << moveX*speed << std::endl;
     //std::cout << "moveY: " << moveY*speed << std::endl;
 
-    sprite.setPosition(zombieX, zombieY);
+    sprite.setPosition(X, Y);
 }
 
-int Zombie::getZombieX() {
-    return zombieX;
+void Zombie::renderSprite(Game* game) {
+    game->getWindow().draw(sprite);
 }
 
-int Zombie::getZombieY() {
-    return zombieY;
+int Zombie::getX() {
+    return X;
 }
 
-void Zombie::kill(Game* game) {
-    game->incrementGameScore();
-    game->setScoreString(game->getGameScore());
-
-    if(buffer.loadFromFile("assets/sound/sfx/zombieDeath.ogg")){
-        deathSFX.setBuffer(buffer);
-        deathSFX.setVolume(30);
-        deathSFX.play();
-    }
-}
-
-int Zombie::isDead() {
-    return dead;
-}
-
-
-
-ZombieList::ZombieList() {
-    head = new zombieNode();
-    tail = new zombieNode();
-    head->next = tail;
-    tail->next = nullptr;
-}
-
-void ZombieList::insertNodeEnd(Zombie* newZombie) {
-    zombieNode *auxNode = new zombieNode();
-    zombieNode *newNode = new zombieNode();
-
-    newNode->zombie = newZombie;
-
-    for(auxNode = head; auxNode->next != tail; auxNode = auxNode->next) {
-        //Travels through the list to the last node before the head
-    }
-    newNode->next = auxNode->next;
-    auxNode->next = newNode;
-
-}
-
-zombieNode* ZombieList::getNextNode(zombieNode* node) {
-    return node->next;
-}
-
-zombieNode* ZombieList::deleteNode(zombieNode* node) {
-    zombieNode* previousNode;
-    zombieNode* deletedNode = node;
-
-    zombieNode* returnNode;
-    returnNode = node->next;
-
-    for(previousNode = head; previousNode->next != node; previousNode = previousNode->next) {
-        //Travels through the list to the last node before the head
-    }
-
-    if(previousNode == head) {
-        head->next = node->next;
-        node->next = nullptr;
-        delete deletedNode;
-        std::cout << "Deleted node after head" << std::endl;
-    }else if(previousNode != head) {
-        previousNode->next = node->next;
-        node->next = nullptr;
-        delete deletedNode;
-        std::cout << "Deleted normal node" << std::endl;
-    }
-
-    return returnNode;
-}
-
-zombieNode* ZombieList::getHead() {
-    return head;
-}
-
-zombieNode* ZombieList::getTail() {
-    return tail;
+int Zombie::getY() {
+    return Y;
 }

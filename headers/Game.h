@@ -1,5 +1,9 @@
-#ifndef GAME_H
-#define  GAME_H
+//
+// Created by bob on 18-05-2018.
+//
+
+#ifndef ZOMBIEGAME_GAME_H
+#define ZOMBIEGAME_GAME_H
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
@@ -44,4 +48,4 @@ private:
     sf::Music backgroundMusic;
 };
 
-#endif //GAME_H
+#endif //ZOMBIEGAME_GAME_H

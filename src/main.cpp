@@ -1,72 +1,71 @@
-#include <iostream>
-#include <string>
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
+
+#include <iostream>
+#include <string>
 #include <chrono>
 #include <vector>
+#include <list>
 
 #include "../headers/Game.h"
+#include "../headers/GameCharacter.h"
 #include "../headers/Player.h"
 #include "../headers/Bullet.h"
 #include "../headers/Zombie.h"
 
-int main() {
-
+int main()
+{
     //Create Window
     Game* game = new Game(900, 700);
 
     //Create a rectangle for the background and set a texture for it
-    game->setupBackground("assets/textures/background1.jpg", 900, 700);
+    game->setupBackground("../assets/textures/background1.jpg", 900, 700);
+
     //Need to define texture here because of "The white square problem"
     //https://www.sfml-dev.org/tutorials/2.1/graphics-sprite.php#the-white-square-problem
     sf::Texture bgTexture;
-    if (!bgTexture.loadFromFile("assets/textures/background1.jpg")) {
+    if (!bgTexture.loadFromFile("../assets/textures/background1.jpg")) {
         std::cout << "\nError loading texture!" << std::endl;
     }
     game->getBackground().setTexture(&bgTexture);
 
     //Set scoreText styles
     game->setScoreText();
-    if(!game->getScoreTextFont().loadFromFile("assets/fonts/Raleway-Medium.ttf")) {
+    if(!game->getScoreTextFont().loadFromFile("../assets/fonts/Raleway-Medium.ttf")) {
         std::cout << "\nProblem loading game.scoreTextFont" << std::endl;
     }
     game->getScoreText().setFont(game->getScoreTextFont());
 
     //Set scoreString styles
     game->setScoreString(game->getGameScore());
-    if(!game->getScoreStringFont().loadFromFile("assets/fonts/Raleway-Medium.ttf")) {
+    if(!game->getScoreStringFont().loadFromFile("../assets/fonts/Raleway-Medium.ttf")) {
         std::cout << "\nProblem loading game.scoreTextFont" << std::endl;
     }
     game->getScoreString().setFont(game->getScoreStringFont());
 
-    //Create player, set player to appear in middle of window
+    //Create player
     Player* player = new Player((game->getWindow().getSize().x)/2, (game->getWindow().getSize().y)/2);
     player->setupSprite();
-
-    //Create array to store bullets
-    int bu = 0;
-    Bullet* bulletAux;
-    BulletList* bulletList = new BulletList();
-    bulletNode* auxBulletNode = new bulletNode();
 
     //Game Clock for bullets
     sf::Clock clock;
     sf::Time elapsedTime;
+
+    //List of bullets
+    std::list<Bullet*> bullets;
 
     //Game Clock for zombies
     sf::Clock clockZombies;
     sf::Time elapsedTimeZombies;
     int zombieFrequency = 1000; //In milliseconds (1000 milliseconds = 1 second)
 
-    //Create array to store zombies
-    Zombie* zombieAux;
-    ZombieList* zombieList = new ZombieList();
-    zombieNode* auxZombieNode = new zombieNode();
-    int zo = 0;
-    int zombieIndex = -1;
+    //List of zombies
+    std::list<Zombie*> zombies;
 
-    //MAIN GAME LOOP
-    while (game->getWindow().isOpen() && !player->isDead())
+    //Number zombies created
+    int zombieIndex = 0;
+
+    while (game->getWindow().isOpen())
     {
         sf::Event event;
         while(game->getWindow().pollEvent(event)){
@@ -79,27 +78,20 @@ int main() {
         game->renderBackground();
         game->renderScoreText();
         game->renderScoreString();
-        if(!player->isDead()) {
-            player->renderSprite(game);
+        player->renderSprite(game);
+
+        //Draw all bullets
+        for(std::list<Bullet*>::iterator it = bullets.begin(); it != bullets.end(); ++it){
+            (*it)->renderSprite(game);
+            (*it)->move(10);
         }
 
-        //Iterate through bullet list and draw bullets
-        if(bu && bulletList->getNextNode(bulletList->getHead()) != bulletList->getTail()) {
-            for(auxBulletNode = bulletList->getNextNode(bulletList->getHead()); auxBulletNode != bulletList->getTail(); auxBulletNode = bulletList->getNextNode(auxBulletNode)) {
-                auxBulletNode->bullet->renderSprite(game);
-                auxBulletNode->bullet->move(10);
-            }
+        //Draw all zombies
+        for(std::list<Zombie*>::iterator it = zombies.begin(); it != zombies.end(); ++it){
+            (*it)->renderSprite(game);
+            (*it)->move(player, 2);
         }
 
-        //Iterate through zombie list and draw zombies
-        if(zo && zombieList->getNextNode(zombieList->getHead()) != zombieList->getTail()) {
-            for(auxZombieNode = zombieList->getNextNode(zombieList->getHead()); auxZombieNode != zombieList->getTail(); auxZombieNode = zombieList->getNextNode(auxZombieNode)) {
-                auxZombieNode->zombie->renderSprite(game);
-                auxZombieNode->zombie->move(player, 2);
-
-                //std::cout << "Zombie "<< j << "x: " << zombieList[j]->getZombieX() << "Zombie y: " << zombieList[j]->getZombieY() << std::endl;
-            }
-        }
         game->getWindow().display();
 
         //W, D, S, A movement keys
@@ -109,12 +101,19 @@ int main() {
         //Fire shots
         if(player->shoot()) {
             elapsedTime = clock.getElapsedTime();
-                if((int) elapsedTime.asMilliseconds() > 200) {
-                bulletAux = new Bullet(player->getPlayerX(), player->getPlayerY(), game->getMouse().getPosition(game->getWindow()).x, game->getMouse().getPosition(game->getWindow()).y);
-                bulletList->insertNodeEnd(bulletAux); //NEW
-                bu = 1; //TODO: remove this without crashing the game
+            if((int) elapsedTime.asMilliseconds() > 200) {
+                Bullet* toShoot = new Bullet(player->getX(), player->getY(), game->getMouse().getPosition(game->getWindow()).x, game->getMouse().getPosition(game->getWindow()).y);
+                bullets.push_back(toShoot);
                 clock.restart();
                 std::cout << "BAAAAAM" << std::endl;
+            }
+        }
+
+        //Remove bullets that are out of the screen
+        for(std::list<Bullet*>::iterator it = bullets.begin(); it != bullets.end(); ++it){
+            if((*it)->isOutOfScreen(game)){
+                delete (*it);
+                bullets.erase(it++); //remove from the list and take next
             }
         }
 
@@ -124,66 +123,31 @@ int main() {
             if(zombieFrequency > 100) {
                 zombieFrequency -= 10;
             }
-            zombieAux = new Zombie(game);
-            zombieList->insertNodeEnd(zombieAux); //NEW
-            zo = 1;
+            Zombie* toSpawn = new Zombie(game);
+            zombies.push_back(toSpawn);
             zombieIndex += 1;
             clockZombies.restart();
             std::cout << "Zombie " << zombieIndex + 1 << " created! Run!" << std::endl;
         }
 
-        //Check bullet <-> zombie collisions and delete hit zombies
-        for ( auxZombieNode = zombieList->getNextNode(zombieList->getHead()); auxZombieNode != zombieList->getTail() && auxZombieNode != NULL; auxZombieNode = zombieList->getNextNode(auxZombieNode)) {
-            for ( auxBulletNode = bulletList->getNextNode(bulletList->getHead()); auxBulletNode != bulletList->getTail() && auxBulletNode != NULL; auxBulletNode = bulletList->getNextNode(auxBulletNode)) {
-                if(auxZombieNode->zombie == NULL || auxBulletNode == NULL){
-                    continue;
-                }
-                if(auxZombieNode->zombie->getZombieX() > auxBulletNode->bullet->getBulletX() - 40 && auxZombieNode->zombie->getZombieX() < auxBulletNode->bullet->getBulletX() + 40) {
-                    if (auxZombieNode->zombie->getZombieY() > auxBulletNode->bullet->getBulletY() - 40 && auxZombieNode->zombie->getZombieY() < auxBulletNode->bullet->getBulletY() + 40) {
-                            auxZombieNode->zombie->kill(game);
-                            auxZombieNode = zombieList->deleteNode(auxZombieNode);//returns the next node
-                            auxBulletNode = bulletList->deleteNode(auxBulletNode); //returns the next node
+        //Check Zombie <-> Bullet collision and eliminate both
+        for(std::list<Zombie*>::iterator itZombie = zombies.begin(); itZombie != zombies.end(); ++itZombie){
+            for(std::list<Bullet*>::iterator itBullet = bullets.begin(); itBullet != bullets.end(); ++itBullet){
+                if((*itZombie)->getX() > (*itBullet)->getBulletX() - 40 &&  (*itZombie)->getX() > (*itBullet)->getBulletX() + 40){
+                    if((*itZombie)->getY() > (*itBullet)->getBulletY() - 40 &&  (*itZombie)->getY() > (*itBullet)->getBulletY() + 40){
+                        delete (*itBullet);
+                        bullets.erase(itBullet++); //remove from the list and take next
+                        delete (*itZombie);
+                        zombies.erase(itZombie++); //remove from the list and take next
                     }
                 }
             }
         }
 
-        //Check player <-> zombie collisions
-        for( auxZombieNode = zombieList->getNextNode(zombieList->getHead()); auxZombieNode != zombieList->getTail(); auxZombieNode = zombieList->getNextNode(auxZombieNode)) {
-            if(auxZombieNode->zombie->getZombieX() > player->getPlayerX() - 40 && auxZombieNode->zombie->getZombieX() < player->getPlayerX() + 40) {
-                if (auxZombieNode->zombie->getZombieY() > player->getPlayerY() - 40 && auxZombieNode->zombie->getZombieY() < player->getPlayerY() + 40) {
-                    if(!auxZombieNode->zombie->isDead()) {
-                        player->kill();
-                    }
-                }
-            }
-        }
 
-        //Delete bullet if out of screen
-        if(bulletList->getNextNode(bulletList->getHead()) != bulletList->getTail()) {
-            //Iterate through every bullet in the list
-            for(bulletNode* auxBulletNode1 = bulletList->getNextNode(bulletList->getHead()); auxBulletNode1 != bulletList->getTail() && auxBulletNode1 != NULL; auxBulletNode1 = bulletList->getNextNode(auxBulletNode1)) {
-                //If the bullet reaches the window's limits
-                if(auxBulletNode1->bullet->isOutOfScreen(game)) {
-                    //Make sure the list isn't empty, this would crash the game
-                    if(bulletList->getNextNode(bulletList->getHead()) != bulletList->getTail()) {
-                            auxBulletNode1 = bulletList->deleteNode(auxBulletNode1); //returns the next node
-                    }
-                    //TODO: remove this and make sure the game doesnt crash
-                    if(bulletList->getNextNode(bulletList->getHead()) == bulletList->getTail()) {
-                        bu = 0;
-                    }
-                }
-            }
-        }
 
-    }
 
-    std::cout << "Your score was: " << game->getGameScore() << std::endl;
-    std::cout << "Thanks for playing! Bye!" << std::endl;
-    std::cout << "Window width: " << game->getWindow().getSize().x << std::endl;
-    std::cout << "Window height: " << game->getWindow().getSize().y << std::endl;
+    } //End of game loop
 
     return 0;
-
 }

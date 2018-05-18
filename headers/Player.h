@@ -1,22 +1,17 @@
-#ifndef PLAYER_H
-#define  PLAYER_H
+//
+// Created by bob on 18-05-2018.
+//
 
-#include <SFML/Graphics.hpp>
-#include <SFML/Audio.hpp>
+#ifndef ZOMBIEGAME_PLAYER_H
+#define ZOMBIEGAME_PLAYER_H
 
-#include <unistd.h>
+#include "Game.h"
+#include "GameCharacter.h"
 
-#include "../headers/Game.h"
-#include "../headers/Bullet.h"
-
-class Player {
+class Player : public GameCharacter{
 public:
+
     Player(int x, int y);
-
-    void setupSprite();
-    void renderSprite(Game* game);
-
-    sf::Sprite & getSprite();
 
     //Movement
     void move(Game* game, float speed = 1);
@@ -24,27 +19,7 @@ public:
 
     bool shoot();
 
-    int getPlayerX();
-    int getPlayerY();
-
-    void kill();
-    int isDead();
-
 private:
-    int playerX;
-    int playerY;
-
-    sf::Sprite sprite;
-    sf::Texture spriteTexture;
-
-    int press = false;
-    int pressAux = false;
-
-    int dead;
-
-    sf::SoundBuffer buffer;
-    sf::Sound deathSFX;
-
 };
 
-#endif //PLAYER_H
+#endif //ZOMBIEGAME_PLAYER_H
