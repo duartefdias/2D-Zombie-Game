@@ -133,12 +133,17 @@ int main()
         //Check Zombie <-> Bullet collision and eliminate both
         for(std::list<Zombie*>::iterator itZombie = zombies.begin(); itZombie != zombies.end(); ++itZombie){
             for(std::list<Bullet*>::iterator itBullet = bullets.begin(); itBullet != bullets.end(); ++itBullet){
-                if((*itZombie)->getX() > (*itBullet)->getBulletX() - 40 &&  (*itZombie)->getX() > (*itBullet)->getBulletX() + 40){
-                    if((*itZombie)->getY() > (*itBullet)->getBulletY() - 40 &&  (*itZombie)->getY() > (*itBullet)->getBulletY() + 40){
-                        delete (*itBullet);
-                        bullets.erase(itBullet++); //remove from the list and take next
-                        delete (*itZombie);
-                        zombies.erase(itZombie++); //remove from the list and take next
+                if((*itZombie) != nullptr && (*itBullet) != nullptr){
+                    if((*itZombie)->getX() > (*itBullet)->getBulletX() - 40 &&  (*itZombie)->getX() < (*itBullet)->getBulletX() + 40){
+                        if((*itZombie)->getY() > (*itBullet)->getBulletY() - 40 &&  (*itZombie)->getY() < (*itBullet)->getBulletY() + 40){
+                            //delete (*itBullet);
+                            itBullet = bullets.erase(itBullet); //remove from the list and take next
+                            //delete (*itZombie);
+                            itZombie = zombies.erase(itZombie); //remove from the list and take next
+                            if(itZombie == zombies.end()){
+                                itZombie = zombies.begin(); //This prevents segmentation fault
+                            }
+                        }
                     }
                 }
             }
