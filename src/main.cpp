@@ -68,9 +68,13 @@ int main()
     int zombieIndex = 0;
 
     //PowerUp
-    PowerUp* powerUp = PowerUp::makePowerUp(game, 1); //NEW
+    PowerUp* powerUp; //NEW
     sf::Clock clockPowerUp;
     sf::Time elapsedTimePowerUp;
+    bool powerUpOnMap = false;
+    sf::Clock clockPowerUpSpawn;
+    sf::Time elapsedTimePowerUpSpawn;
+    int powerUpSpawnDelay = 2000; //In milliseconds
 
     while (game->getWindow().isOpen())
     {
@@ -83,10 +87,14 @@ int main()
         //Everything that needs to be drawn goes between clear() and display()
         game->getWindow().clear();
         game->renderBackground();
+
+        if(powerUpOnMap){
+            powerUp->renderSprite(game);
+        }
+
         game->renderScoreText();
         game->renderScoreString();
         player->renderSprite(game);
-        powerUp->renderSprite(game); //NEW
 
         //Draw all bullets
         for(std::list<Bullet*>::iterator it = bullets.begin(); it != bullets.end(); ++it){
@@ -183,20 +191,34 @@ int main()
             }
         }
 
-        //Player picks up PowerUp
-        if(powerUp->getX() > player->getX() - 40 && powerUp->getX() < player->getX() + 40){
-            if(powerUp->getY() > player->getY() - 40 && powerUp->getY() < player->getY() + 40){
-                std::cout << "POWERUP!!" << std::endl;
-                powerUp->startPower(game);
+        elapsedTimePowerUpSpawn = clockPowerUpSpawn.getElapsedTime();
+        if((int) elapsedTimePowerUpSpawn.asMilliseconds() > powerUpSpawnDelay && !powerUpOnMap){
+            int powerType = rand() % 2;
+            powerUp = PowerUp::makePowerUp(game, powerType);
+            powerUpOnMap = true;
+            clockPowerUpSpawn.restart();
+        }
+
+        if(powerUpOnMap){
+            //Player picks up PowerUp
+            if(powerUp->getX() > player->getX() - 40 && powerUp->getX() < player->getX() + 40){
+                if(powerUp->getY() > player->getY() - 40 && powerUp->getY() < player->getY() + 40){
+                    std::cout << "POWERUP!!" << std::endl;
+                    powerUp->startPower(game);
+                }
             }
         }
 
-        //PowerUp ends after a few seconds
-        elapsedTimePowerUp = clockPowerUp.getElapsedTime();
-        if((int) elapsedTimePowerUp.asMilliseconds() > 2000){
-            powerUp->endPower(game);
-            clockPowerUp.restart();
+        if(powerUpOnMap){
+            //PowerUp ends after a few seconds
+            elapsedTimePowerUp = clockPowerUp.getElapsedTime();
+            if((int) elapsedTimePowerUp.asMilliseconds() > 4000){
+                powerUp->endPower(game);
+                clockPowerUp.restart();
+                powerUpOnMap = false;
+            }
         }
+
 
 
     } //End of game loop
