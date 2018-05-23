@@ -29,7 +29,7 @@ void Ammo::endPower(Game *game) {
 ZombieOverload::ZombieOverload(Game *game) : PowerUp(game) {
     spriteTexture.loadFromFile("../assets/sprites/powerups/skull.png");
     sprite.setTexture(spriteTexture);
-    sprite.setTextureRect(sf::IntRect(30, 30, 220, 200)); //(minWidth, minHeight, maxWidth, maxHeight)
+    //sprite.setTextureRect(sf::IntRect(30, 30, 220, 200)); //(minWidth, minHeight, maxWidth, maxHeight)
     sprite.setScale(0.5, 0.5);
     sprite.setOrigin(95, 85);
     sprite.setPosition(X, Y);
