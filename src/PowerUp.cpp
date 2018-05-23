@@ -3,6 +3,7 @@
 //
 
 #include "../headers/PowerUp.h"
+#include "../headers/Powers.h"
 
 //POWERUP
 
@@ -18,7 +19,7 @@ PowerUp *PowerUp::makePowerUp(Game* game, int type){
             return new Ammo(game);
             break;
         default:
-            //return new ZombieOverload;
+            return new ZombieOverload(game);
             break;
     }
 }

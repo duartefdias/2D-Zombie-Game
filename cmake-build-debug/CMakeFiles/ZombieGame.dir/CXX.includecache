@@ -69,8 +69,6 @@ math.h
 -
 Game.h
 /home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/Game.h
-Powers.h
-/home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/Powers.h
 
 /home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/Powers.h
 PowerUp.h
@@ -119,6 +117,8 @@ cstdlib
 /home/bob/Desktop/2DZombies/2D-Zombie-Game/src/PowerUp.cpp
 ../headers/PowerUp.h
 /home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/PowerUp.h
+../headers/Powers.h
+/home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/Powers.h
 
 /home/bob/Desktop/2DZombies/2D-Zombie-Game/src/Powers.cpp
 ../headers/Powers.h

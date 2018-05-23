@@ -7,10 +7,17 @@
 
 #include "PowerUp.h"
 
-class Ammo : PowerUp {
+class Ammo : public PowerUp {
 public:
     Ammo(Game *game);
-    void startPower(Game* game);
-    void endPower(Game* game);
+    void startPower(Game* game) override ;
+    void endPower(Game* game) override ;
+};
+
+class ZombieOverload : public PowerUp {
+public:
+    ZombieOverload(Game * game);
+    void startPower(Game* game) override ;
+    void endPower(Game* game) override ;
 };
 #endif //ZOMBIEGAME_POWERS_H

@@ -68,7 +68,9 @@ int main()
     int zombieIndex = 0;
 
     //PowerUp
-    PowerUp* powerUp = PowerUp::makePowerUp(game, 0); //NEW
+    PowerUp* powerUp = PowerUp::makePowerUp(game, 1); //NEW
+    sf::Clock clockPowerUp;
+    sf::Time elapsedTimePowerUp;
 
     while (game->getWindow().isOpen())
     {
@@ -181,6 +183,20 @@ int main()
             }
         }
 
+        //Player picks up PowerUp
+        if(powerUp->getX() > player->getX() - 40 && powerUp->getX() < player->getX() + 40){
+            if(powerUp->getY() > player->getY() - 40 && powerUp->getY() < player->getY() + 40){
+                std::cout << "POWERUP!!" << std::endl;
+                powerUp->startPower(game);
+            }
+        }
+
+        //PowerUp ends after a few seconds
+        elapsedTimePowerUp = clockPowerUp.getElapsedTime();
+        if((int) elapsedTimePowerUp.asMilliseconds() > 2000){
+            powerUp->endPower(game);
+            clockPowerUp.restart();
+        }
 
 
     } //End of game loop

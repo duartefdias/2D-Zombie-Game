@@ -1,5 +1,7 @@
 //
 // Created by bob on 23-05-2018.
+// Example for implementing factory methods:
+// https://sourcemaking.com/design_patterns/factory_method/cpp/1
 //
 
 #ifndef ZOMBIEGAME_POWERUP_H
@@ -13,12 +15,13 @@
 #include <math.h>
 
 #include "Game.h"
-#include "Powers.h"
 
 class PowerUp{
 public:
     PowerUp(Game* game);
 
+    //This is a factory method
+    //It creates different PowerUps based on the "type"
     static PowerUp *makePowerUp(Game* game, int type);
 
     int getX();
