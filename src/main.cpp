@@ -191,8 +191,10 @@ int main()
             }
         }
 
+        //Place a PowerUp on the map every "powerUpSpawnDelay/1000" seconds
         elapsedTimePowerUpSpawn = clockPowerUpSpawn.getElapsedTime();
         if((int) elapsedTimePowerUpSpawn.asMilliseconds() > powerUpSpawnDelay && !powerUpOnMap){
+            //Randomly picks a type of PowerUp
             int powerType = rand() % 2;
             powerUp = PowerUp::makePowerUp(game, powerType);
             powerUpOnMap = true;
