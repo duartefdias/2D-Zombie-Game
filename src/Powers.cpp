@@ -40,5 +40,5 @@ void ZombieOverload::startPower(Game *game) {
 }
 
 void ZombieOverload::endPower(Game *game) {
-    game->setZombieFrequency(2000);
+    game->setZombieFrequency(game->getZombieFrequencyAux());
 }

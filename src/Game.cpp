@@ -130,6 +130,11 @@ void Game::setBulletFrequency(int value) {
 
 void Game::setZombieFrequency(int value) {
     if(value > 0){
+        zombieFrequencyAux = zombieFrequency;
         zombieFrequency = value;
     }
+}
+
+int Game::getZombieFrequencyAux(){
+    return zombieFrequencyAux;
 }
