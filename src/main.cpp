@@ -104,6 +104,7 @@ int main()
             if((int) elapsedTime.asMilliseconds() > 200) {
                 Bullet* toShoot = new Bullet(player->getX(), player->getY(), game->getMouse().getPosition(game->getWindow()).x, game->getMouse().getPosition(game->getWindow()).y);
                 bullets.push_back(toShoot);
+                game->bulletSFX();
                 clock.restart();
                 std::cout << "BAAAAAM" << std::endl;
             }
@@ -131,15 +132,20 @@ int main()
         }
 
         //Check Zombie <-> Bullet collision and eliminate both
+        //Compares every zombie to every bullet
         for(std::list<Zombie*>::iterator itZombie = zombies.begin(); itZombie != zombies.end(); ++itZombie){
             for(std::list<Bullet*>::iterator itBullet = bullets.begin(); itBullet != bullets.end(); ++itBullet){
                 if((*itZombie) != nullptr && (*itBullet) != nullptr){
                     if((*itZombie)->getX() > (*itBullet)->getBulletX() - 40 &&  (*itZombie)->getX() < (*itBullet)->getBulletX() + 40){
                         if((*itZombie)->getY() > (*itBullet)->getBulletY() - 40 &&  (*itZombie)->getY() < (*itBullet)->getBulletY() + 40){
-                            //delete (*itBullet);
+                            //Deletion of bullet
+                            delete (*itBullet);
                             itBullet = bullets.erase(itBullet); //remove from the list and take next
-                            //delete (*itZombie);
+                            //Deletion of zombie
+                            delete (*itZombie);
                             itZombie = zombies.erase(itZombie); //remove from the list and take next
+                            game->zombieSFX();
+                            game->incrementGameScore();
                             if(itZombie == zombies.end()){
                                 itZombie = zombies.begin(); //This prevents segmentation fault
                             }
@@ -149,8 +155,18 @@ int main()
             }
         }
 
+        //Check Zombie <-> Player collision and kill Player
+        //Iterates through every zombie and compares it to the player's position
+        for(std::list<Zombie*>::iterator itZombie = zombies.begin(); itZombie != zombies.end(); ++itZombie){
+            if((*itZombie)->getX() > player->getX() - 40 &&  (*itZombie)->getX() < player->getX() + 40){
+                if((*itZombie)->getY() > player->getY() - 40 &&  (*itZombie)->getY() < player->getY() + 40){
+                    player->kill();
+                    return 0;
+                }
+            }
+        }
 
-
+        
 
     } //End of game loop
 

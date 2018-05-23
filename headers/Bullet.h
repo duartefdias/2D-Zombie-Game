@@ -38,9 +38,6 @@ private:
 
     Bullet* bulletAux;
 
-    sf::SoundBuffer buffer;
-    sf::Sound shootingSFX;
-
 };
 
 #endif //ZOMBIEGAME_BULLET_H

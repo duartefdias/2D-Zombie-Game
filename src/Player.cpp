@@ -64,3 +64,13 @@ bool Player::shoot() {
     }
     return false;
 }
+
+void Player::kill() {
+    if(buffer.loadFromFile("../assets/sound/sfx/WilhelmScream.ogg")){
+        SFX.setBuffer(buffer);
+        SFX.setVolume(100);
+        SFX.play();
+    }
+    usleep(1000000);
+    std::cout << "\nYou got killed by a zombie :(" << std::endl;
+}

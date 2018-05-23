@@ -19,6 +19,8 @@ public:
 
     bool shoot();
 
+    void kill();
+
 private:
 };
 

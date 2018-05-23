@@ -34,6 +34,10 @@ public:
 
     void incrementGameScore();
 
+    //Sound effects
+    void bulletSFX();
+    void zombieSFX();
+
 private:
     sf::RenderWindow window;
     sf::RectangleShape background;
@@ -46,6 +50,11 @@ private:
 
     sf::Mouse mouse;
     sf::Music backgroundMusic;
+
+    sf::SoundBuffer bulletBuffer;
+    sf::Sound shootingSFX;
+    sf::SoundBuffer zombieBuffer;
+    sf::Sound zombieDeathSFX;
 };
 
 #endif //ZOMBIEGAME_GAME_H

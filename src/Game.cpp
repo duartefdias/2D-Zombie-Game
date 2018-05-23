@@ -95,4 +95,21 @@ sf::Mouse & Game::getMouse() {
 
 void Game::incrementGameScore() {
     gameScore++;
+    setScoreString(getGameScore());
+}
+
+void Game::bulletSFX() {
+    if(bulletBuffer.loadFromFile("../assets/sound/sfx/shooting.ogg")){
+        shootingSFX.setBuffer(bulletBuffer);
+        shootingSFX.setVolume(12);
+        shootingSFX.play();
+    }
+}
+
+void Game::zombieSFX() {
+    if(zombieBuffer.loadFromFile("../assets/sound/sfx/zombieDeath.ogg")){
+        zombieDeathSFX.setBuffer(zombieBuffer);
+        zombieDeathSFX.setVolume(30);
+        zombieDeathSFX.play();
+    }
 }
