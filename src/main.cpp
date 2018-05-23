@@ -166,6 +166,15 @@ int main()
             }
         }
 
+        //Makes zombies aggressive when close to the player
+        for(std::list<Zombie*>::iterator itZombie = zombies.begin(); itZombie != zombies.end(); ++itZombie){
+            if((*itZombie)->getX() > player->getX() - 300 &&  (*itZombie)->getX() < player->getX() + 300){
+                if((*itZombie)->getY() > player->getY() - 300 &&  (*itZombie)->getY() < player->getY() + 300){
+                    (*itZombie)->becomeOffensive();
+                }
+            }
+        }
+
 
 
     } //End of game loop
