@@ -16,10 +16,10 @@
 int main()
 {
     //Create Window
-    Game* game = new Game(900, 700);
+    Game* game = new Game(1200, 900);
 
     //Create a rectangle for the background and set a texture for it
-    game->setupBackground("../assets/textures/background1.jpg", 900, 700);
+    game->setupBackground("../assets/textures/background1.jpg", 1200, 900);
 
     //Need to define texture here because of "The white square problem"
     //https://www.sfml-dev.org/tutorials/2.1/graphics-sprite.php#the-white-square-problem
@@ -50,6 +50,7 @@ int main()
     //Game Clock for bullets
     sf::Clock clock;
     sf::Time elapsedTime;
+    int bulletFrequency = 300; //In milliseconds (1000 milliseconds = 1 second)zz
 
     //List of bullets
     std::list<Bullet*> bullets;
@@ -101,7 +102,7 @@ int main()
         //Fire shots
         if(player->shoot()) {
             elapsedTime = clock.getElapsedTime();
-            if((int) elapsedTime.asMilliseconds() > 200) {
+            if((int) elapsedTime.asMilliseconds() > bulletFrequency) {
                 Bullet* toShoot = new Bullet(player->getX(), player->getY(), game->getMouse().getPosition(game->getWindow()).x, game->getMouse().getPosition(game->getWindow()).y);
                 bullets.push_back(toShoot);
                 game->bulletSFX();
