@@ -8,6 +8,17 @@ Zombie::Zombie(Game* game) {
     X = 20;
     Y = 20;
 
+    int choice = rand() % 5;
+
+    if(choice < 5){
+        offensive = false;
+    }
+    else{
+        offensive = true;
+    }
+
+    randDirection = rand() % 4;
+
     int windowX = game->getWindow().getSize().x;
     int windowY = game->getWindow().getSize().y;
 
@@ -46,24 +57,67 @@ Zombie::Zombie(Game* game) {
     sprite.setPosition(X, Y);
 }
 
-void Zombie::move(Player* player, int speed) {
-    //Based on linear interpolation
-    moveX = player->getX() - X;
-    moveY = player->getY() - Y;
-    moveX = moveX / 200;
-    moveY = moveY / 200;
+void Zombie::move(Player* player, Game* game, int speed) {
+    float angle = 0;
 
-    if(moveX == 0 && moveY == 0) {
-        moveX = 1;
+    switch(offensive){
+        //Zombie moves randomly
+        case false:
+            int maxX = game->getWindow().getSize().x;
+            int maxY = game->getWindow().getSize().y;
+            switch(randDirection){
+                case 0:
+                    moveX = 0;
+                    moveY = -0.5;
+                    if(Y < 10){
+                        randDirection = 2;
+                    }
+                    break;
+                case 1:
+                    moveX = 0.5;
+                    moveY = 0;
+                    if(X > maxX - 10){
+                        randDirection = 3;
+                    }
+                    break;
+                case 2:
+                    moveX = 0;
+                    moveY = 0.5;
+                    if(Y > maxY - 10){
+                        randDirection = 0;
+                    }
+                    break;
+                case 3:
+                    moveX = -0.5;
+                    moveY = 0;
+                    if(X < 10){
+                        randDirection = 1;
+                    }
+                    break;
+            }
+
+            break;
+        //Zombie moves torwards player
+        case true:
+            //Based on linear interpolation
+            moveX = player->getX() - X;
+            moveY = player->getY() - Y;
+            moveX = moveX / 200;
+            moveY = moveY / 200;
+
+            if(moveX == 0 && moveY == 0) {
+                moveX = 1;
+            }
+
+            //Calculate angle
+            angle = atan2(player->getY() - Y, player->getX() - X);
+            angle *= 180 / PI;
+            break;
     }
+
 
     X += (moveX * speed);
     Y += (moveY * speed);
-
-    //Calculate angle
-    float angle = atan2(player->getY() - Y, player->getX() - X);
-    angle *= 180 / PI;
-
     sprite.setRotation(angle);
 
     //std::cout << "moveX: " << moveX*speed << std::endl;
@@ -82,4 +136,10 @@ int Zombie::getX() {
 
 int Zombie::getY() {
     return Y;
+}
+
+void Zombie::becomeOffensive() {
+    if(offensive == false){
+        offensive = true;
+    }
 }

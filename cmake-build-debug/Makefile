@@ -204,6 +204,33 @@ src/GameCharacter.cpp.s:
 	$(MAKE) -f CMakeFiles/ZombieGame.dir/build.make CMakeFiles/ZombieGame.dir/src/GameCharacter.cpp.s
 .PHONY : src/GameCharacter.cpp.s
 
+src/Movement.o: src/Movement.cpp.o
+
+.PHONY : src/Movement.o
+
+# target to build an object file
+src/Movement.cpp.o:
+	$(MAKE) -f CMakeFiles/ZombieGame.dir/build.make CMakeFiles/ZombieGame.dir/src/Movement.cpp.o
+.PHONY : src/Movement.cpp.o
+
+src/Movement.i: src/Movement.cpp.i
+
+.PHONY : src/Movement.i
+
+# target to preprocess a source file
+src/Movement.cpp.i:
+	$(MAKE) -f CMakeFiles/ZombieGame.dir/build.make CMakeFiles/ZombieGame.dir/src/Movement.cpp.i
+.PHONY : src/Movement.cpp.i
+
+src/Movement.s: src/Movement.cpp.s
+
+.PHONY : src/Movement.s
+
+# target to generate assembly for a file
+src/Movement.cpp.s:
+	$(MAKE) -f CMakeFiles/ZombieGame.dir/build.make CMakeFiles/ZombieGame.dir/src/Movement.cpp.s
+.PHONY : src/Movement.cpp.s
+
 src/Player.o: src/Player.cpp.o
 
 .PHONY : src/Player.o
@@ -303,6 +330,9 @@ help:
 	@echo "... src/GameCharacter.o"
 	@echo "... src/GameCharacter.i"
 	@echo "... src/GameCharacter.s"
+	@echo "... src/Movement.o"
+	@echo "... src/Movement.i"
+	@echo "... src/Movement.s"
 	@echo "... src/Player.o"
 	@echo "... src/Player.i"
 	@echo "... src/Player.s"

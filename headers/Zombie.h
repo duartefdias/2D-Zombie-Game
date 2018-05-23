@@ -19,18 +19,23 @@ public:
 
     Zombie(Game* game);
 
-    void move(Player* player, int speed = 1);
+    void move(Player* player, Game* game, int speed = 1);
 
     void renderSprite(Game* game);
 
     int getX();
     int getY();
 
+    void becomeOffensive();
+
 private:
 
     //Movement direction
     float moveX;
     float moveY;
+
+    bool offensive = true;
+    int randDirection = 0;
 
 };
 

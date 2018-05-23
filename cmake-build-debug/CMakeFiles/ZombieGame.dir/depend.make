@@ -13,6 +13,12 @@ CMakeFiles/ZombieGame.dir/src/GameCharacter.cpp.o: ../headers/Game.h
 CMakeFiles/ZombieGame.dir/src/GameCharacter.cpp.o: ../headers/GameCharacter.h
 CMakeFiles/ZombieGame.dir/src/GameCharacter.cpp.o: ../src/GameCharacter.cpp
 
+CMakeFiles/ZombieGame.dir/src/Movement.cpp.o: ../headers/Game.h
+CMakeFiles/ZombieGame.dir/src/Movement.cpp.o: ../headers/GameCharacter.h
+CMakeFiles/ZombieGame.dir/src/Movement.cpp.o: ../headers/Movement.h
+CMakeFiles/ZombieGame.dir/src/Movement.cpp.o: ../headers/Player.h
+CMakeFiles/ZombieGame.dir/src/Movement.cpp.o: ../src/Movement.cpp
+
 CMakeFiles/ZombieGame.dir/src/Player.cpp.o: ../headers/Game.h
 CMakeFiles/ZombieGame.dir/src/Player.cpp.o: ../headers/GameCharacter.h
 CMakeFiles/ZombieGame.dir/src/Player.cpp.o: ../headers/Player.h

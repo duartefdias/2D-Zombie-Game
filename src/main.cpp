@@ -89,7 +89,7 @@ int main()
         //Draw all zombies
         for(std::list<Zombie*>::iterator it = zombies.begin(); it != zombies.end(); ++it){
             (*it)->renderSprite(game);
-            (*it)->move(player, 2);
+            (*it)->move(player, game, 2);
         }
 
         game->getWindow().display();
@@ -166,7 +166,7 @@ int main()
             }
         }
 
-        
+
 
     } //End of game loop
 
