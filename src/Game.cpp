@@ -113,3 +113,23 @@ void Game::zombieSFX() {
         zombieDeathSFX.play();
     }
 }
+
+int Game::getBulletFrequency() {
+    return bulletFrequency;
+}
+
+int Game::getZombieFrequency() {
+    return zombieFrequency;
+}
+
+void Game::setBulletFrequency(int value) {
+    if(value > 0){
+        bulletFrequency = value;
+    }
+}
+
+void Game::setZombieFrequency(int value) {
+    if(value > 0){
+        zombieFrequency = value;
+    }
+}

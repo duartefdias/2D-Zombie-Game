@@ -99,6 +99,12 @@
 		<Unit filename="/home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/Player.h">
 			<Option target="ZombieGame"/>
 		</Unit>
+		<Unit filename="/home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/PowerUp.h">
+			<Option target="ZombieGame"/>
+		</Unit>
+		<Unit filename="/home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/Powers.h">
+			<Option target="ZombieGame"/>
+		</Unit>
 		<Unit filename="/home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/Zombie.h">
 			<Option target="ZombieGame"/>
 		</Unit>
@@ -115,6 +121,12 @@
 			<Option target="ZombieGame"/>
 		</Unit>
 		<Unit filename="/home/bob/Desktop/2DZombies/2D-Zombie-Game/src/Player.cpp">
+			<Option target="ZombieGame"/>
+		</Unit>
+		<Unit filename="/home/bob/Desktop/2DZombies/2D-Zombie-Game/src/PowerUp.cpp">
+			<Option target="ZombieGame"/>
+		</Unit>
+		<Unit filename="/home/bob/Desktop/2DZombies/2D-Zombie-Game/src/Powers.cpp">
 			<Option target="ZombieGame"/>
 		</Unit>
 		<Unit filename="/home/bob/Desktop/2DZombies/2D-Zombie-Game/src/Zombie.cpp">

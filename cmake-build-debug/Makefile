@@ -258,6 +258,60 @@ src/Player.cpp.s:
 	$(MAKE) -f CMakeFiles/ZombieGame.dir/build.make CMakeFiles/ZombieGame.dir/src/Player.cpp.s
 .PHONY : src/Player.cpp.s
 
+src/PowerUp.o: src/PowerUp.cpp.o
+
+.PHONY : src/PowerUp.o
+
+# target to build an object file
+src/PowerUp.cpp.o:
+	$(MAKE) -f CMakeFiles/ZombieGame.dir/build.make CMakeFiles/ZombieGame.dir/src/PowerUp.cpp.o
+.PHONY : src/PowerUp.cpp.o
+
+src/PowerUp.i: src/PowerUp.cpp.i
+
+.PHONY : src/PowerUp.i
+
+# target to preprocess a source file
+src/PowerUp.cpp.i:
+	$(MAKE) -f CMakeFiles/ZombieGame.dir/build.make CMakeFiles/ZombieGame.dir/src/PowerUp.cpp.i
+.PHONY : src/PowerUp.cpp.i
+
+src/PowerUp.s: src/PowerUp.cpp.s
+
+.PHONY : src/PowerUp.s
+
+# target to generate assembly for a file
+src/PowerUp.cpp.s:
+	$(MAKE) -f CMakeFiles/ZombieGame.dir/build.make CMakeFiles/ZombieGame.dir/src/PowerUp.cpp.s
+.PHONY : src/PowerUp.cpp.s
+
+src/Powers.o: src/Powers.cpp.o
+
+.PHONY : src/Powers.o
+
+# target to build an object file
+src/Powers.cpp.o:
+	$(MAKE) -f CMakeFiles/ZombieGame.dir/build.make CMakeFiles/ZombieGame.dir/src/Powers.cpp.o
+.PHONY : src/Powers.cpp.o
+
+src/Powers.i: src/Powers.cpp.i
+
+.PHONY : src/Powers.i
+
+# target to preprocess a source file
+src/Powers.cpp.i:
+	$(MAKE) -f CMakeFiles/ZombieGame.dir/build.make CMakeFiles/ZombieGame.dir/src/Powers.cpp.i
+.PHONY : src/Powers.cpp.i
+
+src/Powers.s: src/Powers.cpp.s
+
+.PHONY : src/Powers.s
+
+# target to generate assembly for a file
+src/Powers.cpp.s:
+	$(MAKE) -f CMakeFiles/ZombieGame.dir/build.make CMakeFiles/ZombieGame.dir/src/Powers.cpp.s
+.PHONY : src/Powers.cpp.s
+
 src/Zombie.o: src/Zombie.cpp.o
 
 .PHONY : src/Zombie.o
@@ -336,6 +390,12 @@ help:
 	@echo "... src/Player.o"
 	@echo "... src/Player.i"
 	@echo "... src/Player.s"
+	@echo "... src/PowerUp.o"
+	@echo "... src/PowerUp.i"
+	@echo "... src/PowerUp.s"
+	@echo "... src/Powers.o"
+	@echo "... src/Powers.i"
+	@echo "... src/Powers.s"
 	@echo "... src/Zombie.o"
 	@echo "... src/Zombie.i"
 	@echo "... src/Zombie.s"

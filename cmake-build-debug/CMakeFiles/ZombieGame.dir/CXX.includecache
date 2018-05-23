@@ -56,6 +56,26 @@ Game.h
 GameCharacter.h
 /home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/GameCharacter.h
 
+/home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/PowerUp.h
+SFML/Graphics.hpp
+-
+SFML/Audio.hpp
+-
+unistd.h
+-
+iostream
+-
+math.h
+-
+Game.h
+/home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/Game.h
+Powers.h
+/home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/Powers.h
+
+/home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/Powers.h
+PowerUp.h
+/home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/PowerUp.h
+
 /home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/Zombie.h
 Game.h
 /home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/Game.h
@@ -96,6 +116,14 @@ cstdlib
 ../headers/Player.h
 /home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/Player.h
 
+/home/bob/Desktop/2DZombies/2D-Zombie-Game/src/PowerUp.cpp
+../headers/PowerUp.h
+/home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/PowerUp.h
+
+/home/bob/Desktop/2DZombies/2D-Zombie-Game/src/Powers.cpp
+../headers/Powers.h
+/home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/Powers.h
+
 /home/bob/Desktop/2DZombies/2D-Zombie-Game/src/Zombie.cpp
 ../headers/Zombie.h
 /home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/Zombie.h
@@ -125,4 +153,6 @@ list
 /home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/Bullet.h
 ../headers/Zombie.h
 /home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/Zombie.h
+../headers/PowerUp.h
+/home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/PowerUp.h
 

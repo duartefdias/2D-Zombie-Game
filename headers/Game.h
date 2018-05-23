@@ -38,6 +38,12 @@ public:
     void bulletSFX();
     void zombieSFX();
 
+    int getBulletFrequency();
+    int getZombieFrequency();
+
+    void setBulletFrequency(int value);
+    void setZombieFrequency(int value);
+
 private:
     sf::RenderWindow window;
     sf::RectangleShape background;
@@ -55,6 +61,9 @@ private:
     sf::Sound shootingSFX;
     sf::SoundBuffer zombieBuffer;
     sf::Sound zombieDeathSFX;
+
+    int bulletFrequency = 300;
+    int zombieFrequency = 2000;
 };
 
 #endif //ZOMBIEGAME_GAME_H

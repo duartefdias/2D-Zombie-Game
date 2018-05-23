@@ -12,6 +12,7 @@
 #include "../headers/Player.h"
 #include "../headers/Bullet.h"
 #include "../headers/Zombie.h"
+#include "../headers/PowerUp.h"
 
 int main()
 {
@@ -66,6 +67,9 @@ int main()
     //Number zombies created
     int zombieIndex = 0;
 
+    //PowerUp
+    PowerUp* powerUp = PowerUp::makePowerUp(game, 0); //NEW
+
     while (game->getWindow().isOpen())
     {
         sf::Event event;
@@ -80,6 +84,7 @@ int main()
         game->renderScoreText();
         game->renderScoreString();
         player->renderSprite(game);
+        powerUp->renderSprite(game); //NEW
 
         //Draw all bullets
         for(std::list<Bullet*>::iterator it = bullets.begin(); it != bullets.end(); ++it){
@@ -102,7 +107,7 @@ int main()
         //Fire shots
         if(player->shoot()) {
             elapsedTime = clock.getElapsedTime();
-            if((int) elapsedTime.asMilliseconds() > bulletFrequency) {
+            if((int) elapsedTime.asMilliseconds() > game->getBulletFrequency()) {
                 Bullet* toShoot = new Bullet(player->getX(), player->getY(), game->getMouse().getPosition(game->getWindow()).x, game->getMouse().getPosition(game->getWindow()).y);
                 bullets.push_back(toShoot);
                 game->bulletSFX();
@@ -121,7 +126,7 @@ int main()
 
         //Create new zombie every 2 seconds
         elapsedTimeZombies = clockZombies.getElapsedTime();
-        if ((int) elapsedTimeZombies.asMilliseconds() > zombieFrequency) {
+        if ((int) elapsedTimeZombies.asMilliseconds() > game->getZombieFrequency()) {
             if(zombieFrequency > 100) {
                 zombieFrequency -= 10;
             }
