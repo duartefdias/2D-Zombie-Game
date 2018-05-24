@@ -11,7 +11,9 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a0b9a51-ded1-46b5-b13c-e67587d1c769" name="Default" comment="" />
+    <list default="true" id="6a0b9a51-ded1-46b5-b13c-e67587d1c769" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main.cpp" afterPath="$PROJECT_DIR$/src/main.cpp" />
+    </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -23,11 +25,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main.cpp" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="488">
-              <caret line="223" column="10" lean-forward="false" selection-start-line="223" selection-start-column="10" selection-end-line="223" selection-end-column="10" />
+            <state relative-caret-position="-322">
+              <caret line="179" column="25" lean-forward="false" selection-start-line="179" selection-start-column="25" selection-end-line="179" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -63,10 +65,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Zombie.h" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Zombie.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/headers/Zombie.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="537">
+            <state relative-caret-position="340">
               <caret line="30" column="32" lean-forward="false" selection-start-line="30" selection-start-column="32" selection-end-line="30" selection-end-column="32" />
               <folding>
                 <element signature="e#97#114#0" expanded="true" />
@@ -119,9 +121,9 @@
         <option value="$PROJECT_DIR$/src/Game.cpp" />
         <option value="$PROJECT_DIR$/headers/Game.h" />
         <option value="$PROJECT_DIR$/src/Powers.cpp" />
-        <option value="$PROJECT_DIR$/src/main.cpp" />
         <option value="$PROJECT_DIR$/headers/PowerUp.h" />
         <option value="$PROJECT_DIR$/headers/Zombie.h" />
+        <option value="$PROJECT_DIR$/src/main.cpp" />
       </list>
     </option>
   </component>
@@ -225,7 +227,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35851000" />
+    <option name="totallyTimeSpent" value="36431000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -359,6 +361,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="358">
           <caret line="101" column="38" lean-forward="false" selection-start-line="101" selection-start-column="38" selection-end-line="101" selection-end-column="38" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -581,7 +584,7 @@
         <state relative-caret-position="630">
           <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
           <folding>
-            <element signature="e#40#71#0" expanded="true" />
+            <element signature="e#40#71#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -590,6 +593,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2430">
           <caret line="135" column="1" lean-forward="false" selection-start-line="135" selection-start-column="1" selection-end-line="135" selection-end-column="1" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -633,14 +637,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="488">
-          <caret line="223" column="10" lean-forward="false" selection-start-line="223" selection-start-column="10" selection-end-line="223" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/headers/GameCharacter.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="468">
@@ -667,11 +663,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/headers/Zombie.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="537">
+        <state relative-caret-position="340">
           <caret line="30" column="32" lean-forward="false" selection-start-line="30" selection-start-column="32" selection-end-line="30" selection-end-column="32" />
           <folding>
             <element signature="e#97#114#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-322">
+          <caret line="179" column="25" lean-forward="false" selection-start-line="179" selection-start-column="25" selection-end-line="179" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>

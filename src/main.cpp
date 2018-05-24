@@ -177,6 +177,7 @@ int main()
             if((*itZombie)->getX() > player->getX() - 40 &&  (*itZombie)->getX() < player->getX() + 40){
                 if((*itZombie)->getY() > player->getY() - 40 &&  (*itZombie)->getY() < player->getY() + 40){
                     player->kill();
+                    std::cout << "Your score was: " << game->getGameScore() << std::endl;
                     return 0;
                 }
             }
