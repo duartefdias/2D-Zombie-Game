@@ -24,6 +24,16 @@ CMakeFiles/ZombieGame.dir/src/Player.cpp.o
  /home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/GameCharacter.h
  /home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/Player.h
  /home/bob/Desktop/2DZombies/2D-Zombie-Game/src/Player.cpp
+CMakeFiles/ZombieGame.dir/src/PowerUp.cpp.o
+ /home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/Game.h
+ /home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/PowerUp.h
+ /home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/Powers.h
+ /home/bob/Desktop/2DZombies/2D-Zombie-Game/src/PowerUp.cpp
+CMakeFiles/ZombieGame.dir/src/Powers.cpp.o
+ /home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/Game.h
+ /home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/PowerUp.h
+ /home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/Powers.h
+ /home/bob/Desktop/2DZombies/2D-Zombie-Game/src/Powers.cpp
 CMakeFiles/ZombieGame.dir/src/Zombie.cpp.o
  /home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/Game.h
  /home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/GameCharacter.h
@@ -35,5 +45,6 @@ CMakeFiles/ZombieGame.dir/src/main.cpp.o
  /home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/Game.h
  /home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/GameCharacter.h
  /home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/Player.h
+ /home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/PowerUp.h
  /home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/Zombie.h
  /home/bob/Desktop/2DZombies/2D-Zombie-Game/src/main.cpp

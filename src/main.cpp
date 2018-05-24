@@ -12,6 +12,7 @@
 #include "../headers/Player.h"
 #include "../headers/Bullet.h"
 #include "../headers/Zombie.h"
+#include "../headers/PowerUp.h"
 
 int main()
 {
@@ -66,6 +67,15 @@ int main()
     //Number zombies created
     int zombieIndex = 0;
 
+    //PowerUp
+    PowerUp* powerUp; //NEW
+    sf::Clock clockPowerUp;
+    sf::Time elapsedTimePowerUp;
+    bool powerUpOnMap = false;
+    sf::Clock clockPowerUpSpawn;
+    sf::Time elapsedTimePowerUpSpawn;
+    int powerUpSpawnDelay = 2000; //In milliseconds
+
     while (game->getWindow().isOpen())
     {
         sf::Event event;
@@ -77,6 +87,11 @@ int main()
         //Everything that needs to be drawn goes between clear() and display()
         game->getWindow().clear();
         game->renderBackground();
+
+        if(powerUpOnMap){
+            powerUp->renderSprite(game);
+        }
+
         game->renderScoreText();
         game->renderScoreString();
         player->renderSprite(game);
@@ -102,7 +117,7 @@ int main()
         //Fire shots
         if(player->shoot()) {
             elapsedTime = clock.getElapsedTime();
-            if((int) elapsedTime.asMilliseconds() > bulletFrequency) {
+            if((int) elapsedTime.asMilliseconds() > game->getBulletFrequency()) {
                 Bullet* toShoot = new Bullet(player->getX(), player->getY(), game->getMouse().getPosition(game->getWindow()).x, game->getMouse().getPosition(game->getWindow()).y);
                 bullets.push_back(toShoot);
                 game->bulletSFX();
@@ -121,7 +136,7 @@ int main()
 
         //Create new zombie every 2 seconds
         elapsedTimeZombies = clockZombies.getElapsedTime();
-        if ((int) elapsedTimeZombies.asMilliseconds() > zombieFrequency) {
+        if ((int) elapsedTimeZombies.asMilliseconds() > game->getZombieFrequency()) {
             if(zombieFrequency > 100) {
                 zombieFrequency -= 10;
             }
@@ -176,7 +191,37 @@ int main()
             }
         }
 
+        //Place a PowerUp on the map every "powerUpSpawnDelay/1000" seconds
+        elapsedTimePowerUpSpawn = clockPowerUpSpawn.getElapsedTime();
+        if((int) elapsedTimePowerUpSpawn.asMilliseconds() > powerUpSpawnDelay && !powerUpOnMap){
+            //Randomly picks a type of PowerUp
+            int powerType = rand() % 2;
+            powerUp = PowerUp::makePowerUp(game, powerType);
+            powerUpOnMap = true;
+            clockPowerUpSpawn.restart();
+        }
 
+        if(powerUpOnMap){
+            //Player picks up PowerUp
+            if(powerUp->getX() > player->getX() - 40 && powerUp->getX() < player->getX() + 40){
+                if(powerUp->getY() > player->getY() - 40 && powerUp->getY() < player->getY() + 40){
+                    std::cout << "POWERUP!!" << std::endl;
+                    powerUp->startPower(game);
+                }
+            }
+        }
+
+        if(powerUpOnMap){
+            //PowerUp ends after a few seconds
+            elapsedTimePowerUp = clockPowerUp.getElapsedTime();
+            if((int) elapsedTimePowerUp.asMilliseconds() > 4000){
+                powerUp->endPower(game);
+                clockPowerUp.restart();
+                powerUpOnMap = false;
+            }
+        }
+
+        //zombie->movementStrategy->move();
 
     } //End of game loop
 
