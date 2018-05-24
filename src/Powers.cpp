@@ -7,10 +7,10 @@
 //AMMO
 
 Ammo::Ammo(Game *game) : PowerUp(game) {
-    spriteTexture.loadFromFile("../assets/sprites/powerups/bullets.png");
+    spriteTexture.loadFromFile("../assets/sprites/powerups/gun.png");
     sprite.setTexture(spriteTexture);
     //sprite.setTextureRect(sf::IntRect(30, 30, 220, 200)); //(minWidth, minHeight, maxWidth, maxHeight)
-    sprite.setScale(0.5, 0.5);
+    sprite.setScale(0.7, 0.7);
     sprite.setOrigin(95, 85);
     sprite.setPosition(X, Y);
 }
@@ -27,10 +27,10 @@ void Ammo::endPower(Game *game) {
 //ZOMBIEOVERDOSE
 
 ZombieOverload::ZombieOverload(Game *game) : PowerUp(game) {
-    spriteTexture.loadFromFile("../assets/sprites/powerups/skull.png");
+    spriteTexture.loadFromFile("../assets/sprites/powerups/graves.png");
     sprite.setTexture(spriteTexture);
     //sprite.setTextureRect(sf::IntRect(30, 30, 220, 200)); //(minWidth, minHeight, maxWidth, maxHeight)
-    sprite.setScale(0.5, 0.5);
+    sprite.setScale(0.6, 0.6);
     sprite.setOrigin(95, 85);
     sprite.setPosition(X, Y);
 }
