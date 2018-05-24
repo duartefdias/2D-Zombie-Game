@@ -28,6 +28,8 @@ public:
 
     void becomeOffensive();
 
+    //MovementStrategy* movemementStrategy;
+
 private:
 
     //Movement direction

@@ -221,7 +221,7 @@ int main()
             }
         }
 
-
+        //zombie->movementStrategy->move();
 
     } //End of game loop
 
