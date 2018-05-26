@@ -22,7 +22,9 @@ class Zombie;
 class MovementStrategy {
 public:
 
-    virtual void doMove(Player* player, Game* game, Zombie* zombie, int speed) = 0;
+    virtual void doMove(Player* player, Game* game, Zombie* zombie, int speed){
+        std::cout << "MOVE BITCH!" << std::endl;
+    };
     void sayHi(){
         std::cout << "Hi from MovementStrategy" << std::endl;
     };

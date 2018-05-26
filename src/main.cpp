@@ -106,7 +106,7 @@ int main()
         for(std::list<Zombie*>::iterator it = zombies.begin(); it != zombies.end(); ++it){
             (*it)->renderSprite(game);
             //(*it)->move(player, game, 2);
-            //(*it)->getMovementStrategy()->doMove(player, game, (*it), 2);//NEW
+            (*it)->getMovementStrategy()->doMove(player, game, (*it), 2);//NEW
         }
 
         game->getWindow().display();
