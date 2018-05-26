@@ -3,6 +3,9 @@
 //
 
 #include "../headers/Zombie.h"
+#include "../headers/MovementStrategy.h"
+#include "../headers/MovementTypes.h"
+
 
 void Zombie::setMovementStrategy(movementType type, Player *player, Game *game, Zombie* zombie, int speed) {
     switch(type){

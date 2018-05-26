@@ -3,6 +3,7 @@
 //
 
 #include "../headers/Zombie.h"
+#include "../headers/MovementTypes.h"
 
 void Roaming::doMove(Player *player, Game *game, Zombie* zombie, int speed) {
     int randDirection = rand() % 4;

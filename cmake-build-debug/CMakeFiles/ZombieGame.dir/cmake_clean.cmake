@@ -5,7 +5,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/ZombieGame.dir/src/Player.cpp.o"
   "CMakeFiles/ZombieGame.dir/src/Bullet.cpp.o"
   "CMakeFiles/ZombieGame.dir/src/Zombie.cpp.o"
-  "CMakeFiles/ZombieGame.dir/src/Movement.cpp.o"
   "CMakeFiles/ZombieGame.dir/src/PowerUp.cpp.o"
   "CMakeFiles/ZombieGame.dir/src/Powers.cpp.o"
   "CMakeFiles/ZombieGame.dir/src/MovementTypes.cpp.o"

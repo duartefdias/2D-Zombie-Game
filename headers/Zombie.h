@@ -17,10 +17,12 @@
 
 enum movementType{ randomize, roaming, offensive};
 
+class Zombie;
+
 class MovementStrategy {
 public:
 
-    //virtual void doMove(Player* player, Game* game, Zombie* zombie, int speed) = 0;
+    virtual void doMove(Player* player, Game* game, Zombie* zombie, int speed) = 0;
     void sayHi(){
         std::cout << "Hi from MovementStrategy" << std::endl;
     };
@@ -50,7 +52,7 @@ public:
     void setMovementStrategy(movementType type, Player* player, Game* game, Zombie* zombie, int speed);
     MovementStrategy* getMovementStrategy();
 
-    MovementStrategy* movementStrategy = new MovementStrategy();
+    MovementStrategy* movementStrategy;
 
 protected:
 
