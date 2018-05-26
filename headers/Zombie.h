@@ -16,34 +16,32 @@
 
 #define PI 3.14159265
 
-enum movementType{ roaming = 1, offensive = 2};
+enum movementType{ randomize, roaming, offensive};
 
 class Zombie : GameCharacter{
 public:
 
-    Zombie(Game* game);
+    Zombie(movementType type, Player* player, Game* game, Zombie* zombie, int speed);
 
-    void move(Player* player, Game* game, int speed = 1);
+    //void move(Player* player, Game* game, int speed = 1);
 
     void renderSprite(Game* game);
 
+
     int getX();
     int getY();
+    void setX(int newX);
+    void setY(int newY);
 
-    void becomeOffensive();
-
-    void setMovementStrategy(movementType type, Player *player, Game *game, Zombie* zombie, int speed);
+    void setMovementStrategy(movementType type, Player* player, Game* game, Zombie* zombie, int speed);
+    MovementStrategy::MovementStrategy* getMovementStrategy();
 
 protected:
 
-    //Movement direction
-    float moveX;
-    float moveY;
+    //bool offensive = true;
+    //int randDirection = 0;
 
-    bool offensive = true;
-    int randDirection = 0;
-
-    MovementStrategy* movementStrategy;
+    MovementStrategy::MovementStrategy* movementStrategy;
 };
 
 #endif //ZOMBIEGAME_ZOMBIE_H

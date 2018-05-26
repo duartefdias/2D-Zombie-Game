@@ -19,6 +19,16 @@ CMakeFiles/ZombieGame.dir/src/Movement.cpp.o: ../headers/Movement.h
 CMakeFiles/ZombieGame.dir/src/Movement.cpp.o: ../headers/Player.h
 CMakeFiles/ZombieGame.dir/src/Movement.cpp.o: ../src/Movement.cpp
 
+CMakeFiles/ZombieGame.dir/src/MovementStrategy.cpp.o: ../src/MovementStrategy.cpp
+
+CMakeFiles/ZombieGame.dir/src/MovementTypes.cpp.o: ../headers/Game.h
+CMakeFiles/ZombieGame.dir/src/MovementTypes.cpp.o: ../headers/GameCharacter.h
+CMakeFiles/ZombieGame.dir/src/MovementTypes.cpp.o: ../headers/MovementStrategy.h
+CMakeFiles/ZombieGame.dir/src/MovementTypes.cpp.o: ../headers/MovementTypes.h
+CMakeFiles/ZombieGame.dir/src/MovementTypes.cpp.o: ../headers/Player.h
+CMakeFiles/ZombieGame.dir/src/MovementTypes.cpp.o: ../headers/Zombie.h
+CMakeFiles/ZombieGame.dir/src/MovementTypes.cpp.o: ../src/MovementTypes.cpp
+
 CMakeFiles/ZombieGame.dir/src/Player.cpp.o: ../headers/Game.h
 CMakeFiles/ZombieGame.dir/src/Player.cpp.o: ../headers/GameCharacter.h
 CMakeFiles/ZombieGame.dir/src/Player.cpp.o: ../headers/Player.h
@@ -36,6 +46,8 @@ CMakeFiles/ZombieGame.dir/src/Powers.cpp.o: ../src/Powers.cpp
 
 CMakeFiles/ZombieGame.dir/src/Zombie.cpp.o: ../headers/Game.h
 CMakeFiles/ZombieGame.dir/src/Zombie.cpp.o: ../headers/GameCharacter.h
+CMakeFiles/ZombieGame.dir/src/Zombie.cpp.o: ../headers/MovementStrategy.h
+CMakeFiles/ZombieGame.dir/src/Zombie.cpp.o: ../headers/MovementTypes.h
 CMakeFiles/ZombieGame.dir/src/Zombie.cpp.o: ../headers/Player.h
 CMakeFiles/ZombieGame.dir/src/Zombie.cpp.o: ../headers/Zombie.h
 CMakeFiles/ZombieGame.dir/src/Zombie.cpp.o: ../src/Zombie.cpp
@@ -43,6 +55,8 @@ CMakeFiles/ZombieGame.dir/src/Zombie.cpp.o: ../src/Zombie.cpp
 CMakeFiles/ZombieGame.dir/src/main.cpp.o: ../headers/Bullet.h
 CMakeFiles/ZombieGame.dir/src/main.cpp.o: ../headers/Game.h
 CMakeFiles/ZombieGame.dir/src/main.cpp.o: ../headers/GameCharacter.h
+CMakeFiles/ZombieGame.dir/src/main.cpp.o: ../headers/MovementStrategy.h
+CMakeFiles/ZombieGame.dir/src/main.cpp.o: ../headers/MovementTypes.h
 CMakeFiles/ZombieGame.dir/src/main.cpp.o: ../headers/Player.h
 CMakeFiles/ZombieGame.dir/src/main.cpp.o: ../headers/PowerUp.h
 CMakeFiles/ZombieGame.dir/src/main.cpp.o: ../headers/Zombie.h

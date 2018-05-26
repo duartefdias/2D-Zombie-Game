@@ -4,8 +4,10 @@
 
 #include "../headers/MovementTypes.h"
 
-void Roaming::doMove(Player *player, Game *game, Zombie* zombie int speed) {
+void Roaming::doMove(Player *player, Game *game, Zombie* zombie, int speed) {
     int randDirection = rand() % 4;
+    float angle = 0;
+    int X = zombie->getX(), Y = zombie->getY();
 
     //Zombie moves randomly
     int maxX = game->getWindow().getSize().x;
@@ -47,37 +49,42 @@ void Roaming::doMove(Player *player, Game *game, Zombie* zombie int speed) {
 
     X += (moveX * speed);
     Y += (moveY * speed);
-    sprite.setRotation(angle);
+    zombie->getSprite().setRotation(angle);
 
     //std::cout << "moveX: " << moveX*speed << std::endl;
     //std::cout << "moveY: " << moveY*speed << std::endl;
 
-    sprite.setPosition(X, Y);
+    zombie->setX(X);
+    zombie->setY(Y);
+    zombie->getSprite().setPosition(X, Y);
 }
 
-void Offensive::doMove(Player *player, Game *game, Zombie* zombie int speed) {
+void Offensive::doMove(Player *player, Game *game, Zombie* zombie, int speed) {
     //Zombie moves torwards player
-    else if(offensive) {
-        //Based on linear interpolation
-        moveX = player->getX() - X;
-        moveY = player->getY() - Y;
-        moveX = moveX / 200;
-        moveY = moveY / 200;
+    float angle = 0;
+    int X = zombie->getX(), Y = zombie->getY();
+    //Based on linear interpolation
+    moveX = player->getX() - X;
+    moveY = player->getY() - Y;
+    moveX = moveX / 200;
+    moveY = moveY / 200;
 
         if (moveX == 0 && moveY == 0) {
             moveX = 1;
         }
 
-        //Calculate angle
-        angle = atan2(player->getY() - Y, player->getX() - X);
-        angle *= 180 / PI;
+    //Calculate angle
+    angle = atan2(player->getY() - Y, player->getX() - X);
+    angle *= 180 / PI;
 
-        X += (moveX * speed);
-        Y += (moveY * speed);
-        sprite.setRotation(angle);
+    X += (moveX * speed);
+    Y += (moveY * speed);
+    zombie->getSprite().setRotation(angle);
 
-        //std::cout << "moveX: " << moveX*speed << std::endl;
-        //std::cout << "moveY: " << moveY*speed << std::endl;
+    //std::cout << "moveX: " << moveX*speed << std::endl;
+    //std::cout << "moveY: " << moveY*speed << std::endl;
 
-        sprite.setPosition(X, Y);
+    zombie->setX(X);
+    zombie->setY(Y);
+    zombie->getSprite().setPosition(X, Y);
 }

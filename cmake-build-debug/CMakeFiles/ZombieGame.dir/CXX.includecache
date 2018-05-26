@@ -50,6 +50,24 @@ iostream
 math.h
 -
 
+/home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/MovementStrategy.h
+GameCharacter.h
+/home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/GameCharacter.h
+Player.h
+/home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/Player.h
+Game.h
+/home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/Game.h
+Zombie.h
+/home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/Zombie.h
+
+/home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/MovementTypes.h
+MovementStrategy.h
+/home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/MovementStrategy.h
+Player.h
+/home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/Player.h
+Game.h
+/home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/Game.h
+
 /home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/Player.h
 Game.h
 /home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/Game.h
@@ -81,6 +99,10 @@ GameCharacter.h
 /home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/GameCharacter.h
 Player.h
 /home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/Player.h
+MovementStrategy.h
+/home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/MovementStrategy.h
+MovementTypes.h
+/home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/MovementTypes.h
 iostream
 -
 math.h
@@ -109,6 +131,12 @@ cstdlib
 -
 ../headers/Movement.h
 /home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/Movement.h
+
+/home/bob/Desktop/2DZombies/2D-Zombie-Game/src/MovementStrategy.cpp
+
+/home/bob/Desktop/2DZombies/2D-Zombie-Game/src/MovementTypes.cpp
+../headers/MovementTypes.h
+/home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/MovementTypes.h
 
 /home/bob/Desktop/2DZombies/2D-Zombie-Game/src/Player.cpp
 ../headers/Player.h
