@@ -8,11 +8,15 @@
 #include "Game.h"
 #include "GameCharacter.h"
 #include "Player.h"
+#include "MovementStrategy.h"
+#include "MovementTypes.h"
 
 #include <iostream>
 #include <math.h>
 
 #define PI 3.14159265
+
+enum movementType{ roaming = 1, offensive = 2};
 
 class Zombie : GameCharacter{
 public:
@@ -28,9 +32,9 @@ public:
 
     void becomeOffensive();
 
-    //MovementStrategy* movemementStrategy;
+    void setMovementStrategy(movementType type, Player *player, Game *game, Zombie* zombie, int speed);
 
-private:
+protected:
 
     //Movement direction
     float moveX;
@@ -39,6 +43,7 @@ private:
     bool offensive = true;
     int randDirection = 0;
 
+    MovementStrategy* movementStrategy;
 };
 
 #endif //ZOMBIEGAME_ZOMBIE_H

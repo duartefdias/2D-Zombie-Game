@@ -273,6 +273,54 @@ CMakeFiles/ZombieGame.dir/src/Powers.cpp.o.provides: CMakeFiles/ZombieGame.dir/s
 CMakeFiles/ZombieGame.dir/src/Powers.cpp.o.provides.build: CMakeFiles/ZombieGame.dir/src/Powers.cpp.o
 
 
+CMakeFiles/ZombieGame.dir/src/MovementStrategy.cpp.o: CMakeFiles/ZombieGame.dir/flags.make
+CMakeFiles/ZombieGame.dir/src/MovementStrategy.cpp.o: ../src/MovementStrategy.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bob/Desktop/2DZombies/2D-Zombie-Game/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/ZombieGame.dir/src/MovementStrategy.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ZombieGame.dir/src/MovementStrategy.cpp.o -c /home/bob/Desktop/2DZombies/2D-Zombie-Game/src/MovementStrategy.cpp
+
+CMakeFiles/ZombieGame.dir/src/MovementStrategy.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ZombieGame.dir/src/MovementStrategy.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/bob/Desktop/2DZombies/2D-Zombie-Game/src/MovementStrategy.cpp > CMakeFiles/ZombieGame.dir/src/MovementStrategy.cpp.i
+
+CMakeFiles/ZombieGame.dir/src/MovementStrategy.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ZombieGame.dir/src/MovementStrategy.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bob/Desktop/2DZombies/2D-Zombie-Game/src/MovementStrategy.cpp -o CMakeFiles/ZombieGame.dir/src/MovementStrategy.cpp.s
+
+CMakeFiles/ZombieGame.dir/src/MovementStrategy.cpp.o.requires:
+
+.PHONY : CMakeFiles/ZombieGame.dir/src/MovementStrategy.cpp.o.requires
+
+CMakeFiles/ZombieGame.dir/src/MovementStrategy.cpp.o.provides: CMakeFiles/ZombieGame.dir/src/MovementStrategy.cpp.o.requires
+	$(MAKE) -f CMakeFiles/ZombieGame.dir/build.make CMakeFiles/ZombieGame.dir/src/MovementStrategy.cpp.o.provides.build
+.PHONY : CMakeFiles/ZombieGame.dir/src/MovementStrategy.cpp.o.provides
+
+CMakeFiles/ZombieGame.dir/src/MovementStrategy.cpp.o.provides.build: CMakeFiles/ZombieGame.dir/src/MovementStrategy.cpp.o
+
+
+CMakeFiles/ZombieGame.dir/src/MovementTypes.cpp.o: CMakeFiles/ZombieGame.dir/flags.make
+CMakeFiles/ZombieGame.dir/src/MovementTypes.cpp.o: ../src/MovementTypes.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bob/Desktop/2DZombies/2D-Zombie-Game/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/ZombieGame.dir/src/MovementTypes.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ZombieGame.dir/src/MovementTypes.cpp.o -c /home/bob/Desktop/2DZombies/2D-Zombie-Game/src/MovementTypes.cpp
+
+CMakeFiles/ZombieGame.dir/src/MovementTypes.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ZombieGame.dir/src/MovementTypes.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/bob/Desktop/2DZombies/2D-Zombie-Game/src/MovementTypes.cpp > CMakeFiles/ZombieGame.dir/src/MovementTypes.cpp.i
+
+CMakeFiles/ZombieGame.dir/src/MovementTypes.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ZombieGame.dir/src/MovementTypes.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bob/Desktop/2DZombies/2D-Zombie-Game/src/MovementTypes.cpp -o CMakeFiles/ZombieGame.dir/src/MovementTypes.cpp.s
+
+CMakeFiles/ZombieGame.dir/src/MovementTypes.cpp.o.requires:
+
+.PHONY : CMakeFiles/ZombieGame.dir/src/MovementTypes.cpp.o.requires
+
+CMakeFiles/ZombieGame.dir/src/MovementTypes.cpp.o.provides: CMakeFiles/ZombieGame.dir/src/MovementTypes.cpp.o.requires
+	$(MAKE) -f CMakeFiles/ZombieGame.dir/build.make CMakeFiles/ZombieGame.dir/src/MovementTypes.cpp.o.provides.build
+.PHONY : CMakeFiles/ZombieGame.dir/src/MovementTypes.cpp.o.provides
+
+CMakeFiles/ZombieGame.dir/src/MovementTypes.cpp.o.provides.build: CMakeFiles/ZombieGame.dir/src/MovementTypes.cpp.o
+
+
 # Object files for target ZombieGame
 ZombieGame_OBJECTS = \
 "CMakeFiles/ZombieGame.dir/src/main.cpp.o" \
@@ -283,7 +331,9 @@ ZombieGame_OBJECTS = \
 "CMakeFiles/ZombieGame.dir/src/Zombie.cpp.o" \
 "CMakeFiles/ZombieGame.dir/src/Movement.cpp.o" \
 "CMakeFiles/ZombieGame.dir/src/PowerUp.cpp.o" \
-"CMakeFiles/ZombieGame.dir/src/Powers.cpp.o"
+"CMakeFiles/ZombieGame.dir/src/Powers.cpp.o" \
+"CMakeFiles/ZombieGame.dir/src/MovementStrategy.cpp.o" \
+"CMakeFiles/ZombieGame.dir/src/MovementTypes.cpp.o"
 
 # External object files for target ZombieGame
 ZombieGame_EXTERNAL_OBJECTS =
@@ -297,9 +347,11 @@ ZombieGame: CMakeFiles/ZombieGame.dir/src/Zombie.cpp.o
 ZombieGame: CMakeFiles/ZombieGame.dir/src/Movement.cpp.o
 ZombieGame: CMakeFiles/ZombieGame.dir/src/PowerUp.cpp.o
 ZombieGame: CMakeFiles/ZombieGame.dir/src/Powers.cpp.o
+ZombieGame: CMakeFiles/ZombieGame.dir/src/MovementStrategy.cpp.o
+ZombieGame: CMakeFiles/ZombieGame.dir/src/MovementTypes.cpp.o
 ZombieGame: CMakeFiles/ZombieGame.dir/build.make
 ZombieGame: CMakeFiles/ZombieGame.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/bob/Desktop/2DZombies/2D-Zombie-Game/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable ZombieGame"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/bob/Desktop/2DZombies/2D-Zombie-Game/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking CXX executable ZombieGame"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ZombieGame.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -316,6 +368,8 @@ CMakeFiles/ZombieGame.dir/requires: CMakeFiles/ZombieGame.dir/src/Zombie.cpp.o.r
 CMakeFiles/ZombieGame.dir/requires: CMakeFiles/ZombieGame.dir/src/Movement.cpp.o.requires
 CMakeFiles/ZombieGame.dir/requires: CMakeFiles/ZombieGame.dir/src/PowerUp.cpp.o.requires
 CMakeFiles/ZombieGame.dir/requires: CMakeFiles/ZombieGame.dir/src/Powers.cpp.o.requires
+CMakeFiles/ZombieGame.dir/requires: CMakeFiles/ZombieGame.dir/src/MovementStrategy.cpp.o.requires
+CMakeFiles/ZombieGame.dir/requires: CMakeFiles/ZombieGame.dir/src/MovementTypes.cpp.o.requires
 
 .PHONY : CMakeFiles/ZombieGame.dir/requires
 

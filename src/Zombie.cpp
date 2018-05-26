@@ -144,3 +144,17 @@ void Zombie::becomeOffensive() {
         offensive = true;
     }
 }
+
+void Zombie::setMovementStrategy(movementType type, Player *player, Game *game, Zombie* zombie int speed) {
+    switch(type){
+        case roaming:
+            movementStrategy = new Roaming(movementType  type, Player *player, Game *game, Zombie* zombie int speed);
+            break;
+        case offensive:
+            movementStrategy = new Offensive(movementType  type, Player *player, Game *game, Zombie* zombie int speed);
+            break;
+        default:
+            movementStrategy = new Offensive(movementType  type, Player *player, Game *game, Zombie* zombie int speed);
+            break;
+    }
+}
