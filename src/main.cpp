@@ -106,7 +106,7 @@ int main()
         for(std::list<Zombie*>::iterator it = zombies.begin(); it != zombies.end(); ++it){
             (*it)->renderSprite(game);
             //(*it)->move(player, game, 2);
-            (*it)->getMovementStrategy()->doMove(player, game, (*it), 2);//NEW
+            //(*it)->getMovementStrategy()->doMove(player, game, (*it), 2);//NEW
         }
 
         game->getWindow().display();
@@ -142,10 +142,12 @@ int main()
                 zombieFrequency -= 10;
             }
             Zombie* toSpawn = new Zombie(randomize, player, game, toSpawn, 1); //NEW
+            toSpawn->movementStrategy->sayHi();
             zombies.push_back(toSpawn);
             zombieIndex += 1;
             clockZombies.restart();
             std::cout << "Zombie " << zombieIndex + 1 << " created! Run!" << std::endl;
+
         }
 
         //Check Zombie <-> Bullet collision and eliminate both
@@ -189,7 +191,7 @@ int main()
             if((*itZombie)->getX() > player->getX() - 300 &&  (*itZombie)->getX() < player->getX() + 300){
                 if((*itZombie)->getY() > player->getY() - 300 &&  (*itZombie)->getY() < player->getY() + 300){
                     //(*itZombie)->becomeOffensive();
-                    (*itZombie)->setMovementStrategy(offensive, player, game, (*itZombie), 1); //NEW
+                    //(*itZombie)->setMovementStrategy(offensive, player, game, (*itZombie), 1); //NEW
                 }
             }
         }

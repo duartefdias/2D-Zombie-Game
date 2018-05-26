@@ -231,33 +231,6 @@ src/Movement.cpp.s:
 	$(MAKE) -f CMakeFiles/ZombieGame.dir/build.make CMakeFiles/ZombieGame.dir/src/Movement.cpp.s
 .PHONY : src/Movement.cpp.s
 
-src/MovementStrategy.o: src/MovementStrategy.cpp.o
-
-.PHONY : src/MovementStrategy.o
-
-# target to build an object file
-src/MovementStrategy.cpp.o:
-	$(MAKE) -f CMakeFiles/ZombieGame.dir/build.make CMakeFiles/ZombieGame.dir/src/MovementStrategy.cpp.o
-.PHONY : src/MovementStrategy.cpp.o
-
-src/MovementStrategy.i: src/MovementStrategy.cpp.i
-
-.PHONY : src/MovementStrategy.i
-
-# target to preprocess a source file
-src/MovementStrategy.cpp.i:
-	$(MAKE) -f CMakeFiles/ZombieGame.dir/build.make CMakeFiles/ZombieGame.dir/src/MovementStrategy.cpp.i
-.PHONY : src/MovementStrategy.cpp.i
-
-src/MovementStrategy.s: src/MovementStrategy.cpp.s
-
-.PHONY : src/MovementStrategy.s
-
-# target to generate assembly for a file
-src/MovementStrategy.cpp.s:
-	$(MAKE) -f CMakeFiles/ZombieGame.dir/build.make CMakeFiles/ZombieGame.dir/src/MovementStrategy.cpp.s
-.PHONY : src/MovementStrategy.cpp.s
-
 src/MovementTypes.o: src/MovementTypes.cpp.o
 
 .PHONY : src/MovementTypes.o
@@ -441,9 +414,6 @@ help:
 	@echo "... src/Movement.o"
 	@echo "... src/Movement.i"
 	@echo "... src/Movement.s"
-	@echo "... src/MovementStrategy.o"
-	@echo "... src/MovementStrategy.i"
-	@echo "... src/MovementStrategy.s"
 	@echo "... src/MovementTypes.o"
 	@echo "... src/MovementTypes.i"
 	@echo "... src/MovementTypes.s"

@@ -7,13 +7,13 @@
 void Zombie::setMovementStrategy(movementType type, Player *player, Game *game, Zombie* zombie, int speed) {
     switch(type){
         case roaming:
-            movementStrategy = new Roaming();
+            movementStrategy = new Roaming;
             break;
         case offensive:
-            movementStrategy = new Offensive();
+            movementStrategy = new Offensive;
             break;
         default:
-            movementStrategy = new Offensive();
+            movementStrategy = new Offensive;
             break;
     }
 }
@@ -73,7 +73,7 @@ Zombie::Zombie(movementType type, Player* player, Game* game, Zombie* zombie, in
     }
 
     //Choose a movement strategy
-    setMovementStrategy(type, player, game, zombie, speed);
+    //setMovementStrategy(type, player, game, zombie, speed);
 }
 
 /*void Zombie::move(Player* player, Game* game, int speed) {
@@ -166,6 +166,6 @@ void Zombie::setY(int newY) {
     Y = newY;
 }
 
-MovementStrategy::MovementStrategy* Zombie::getMovementStrategy() {
+MovementStrategy* Zombie::getMovementStrategy() {
     return movementStrategy;
 }

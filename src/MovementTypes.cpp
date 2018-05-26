@@ -2,7 +2,7 @@
 // Created by bob on 26-05-2018.
 //
 
-#include "../headers/MovementTypes.h"
+#include "../headers/Zombie.h"
 
 void Roaming::doMove(Player *player, Game *game, Zombie* zombie, int speed) {
     int randDirection = rand() % 4;
