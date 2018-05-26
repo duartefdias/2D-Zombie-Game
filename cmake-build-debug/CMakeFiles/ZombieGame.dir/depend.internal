@@ -16,7 +16,6 @@ CMakeFiles/ZombieGame.dir/src/GameCharacter.cpp.o
 CMakeFiles/ZombieGame.dir/src/MovementTypes.cpp.o
  /home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/Game.h
  /home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/GameCharacter.h
- /home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/MovementTypes.h
  /home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/Player.h
  /home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/Zombie.h
  /home/bob/Desktop/2DZombies/2D-Zombie-Game/src/MovementTypes.cpp
@@ -38,8 +37,6 @@ CMakeFiles/ZombieGame.dir/src/Powers.cpp.o
 CMakeFiles/ZombieGame.dir/src/Zombie.cpp.o
  /home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/Game.h
  /home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/GameCharacter.h
- /home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/MovementStrategy.h
- /home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/MovementTypes.h
  /home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/Player.h
  /home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/Zombie.h
  /home/bob/Desktop/2DZombies/2D-Zombie-Game/src/Zombie.cpp

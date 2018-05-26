@@ -19,12 +19,11 @@ enum movementType{ randomize, roaming, offensive};
 
 class Zombie;
 
+//MOVEMENT STRATEGY
 class MovementStrategy {
 public:
 
-    virtual void doMove(Player* player, Game* game, Zombie* zombie, int speed){
-        std::cout << "MOVE BITCH!" << std::endl;
-    };
+    virtual void doMove(Player* player, Game* game, Zombie* zombie, int speed) = 0;
     void sayHi(){
         std::cout << "Hi from MovementStrategy" << std::endl;
     };
@@ -36,6 +35,7 @@ protected:
     float moveY;
 };
 
+//MAIN ZOMBIE CLASS
 class Zombie : public GameCharacter{
 public:
 
@@ -62,10 +62,17 @@ protected:
     //int randDirection = 0;
 };
 
+//TYPES OF ZOMBIE MOVEMENT
 class Roaming : public MovementStrategy{
 public:
-
+    Roaming(){
+        randDirection = rand() % 4;
+    }
     virtual void doMove(Player* player, Game* game, Zombie* zombie, int speed);
+
+private:
+
+    int randDirection = 0;
 };
 
 class Offensive : public MovementStrategy{

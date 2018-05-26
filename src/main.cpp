@@ -191,7 +191,7 @@ int main()
             if((*itZombie)->getX() > player->getX() - 300 &&  (*itZombie)->getX() < player->getX() + 300){
                 if((*itZombie)->getY() > player->getY() - 300 &&  (*itZombie)->getY() < player->getY() + 300){
                     //(*itZombie)->becomeOffensive();
-                    //(*itZombie)->setMovementStrategy(offensive, player, game, (*itZombie), 1); //NEW
+                    (*itZombie)->setMovementStrategy(offensive, player, game, (*itZombie), 1); //NEW
                 }
             }
         }

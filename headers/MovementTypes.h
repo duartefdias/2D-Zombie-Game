@@ -1,9 +1,0 @@
-//
-// Created by bob on 26-05-2018.
-//
-
-#ifndef ZOMBIEGAME_MOVEMENTTYPES_H
-#define ZOMBIEGAME_MOVEMENTTYPES_H
-
-
-#endif //ZOMBIEGAME_MOVEMENTTYPES_H
