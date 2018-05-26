@@ -4,20 +4,23 @@
 
 #include "../headers/Zombie.h"
 
-Zombie::Zombie(Game* game) {
+void Zombie::setMovementStrategy(movementType type, Player *player, Game *game, Zombie* zombie, int speed) {
+    switch(type){
+        case roaming:
+            movementStrategy = new Roaming;
+            break;
+        case offensive:
+            movementStrategy = new Offensive;
+            break;
+        default:
+            movementStrategy = new Offensive;
+            break;
+    }
+}
+
+Zombie::Zombie(movementType type, Player* player, Game* game, Zombie* zombie, int speed) {
     X = 20;
     Y = 20;
-
-    int choice = rand() % 5;
-
-    if(choice < 3){
-        offensive = false;
-    }
-    else{
-        offensive = true;
-    }
-
-    randDirection = rand() % 4;
 
     int windowX = game->getWindow().getSize().x;
     int windowY = game->getWindow().getSize().y;
@@ -55,9 +58,25 @@ Zombie::Zombie(Game* game) {
     sprite.setScale(0.5, 0.5);
     sprite.setOrigin(95, 85);
     sprite.setPosition(X, Y);
+
+    if(type == randomize){
+        int randType = rand() % 2;
+
+        switch(randType){
+            case 0:
+                type = roaming;
+                break;
+            case 1:
+                type = offensive;
+                break;
+        }
+    }
+
+    //Choose a movement strategy
+    setMovementStrategy(type, player, game, zombie, speed);
 }
 
-void Zombie::move(Player* player, Game* game, int speed) {
+/*void Zombie::move(Player* player, Game* game, int speed) {
     float angle = 0;
 
     if(!offensive) {
@@ -125,7 +144,7 @@ void Zombie::move(Player* player, Game* game, int speed) {
     //std::cout << "moveY: " << moveY*speed << std::endl;
 
     sprite.setPosition(X, Y);
-}
+}*/
 
 void Zombie::renderSprite(Game* game) {
     game->getWindow().draw(sprite);
@@ -139,8 +158,14 @@ int Zombie::getY() {
     return Y;
 }
 
-void Zombie::becomeOffensive() {
-    if(offensive == false){
-        offensive = true;
-    }
+void Zombie::setX(int newX) {
+    X = newX;
+}
+
+void Zombie::setY(int newY) {
+    Y = newY;
+}
+
+MovementStrategy* Zombie::getMovementStrategy() {
+    return movementStrategy;
 }

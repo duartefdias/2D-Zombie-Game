@@ -204,32 +204,32 @@ src/GameCharacter.cpp.s:
 	$(MAKE) -f CMakeFiles/ZombieGame.dir/build.make CMakeFiles/ZombieGame.dir/src/GameCharacter.cpp.s
 .PHONY : src/GameCharacter.cpp.s
 
-src/Movement.o: src/Movement.cpp.o
+src/MovementTypes.o: src/MovementTypes.cpp.o
 
-.PHONY : src/Movement.o
+.PHONY : src/MovementTypes.o
 
 # target to build an object file
-src/Movement.cpp.o:
-	$(MAKE) -f CMakeFiles/ZombieGame.dir/build.make CMakeFiles/ZombieGame.dir/src/Movement.cpp.o
-.PHONY : src/Movement.cpp.o
+src/MovementTypes.cpp.o:
+	$(MAKE) -f CMakeFiles/ZombieGame.dir/build.make CMakeFiles/ZombieGame.dir/src/MovementTypes.cpp.o
+.PHONY : src/MovementTypes.cpp.o
 
-src/Movement.i: src/Movement.cpp.i
+src/MovementTypes.i: src/MovementTypes.cpp.i
 
-.PHONY : src/Movement.i
+.PHONY : src/MovementTypes.i
 
 # target to preprocess a source file
-src/Movement.cpp.i:
-	$(MAKE) -f CMakeFiles/ZombieGame.dir/build.make CMakeFiles/ZombieGame.dir/src/Movement.cpp.i
-.PHONY : src/Movement.cpp.i
+src/MovementTypes.cpp.i:
+	$(MAKE) -f CMakeFiles/ZombieGame.dir/build.make CMakeFiles/ZombieGame.dir/src/MovementTypes.cpp.i
+.PHONY : src/MovementTypes.cpp.i
 
-src/Movement.s: src/Movement.cpp.s
+src/MovementTypes.s: src/MovementTypes.cpp.s
 
-.PHONY : src/Movement.s
+.PHONY : src/MovementTypes.s
 
 # target to generate assembly for a file
-src/Movement.cpp.s:
-	$(MAKE) -f CMakeFiles/ZombieGame.dir/build.make CMakeFiles/ZombieGame.dir/src/Movement.cpp.s
-.PHONY : src/Movement.cpp.s
+src/MovementTypes.cpp.s:
+	$(MAKE) -f CMakeFiles/ZombieGame.dir/build.make CMakeFiles/ZombieGame.dir/src/MovementTypes.cpp.s
+.PHONY : src/MovementTypes.cpp.s
 
 src/Player.o: src/Player.cpp.o
 
@@ -384,9 +384,9 @@ help:
 	@echo "... src/GameCharacter.o"
 	@echo "... src/GameCharacter.i"
 	@echo "... src/GameCharacter.s"
-	@echo "... src/Movement.o"
-	@echo "... src/Movement.i"
-	@echo "... src/Movement.s"
+	@echo "... src/MovementTypes.o"
+	@echo "... src/MovementTypes.i"
+	@echo "... src/MovementTypes.s"
 	@echo "... src/Player.o"
 	@echo "... src/Player.i"
 	@echo "... src/Player.s"
