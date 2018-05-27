@@ -141,7 +141,7 @@ int main()
             if(zombieFrequency > 100) {
                 zombieFrequency -= 10;
             }
-            Zombie* toSpawn = new Zombie(randomize, player, game, toSpawn, 1); //NEW
+            Zombie* toSpawn = new Zombie(randomize, player, game, toSpawn, 1);
             toSpawn->movementStrategy->sayHi();
             zombies.push_back(toSpawn);
             game->incrementZombiesSpawned();
@@ -169,6 +169,7 @@ int main()
                             if(itZombie == zombies.end()){
                                 itZombie = zombies.begin(); //This prevents segmentation fault
                             }
+                            //Subject Observer design pattern - notifies all observers
                             game->notify(zombiesKilled, game->getZombiesKilled());
                         }
                     }
@@ -193,7 +194,7 @@ int main()
             if((*itZombie)->getX() > player->getX() - 300 &&  (*itZombie)->getX() < player->getX() + 300){
                 if((*itZombie)->getY() > player->getY() - 300 &&  (*itZombie)->getY() < player->getY() + 300){
                     //(*itZombie)->becomeOffensive();
-                    (*itZombie)->setMovementStrategy(offensive, player, game, (*itZombie), 1); //NEW
+                    (*itZombie)->setMovementStrategy(offensive, player, game, (*itZombie), 1);
                 }
             }
         }

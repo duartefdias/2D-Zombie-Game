@@ -168,7 +168,7 @@ void Game::notify(Event event, int value) {
     {
         if(*iter != 0)
         {
-            (*iter)->onNotify(event, value);
+            (*iter)->onNotify(this, event, value);
         }
     }
 }
