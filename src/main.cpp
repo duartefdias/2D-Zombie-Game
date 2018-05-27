@@ -13,6 +13,7 @@
 #include "../headers/Bullet.h"
 #include "../headers/Zombie.h"
 #include "../headers/PowerUp.h"
+#include "../headers/Achievements.h"
 
 int main()
 {
@@ -72,6 +73,8 @@ int main()
     sf::Clock clockPowerUpSpawn;
     sf::Time elapsedTimePowerUpSpawn;
     int powerUpSpawnDelay = 2000; //In milliseconds
+
+    game->addObserver(new ZombiesKilled);
 
     while (game->getWindow().isOpen())
     {
@@ -166,6 +169,7 @@ int main()
                             if(itZombie == zombies.end()){
                                 itZombie = zombies.begin(); //This prevents segmentation fault
                             }
+                            game->notify(zombiesKilled, game->getZombiesKilled());
                         }
                     }
                 }

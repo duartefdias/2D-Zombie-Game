@@ -11,7 +11,7 @@
 
 class ZombiesKilled : public Observer{
 public:
-    virtual void onNotify(Game* game, Event event, int value = 0);
+    virtual void onNotify(Event event, int value = 0);
 };
 
 #endif //ZOMBIEGAME_ACHIEVEMENTS_H

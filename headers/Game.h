@@ -7,6 +7,7 @@
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
+#include "Observer.h"
 
 class Game {
 public:
@@ -50,6 +51,10 @@ public:
     int getZombiesSpawned();
     int getZombiesKilled();
 
+    void addObserver(Observer* observer);
+    void removeObserver(Observer* observer);
+    void notify(Event event, int value);
+
 private:
     sf::RenderWindow window;
     sf::RectangleShape background;
@@ -74,6 +79,8 @@ private:
 
     int zombiesSpawned = 0;
     int zombiesKilled = 0;
+
+    std::vector<Observer*> observers; //Vector of observers
 };
 
 #endif //ZOMBIEGAME_GAME_H
