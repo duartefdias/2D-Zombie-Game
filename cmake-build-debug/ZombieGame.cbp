@@ -84,6 +84,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/Achievements.h">
+			<Option target="ZombieGame"/>
+		</Unit>
 		<Unit filename="/home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/Bullet.h">
 			<Option target="ZombieGame"/>
 		</Unit>
@@ -91,6 +94,9 @@
 			<Option target="ZombieGame"/>
 		</Unit>
 		<Unit filename="/home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/GameCharacter.h">
+			<Option target="ZombieGame"/>
+		</Unit>
+		<Unit filename="/home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/Observer.h">
 			<Option target="ZombieGame"/>
 		</Unit>
 		<Unit filename="/home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/Player.h">
@@ -103,6 +109,9 @@
 			<Option target="ZombieGame"/>
 		</Unit>
 		<Unit filename="/home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/Zombie.h">
+			<Option target="ZombieGame"/>
+		</Unit>
+		<Unit filename="/home/bob/Desktop/2DZombies/2D-Zombie-Game/src/Achievements.cpp">
 			<Option target="ZombieGame"/>
 		</Unit>
 		<Unit filename="/home/bob/Desktop/2DZombies/2D-Zombie-Game/src/Bullet.cpp">

@@ -45,6 +45,11 @@ public:
     void setZombieFrequency(int value);
     int getZombieFrequencyAux();
 
+    void incrementZombiesSpawned();
+    void incrementZombiesKilled();
+    int getZombiesSpawned();
+    int getZombiesKilled();
+
 private:
     sf::RenderWindow window;
     sf::RectangleShape background;
@@ -66,6 +71,9 @@ private:
     int bulletFrequency = 300;
     int zombieFrequency = 1000;
     int zombieFrequencyAux = 1000;
+
+    int zombiesSpawned = 0;
+    int zombiesKilled = 0;
 };
 
 #endif //ZOMBIEGAME_GAME_H

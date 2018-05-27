@@ -123,6 +123,33 @@ ZombieGame/fast:
 	$(MAKE) -f CMakeFiles/ZombieGame.dir/build.make CMakeFiles/ZombieGame.dir/build
 .PHONY : ZombieGame/fast
 
+src/Achievements.o: src/Achievements.cpp.o
+
+.PHONY : src/Achievements.o
+
+# target to build an object file
+src/Achievements.cpp.o:
+	$(MAKE) -f CMakeFiles/ZombieGame.dir/build.make CMakeFiles/ZombieGame.dir/src/Achievements.cpp.o
+.PHONY : src/Achievements.cpp.o
+
+src/Achievements.i: src/Achievements.cpp.i
+
+.PHONY : src/Achievements.i
+
+# target to preprocess a source file
+src/Achievements.cpp.i:
+	$(MAKE) -f CMakeFiles/ZombieGame.dir/build.make CMakeFiles/ZombieGame.dir/src/Achievements.cpp.i
+.PHONY : src/Achievements.cpp.i
+
+src/Achievements.s: src/Achievements.cpp.s
+
+.PHONY : src/Achievements.s
+
+# target to generate assembly for a file
+src/Achievements.cpp.s:
+	$(MAKE) -f CMakeFiles/ZombieGame.dir/build.make CMakeFiles/ZombieGame.dir/src/Achievements.cpp.s
+.PHONY : src/Achievements.cpp.s
+
 src/Bullet.o: src/Bullet.cpp.o
 
 .PHONY : src/Bullet.o
@@ -375,6 +402,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... ZombieGame"
+	@echo "... src/Achievements.o"
+	@echo "... src/Achievements.i"
+	@echo "... src/Achievements.s"
 	@echo "... src/Bullet.o"
 	@echo "... src/Bullet.i"
 	@echo "... src/Bullet.s"

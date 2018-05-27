@@ -6,6 +6,12 @@
 
 #IncludeRegexTransform: 
 
+/home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/Achievements.h
+iostream
+-
+Observer.h
+/home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/Observer.h
+
 /home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/Bullet.h
 SFML/Graphics.hpp
 -
@@ -36,6 +42,10 @@ iostream
 math.h
 -
 ../headers/Game.h
+/home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/Game.h
+
+/home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/Observer.h
+Game.h
 /home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/Game.h
 
 /home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/Player.h
@@ -75,6 +85,10 @@ iostream
 -
 math.h
 -
+
+/home/bob/Desktop/2DZombies/2D-Zombie-Game/src/Achievements.cpp
+../headers/Achievements.h
+/home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/Achievements.h
 
 /home/bob/Desktop/2DZombies/2D-Zombie-Game/src/Bullet.cpp
 ../headers/Bullet.h

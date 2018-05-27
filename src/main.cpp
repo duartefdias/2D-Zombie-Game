@@ -64,9 +64,6 @@ int main()
     //List of zombies
     std::list<Zombie*> zombies;
 
-    //Number zombies created
-    int zombieIndex = 0;
-
     //PowerUp
     PowerUp* powerUp; //NEW
     sf::Clock clockPowerUp;
@@ -144,9 +141,9 @@ int main()
             Zombie* toSpawn = new Zombie(randomize, player, game, toSpawn, 1); //NEW
             toSpawn->movementStrategy->sayHi();
             zombies.push_back(toSpawn);
-            zombieIndex += 1;
+            game->incrementZombiesSpawned();
             clockZombies.restart();
-            std::cout << "Zombie " << zombieIndex + 1 << " created! Run!" << std::endl;
+            std::cout << "Zombie " << game->getZombiesSpawned() + 1 << " created! Run!" << std::endl;
 
         }
 
@@ -165,6 +162,7 @@ int main()
                             itZombie = zombies.erase(itZombie); //remove from the list and take next
                             game->zombieSFX();
                             game->incrementGameScore();
+                            game->incrementZombiesKilled();
                             if(itZombie == zombies.end()){
                                 itZombie = zombies.begin(); //This prevents segmentation fault
                             }

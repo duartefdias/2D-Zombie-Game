@@ -1,5 +1,6 @@
 //
 // Created by bob on 26-05-2018.
+//Here we define every type of movement that a zombie can have.
 //
 
 #include "../headers/Zombie.h"
