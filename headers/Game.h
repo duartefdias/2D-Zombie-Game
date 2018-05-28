@@ -45,6 +45,7 @@ public:
     void setBulletFrequency(int value);
     void setZombieFrequency(int value);
     int getZombieFrequencyAux();
+    void setZombieFrequencyAux(int value);
 
     void incrementZombiesSpawned();
     void incrementZombiesKilled();
@@ -75,7 +76,7 @@ private:
     sf::SoundBuffer zombieBuffer;
     sf::Sound zombieDeathSFX;
 
-    int bulletFrequency = 300;
+    int bulletFrequency = 300; //In milliseconds (1000 milliseconds = 1 second)
     int zombieFrequency = 1000;
     int zombieFrequencyAux = 1000;
 

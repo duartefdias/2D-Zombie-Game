@@ -15,7 +15,7 @@ public:
 
 private:
 
-    std::string text = "efef";
+    std::string text;
     bool runOnce = false;
 };
 

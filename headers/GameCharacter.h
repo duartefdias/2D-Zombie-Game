@@ -20,6 +20,7 @@ class GameCharacter{
 public:
 
     GameCharacter();
+    ~GameCharacter();
 
     virtual void setupSprite();
     void renderSprite(Game* game);

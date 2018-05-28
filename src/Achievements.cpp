@@ -14,15 +14,27 @@ void ZombiesKilled::onNotify(Game* game, Event event, int value) {
         displayText.setCharacterSize(30);
         displayText.setFillColor(sf::Color::Red);
         displayText.setStyle(sf::Text::Bold);
-        displayText.setPosition(200, 150);
+        displayText.setOrigin(1100, 15);
+        displayText.setPosition(1170, 15);
         displayText.setFont(textFont);
     }
 
     if(event == zombiesKilled){
 
-        if(value == 10){
+        if(value == 0){
+            text = "The zombies are coming!";
+        }
+        else if(value == 10){
             //You killed your first 10 zombies!
             text = "You killed your first 10 zombies!";
+        }
+        else if(value == 30){
+            text = "Zombies are coming faster!";
+        }
+        else if((value % 100) == 0){
+            //"value" kills! You are a master zombie slayer!
+            text = std::to_string(value);
+            text += " kills! You're a master zombie slayer!";
         }
         else if((value % 20) == 0){
             //Wow!! You killed "value" zombies!!
@@ -31,10 +43,8 @@ void ZombiesKilled::onNotify(Game* game, Event event, int value) {
             text += std::to_string(value);
             text += " zombies!";
         }
-        else if((value % 100) == 0){
-            //"value" kills! You are a master zombie slayer!
-        }
         displayText.setString(text);
+        displayText.setOrigin(displayText.getLocalBounds().width, 0);
         game->getWindow().draw(displayText);
         runOnce = true;
     }

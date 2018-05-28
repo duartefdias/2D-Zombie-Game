@@ -139,6 +139,10 @@ int Game::getZombieFrequencyAux(){
     return zombieFrequencyAux;
 }
 
+void Game::setZombieFrequencyAux(int value){
+    zombieFrequencyAux = value;
+}
+
 void Game::incrementZombiesSpawned() {
     zombiesSpawned++;
 }

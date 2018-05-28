@@ -6,6 +6,8 @@
 
 GameCharacter::GameCharacter() {}
 
+GameCharacter::~GameCharacter() {}
+
 void GameCharacter::setupSprite() {
     sprite.setPosition(X, Y);
     spriteTexture.loadFromFile("../assets/sprites/player/player_spriteT.png");
