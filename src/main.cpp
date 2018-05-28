@@ -75,6 +75,7 @@ int main()
     int powerUpSpawnDelay = 2000; //In milliseconds
 
     game->addObserver(new ZombiesKilled);
+    game->addObserver(new TimeSurvived);
 
     while (game->getWindow().isOpen())
     {
@@ -109,6 +110,7 @@ int main()
             (*it)->getMovementStrategy()->doMove(player, game, (*it), 2);//NEW
         }
 
+        game->notify(zombiesKilled, game->getZombiesKilled());
         game->getWindow().display();
 
         //W, D, S, A movement keys
@@ -142,7 +144,6 @@ int main()
                 zombieFrequency -= 10;
             }
             Zombie* toSpawn = new Zombie(randomize, player, game, toSpawn, 1);
-            toSpawn->movementStrategy->sayHi();
             zombies.push_back(toSpawn);
             game->incrementZombiesSpawned();
             clockZombies.restart();
@@ -170,7 +171,7 @@ int main()
                                 itZombie = zombies.begin(); //This prevents segmentation fault
                             }
                             //Subject Observer design pattern - notifies all observers
-                            game->notify(zombiesKilled, game->getZombiesKilled());
+                            //game->notify(zombiesKilled, game->getZombiesKilled());
                         }
                     }
                 }
@@ -226,6 +227,10 @@ int main()
                 powerUp->endPower(game);
                 clockPowerUp.restart();
                 powerUpOnMap = false;
+
+                //Notify time survived
+                //This will happen once every 4 seconds
+                game->notify(timeSurvived, game->getTimeSurvived());
             }
         }
 

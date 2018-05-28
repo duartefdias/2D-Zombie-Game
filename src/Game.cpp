@@ -172,3 +172,8 @@ void Game::notify(Event event, int value) {
         }
     }
 }
+
+int Game::getTimeSurvived() {
+    sf::Time elapsedTime = gameClock.getElapsedTime();
+    return (int) elapsedTime.asSeconds();
+}

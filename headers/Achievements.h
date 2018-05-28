@@ -12,6 +12,16 @@
 class ZombiesKilled : public Observer{
 public:
     virtual void onNotify(Game* game, Event event, int value = 0);
+
+private:
+
+    std::string text = "efef";
+    bool runOnce = false;
+};
+
+class TimeSurvived : public Observer{
+public:
+    virtual void onNotify(Game* game, Event event, int value = 0);
 };
 
 #endif //ZOMBIEGAME_ACHIEVEMENTS_H

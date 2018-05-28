@@ -47,6 +47,10 @@ math.h
 /home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/Game.h
 
 /home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/Observer.h
+SFML/Audio.hpp
+-
+SFML/Graphics.hpp
+-
 
 /home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/Player.h
 Game.h
@@ -89,6 +93,8 @@ math.h
 /home/bob/Desktop/2DZombies/2D-Zombie-Game/src/Achievements.cpp
 ../headers/Achievements.h
 /home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/Achievements.h
+../headers/Game.h
+/home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/Game.h
 
 /home/bob/Desktop/2DZombies/2D-Zombie-Game/src/Bullet.cpp
 ../headers/Bullet.h

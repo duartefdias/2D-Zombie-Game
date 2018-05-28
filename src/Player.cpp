@@ -24,14 +24,14 @@ void Player::move(Game* game, float speed) {
         if (X <= windowWidth - 80)
             X += 5 * speed;
         else
-            X = 820;
+            X = windowWidth - 80;
     }
     //Move DOWN
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
         if (Y <= windowHeight - 80)
             Y += 5 * speed;
         else
-            Y = 620;
+            Y = windowHeight - 80;
     }
     //Move LEFT
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {

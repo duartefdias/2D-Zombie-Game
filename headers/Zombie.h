@@ -24,9 +24,6 @@ class MovementStrategy {
 public:
 
     virtual void doMove(Player* player, Game* game, Zombie* zombie, int speed) = 0;
-    void sayHi(){
-        std::cout << "Hi from MovementStrategy" << std::endl;
-    };
 
 protected:
 

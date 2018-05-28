@@ -55,6 +55,8 @@ public:
     void removeObserver(Observer* observer);
     void notify(Event event, int value);
 
+    int getTimeSurvived();
+
 private:
     sf::RenderWindow window;
     sf::RectangleShape background;
@@ -77,10 +79,12 @@ private:
     int zombieFrequency = 1000;
     int zombieFrequencyAux = 1000;
 
+    std::vector<Observer*> observers; //Vector of observers
+
     int zombiesSpawned = 0;
     int zombiesKilled = 0;
 
-    std::vector<Observer*> observers; //Vector of observers
+    sf::Clock gameClock;
 };
 
 #endif //ZOMBIEGAME_GAME_H

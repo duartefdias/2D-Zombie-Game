@@ -3,6 +3,7 @@
 
 CMakeFiles/ZombieGame.dir/src/Achievements.cpp.o
  /home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/Achievements.h
+ /home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/Game.h
  /home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/Observer.h
  /home/bob/Desktop/2DZombies/2D-Zombie-Game/src/Achievements.cpp
 CMakeFiles/ZombieGame.dir/src/Bullet.cpp.o
