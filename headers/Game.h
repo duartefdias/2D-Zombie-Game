@@ -7,6 +7,7 @@
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
+#include "Observer.h"
 
 class Game {
 public:
@@ -44,11 +45,18 @@ public:
     void setBulletFrequency(int value);
     void setZombieFrequency(int value);
     int getZombieFrequencyAux();
+    void setZombieFrequencyAux(int value);
 
     void incrementZombiesSpawned();
     void incrementZombiesKilled();
     int getZombiesSpawned();
     int getZombiesKilled();
+
+    void addObserver(Observer* observer);
+    void removeObserver(Observer* observer);
+    void notify(Event event, int value);
+
+    int getTimeSurvived();
 
 private:
     sf::RenderWindow window;
@@ -68,12 +76,16 @@ private:
     sf::SoundBuffer zombieBuffer;
     sf::Sound zombieDeathSFX;
 
-    int bulletFrequency = 300;
+    int bulletFrequency = 300; //In milliseconds (1000 milliseconds = 1 second)
     int zombieFrequency = 1000;
     int zombieFrequencyAux = 1000;
 
+    std::vector<Observer*> observers; //Vector of observers
+
     int zombiesSpawned = 0;
     int zombiesKilled = 0;
+
+    sf::Clock gameClock;
 };
 
 #endif //ZOMBIEGAME_GAME_H

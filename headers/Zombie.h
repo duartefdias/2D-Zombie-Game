@@ -24,9 +24,6 @@ class MovementStrategy {
 public:
 
     virtual void doMove(Player* player, Game* game, Zombie* zombie, int speed) = 0;
-    void sayHi(){
-        std::cout << "Hi from MovementStrategy" << std::endl;
-    };
 
 protected:
 
@@ -39,7 +36,7 @@ protected:
 class Zombie : public GameCharacter{
 public:
 
-    Zombie(movementType type, Player* player, Game* game, Zombie* zombie, int speed);
+    Zombie(movementType type, Player* player, Game* game, int speed);
 
     //void move(Player* player, Game* game, int speed = 1);
 
@@ -65,9 +62,7 @@ protected:
 //TYPES OF ZOMBIE MOVEMENT
 class Roaming : public MovementStrategy{
 public:
-    Roaming(){
-        randDirection = rand() % 4;
-    }
+    Roaming(){ randDirection = rand() % 4; }
     virtual void doMove(Player* player, Game* game, Zombie* zombie, int speed);
 
 private:

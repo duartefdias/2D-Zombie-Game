@@ -18,7 +18,7 @@ void Zombie::setMovementStrategy(movementType type, Player *player, Game *game, 
     }
 }
 
-Zombie::Zombie(movementType type, Player* player, Game* game, Zombie* zombie, int speed) {
+Zombie::Zombie(movementType type, Player* player, Game* game, int speed) {
     X = 20;
     Y = 20;
 
@@ -73,7 +73,7 @@ Zombie::Zombie(movementType type, Player* player, Game* game, Zombie* zombie, in
     }
 
     //Choose a movement strategy
-    setMovementStrategy(type, player, game, zombie, speed);
+    setMovementStrategy(type, player, game, this, speed);
 }
 
 /*void Zombie::move(Player* player, Game* game, int speed) {

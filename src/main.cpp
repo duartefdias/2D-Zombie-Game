@@ -13,6 +13,7 @@
 #include "../headers/Bullet.h"
 #include "../headers/Zombie.h"
 #include "../headers/PowerUp.h"
+#include "../headers/Achievements.h"
 
 int main()
 {
@@ -51,7 +52,6 @@ int main()
     //Game Clock for bullets
     sf::Clock clock;
     sf::Time elapsedTime;
-    int bulletFrequency = 300; //In milliseconds (1000 milliseconds = 1 second)zz
 
     //List of bullets
     std::list<Bullet*> bullets;
@@ -59,7 +59,6 @@ int main()
     //Game Clock for zombies
     sf::Clock clockZombies;
     sf::Time elapsedTimeZombies;
-    int zombieFrequency = 1000; //In milliseconds (1000 milliseconds = 1 second)
 
     //List of zombies
     std::list<Zombie*> zombies;
@@ -72,6 +71,9 @@ int main()
     sf::Clock clockPowerUpSpawn;
     sf::Time elapsedTimePowerUpSpawn;
     int powerUpSpawnDelay = 2000; //In milliseconds
+
+    game->addObserver(new ZombiesKilled);
+    game->addObserver(new TimeSurvived);
 
     while (game->getWindow().isOpen())
     {
@@ -106,6 +108,8 @@ int main()
             (*it)->getMovementStrategy()->doMove(player, game, (*it), 2);//NEW
         }
 
+        //Subject Observer design pattern - notifies all observers
+        game->notify(zombiesKilled, game->getZombiesKilled());
         game->getWindow().display();
 
         //W, D, S, A movement keys
@@ -116,8 +120,7 @@ int main()
         if(player->shoot()) {
             elapsedTime = clock.getElapsedTime();
             if((int) elapsedTime.asMilliseconds() > game->getBulletFrequency()) {
-                Bullet* toShoot = new Bullet(player->getX(), player->getY(), game->getMouse().getPosition(game->getWindow()).x, game->getMouse().getPosition(game->getWindow()).y);
-                bullets.push_back(toShoot);
+                bullets.push_back(new Bullet(player->getX(), player->getY(), game->getMouse().getPosition(game->getWindow()).x, game->getMouse().getPosition(game->getWindow()).y));
                 game->bulletSFX();
                 clock.restart();
                 std::cout << "BAAAAAM" << std::endl;
@@ -135,12 +138,10 @@ int main()
         //Create new zombie every 2 seconds
         elapsedTimeZombies = clockZombies.getElapsedTime();
         if ((int) elapsedTimeZombies.asMilliseconds() > game->getZombieFrequency()) {
-            if(zombieFrequency > 100) {
-                zombieFrequency -= 10;
+            if(game->getZombieFrequency() > 100) {
+                game->setZombieFrequency(game->getZombieFrequency() - 10);
             }
-            Zombie* toSpawn = new Zombie(randomize, player, game, toSpawn, 1); //NEW
-            toSpawn->movementStrategy->sayHi();
-            zombies.push_back(toSpawn);
+            zombies.push_back(new Zombie(randomize, player, game, 1));
             game->incrementZombiesSpawned();
             clockZombies.restart();
             std::cout << "Zombie " << game->getZombiesSpawned() + 1 << " created! Run!" << std::endl;
@@ -158,6 +159,7 @@ int main()
                             delete (*itBullet);
                             itBullet = bullets.erase(itBullet); //remove from the list and take next
                             //Deletion of zombie
+                            delete (*itZombie)->movementStrategy;
                             delete (*itZombie);
                             itZombie = zombies.erase(itZombie); //remove from the list and take next
                             game->zombieSFX();
@@ -189,7 +191,7 @@ int main()
             if((*itZombie)->getX() > player->getX() - 300 &&  (*itZombie)->getX() < player->getX() + 300){
                 if((*itZombie)->getY() > player->getY() - 300 &&  (*itZombie)->getY() < player->getY() + 300){
                     //(*itZombie)->becomeOffensive();
-                    (*itZombie)->setMovementStrategy(offensive, player, game, (*itZombie), 1); //NEW
+                    (*itZombie)->setMovementStrategy(offensive, player, game, (*itZombie), 1);
                 }
             }
         }
@@ -221,6 +223,10 @@ int main()
                 powerUp->endPower(game);
                 clockPowerUp.restart();
                 powerUpOnMap = false;
+
+                //Notify time survived
+                //This will happen once every 4 seconds
+                game->notify(timeSurvived, game->getTimeSurvived());
             }
         }
 

@@ -21,6 +21,7 @@ void Ammo::startPower(Game* game) {
 
 void Ammo::endPower(Game *game) {
     game->setBulletFrequency(300);
+    delete this;
 }
 
 
@@ -36,9 +37,11 @@ ZombieOverload::ZombieOverload(Game *game) : PowerUp(game) {
 }
 
 void ZombieOverload::startPower(Game *game) {
+    game->setZombieFrequencyAux(game->getZombieFrequency());
     game->setZombieFrequency(200);
 }
 
 void ZombieOverload::endPower(Game *game) {
     game->setZombieFrequency(game->getZombieFrequencyAux());
+    delete this;
 }

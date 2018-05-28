@@ -139,6 +139,10 @@ int Game::getZombieFrequencyAux(){
     return zombieFrequencyAux;
 }
 
+void Game::setZombieFrequencyAux(int value){
+    zombieFrequencyAux = value;
+}
+
 void Game::incrementZombiesSpawned() {
     zombiesSpawned++;
 }
@@ -153,4 +157,27 @@ int Game::getZombiesSpawned() {
 
 int Game::getZombiesKilled() {
     return zombiesKilled;
+}
+
+void Game::addObserver(Observer* observer) {
+    observers.push_back(observer);
+}
+
+void Game::removeObserver(Observer *observer) {
+    observers.erase(std::remove(observers.begin(), observers.end(), observer), observers.end());
+}
+
+void Game::notify(Event event, int value) {
+    for(std::vector<Observer*>::const_iterator iter = observers.begin(); iter != observers.end(); ++iter)
+    {
+        if(*iter != 0)
+        {
+            (*iter)->onNotify(this, event, value);
+        }
+    }
+}
+
+int Game::getTimeSurvived() {
+    sf::Time elapsedTime = gameClock.getElapsedTime();
+    return (int) elapsedTime.asSeconds();
 }

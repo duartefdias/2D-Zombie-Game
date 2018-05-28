@@ -16,13 +16,14 @@
 
 #include "Game.h"
 
+enum poweUpType {ammo, zombieOverload};
+
 class PowerUp{
 public:
     PowerUp(Game* game);
 
     //This is a factory method
     //It creates different PowerUps based on the "type"
-    //Todo: Use class enum instead of int type
     static PowerUp *makePowerUp(Game* game, int type);
 
     int getX();

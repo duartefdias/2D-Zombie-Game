@@ -9,45 +9,55 @@ CMakeFiles/ZombieGame.dir/src/Achievements.cpp.o: ../src/Achievements.cpp
 CMakeFiles/ZombieGame.dir/src/Bullet.cpp.o: ../headers/Bullet.h
 CMakeFiles/ZombieGame.dir/src/Bullet.cpp.o: ../headers/Game.h
 CMakeFiles/ZombieGame.dir/src/Bullet.cpp.o: ../headers/GameCharacter.h
+CMakeFiles/ZombieGame.dir/src/Bullet.cpp.o: ../headers/Observer.h
 CMakeFiles/ZombieGame.dir/src/Bullet.cpp.o: ../src/Bullet.cpp
 
 CMakeFiles/ZombieGame.dir/src/Game.cpp.o: ../headers/Game.h
+CMakeFiles/ZombieGame.dir/src/Game.cpp.o: ../headers/Observer.h
 CMakeFiles/ZombieGame.dir/src/Game.cpp.o: ../src/Game.cpp
 
 CMakeFiles/ZombieGame.dir/src/GameCharacter.cpp.o: ../headers/Game.h
 CMakeFiles/ZombieGame.dir/src/GameCharacter.cpp.o: ../headers/GameCharacter.h
+CMakeFiles/ZombieGame.dir/src/GameCharacter.cpp.o: ../headers/Observer.h
 CMakeFiles/ZombieGame.dir/src/GameCharacter.cpp.o: ../src/GameCharacter.cpp
 
 CMakeFiles/ZombieGame.dir/src/MovementTypes.cpp.o: ../headers/Game.h
 CMakeFiles/ZombieGame.dir/src/MovementTypes.cpp.o: ../headers/GameCharacter.h
+CMakeFiles/ZombieGame.dir/src/MovementTypes.cpp.o: ../headers/Observer.h
 CMakeFiles/ZombieGame.dir/src/MovementTypes.cpp.o: ../headers/Player.h
 CMakeFiles/ZombieGame.dir/src/MovementTypes.cpp.o: ../headers/Zombie.h
 CMakeFiles/ZombieGame.dir/src/MovementTypes.cpp.o: ../src/MovementTypes.cpp
 
 CMakeFiles/ZombieGame.dir/src/Player.cpp.o: ../headers/Game.h
 CMakeFiles/ZombieGame.dir/src/Player.cpp.o: ../headers/GameCharacter.h
+CMakeFiles/ZombieGame.dir/src/Player.cpp.o: ../headers/Observer.h
 CMakeFiles/ZombieGame.dir/src/Player.cpp.o: ../headers/Player.h
 CMakeFiles/ZombieGame.dir/src/Player.cpp.o: ../src/Player.cpp
 
 CMakeFiles/ZombieGame.dir/src/PowerUp.cpp.o: ../headers/Game.h
+CMakeFiles/ZombieGame.dir/src/PowerUp.cpp.o: ../headers/Observer.h
 CMakeFiles/ZombieGame.dir/src/PowerUp.cpp.o: ../headers/PowerUp.h
 CMakeFiles/ZombieGame.dir/src/PowerUp.cpp.o: ../headers/Powers.h
 CMakeFiles/ZombieGame.dir/src/PowerUp.cpp.o: ../src/PowerUp.cpp
 
 CMakeFiles/ZombieGame.dir/src/Powers.cpp.o: ../headers/Game.h
+CMakeFiles/ZombieGame.dir/src/Powers.cpp.o: ../headers/Observer.h
 CMakeFiles/ZombieGame.dir/src/Powers.cpp.o: ../headers/PowerUp.h
 CMakeFiles/ZombieGame.dir/src/Powers.cpp.o: ../headers/Powers.h
 CMakeFiles/ZombieGame.dir/src/Powers.cpp.o: ../src/Powers.cpp
 
 CMakeFiles/ZombieGame.dir/src/Zombie.cpp.o: ../headers/Game.h
 CMakeFiles/ZombieGame.dir/src/Zombie.cpp.o: ../headers/GameCharacter.h
+CMakeFiles/ZombieGame.dir/src/Zombie.cpp.o: ../headers/Observer.h
 CMakeFiles/ZombieGame.dir/src/Zombie.cpp.o: ../headers/Player.h
 CMakeFiles/ZombieGame.dir/src/Zombie.cpp.o: ../headers/Zombie.h
 CMakeFiles/ZombieGame.dir/src/Zombie.cpp.o: ../src/Zombie.cpp
 
+CMakeFiles/ZombieGame.dir/src/main.cpp.o: ../headers/Achievements.h
 CMakeFiles/ZombieGame.dir/src/main.cpp.o: ../headers/Bullet.h
 CMakeFiles/ZombieGame.dir/src/main.cpp.o: ../headers/Game.h
 CMakeFiles/ZombieGame.dir/src/main.cpp.o: ../headers/GameCharacter.h
+CMakeFiles/ZombieGame.dir/src/main.cpp.o: ../headers/Observer.h
 CMakeFiles/ZombieGame.dir/src/main.cpp.o: ../headers/Player.h
 CMakeFiles/ZombieGame.dir/src/main.cpp.o: ../headers/PowerUp.h
 CMakeFiles/ZombieGame.dir/src/main.cpp.o: ../headers/Zombie.h
