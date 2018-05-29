@@ -40,6 +40,10 @@ void Player::move(Game* game, float speed) {
         else
             X = 10;
     }
+    //Cheat
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::L)) {
+        game->setBulletFrequency(35);
+    }
     sprite.setPosition(X, Y);
 }
 

@@ -16,11 +16,11 @@ Ammo::Ammo(Game *game) : PowerUp(game) {
 }
 
 void Ammo::startPower(Game* game) {
-    game->setBulletFrequency(50);
+    game->setBulletFrequency(100);
 }
 
 void Ammo::endPower(Game *game) {
-    game->setBulletFrequency(300);
+    game->setBulletFrequency(game->getBulletFrequencyAux());
     delete this;
 }
 

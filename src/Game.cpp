@@ -181,3 +181,11 @@ int Game::getTimeSurvived() {
     sf::Time elapsedTime = gameClock.getElapsedTime();
     return (int) elapsedTime.asSeconds();
 }
+
+void Game::setBulletFrequencyAux(int value) {
+    bulletFrequencyAux = value;
+}
+
+int Game::getBulletFrequencyAux() {
+    return bulletFrequencyAux;
+}

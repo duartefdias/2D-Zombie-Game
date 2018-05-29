@@ -38,7 +38,6 @@ void ZombiesKilled::onNotify(Game* game, Event event, int value) {
         }
         else if((value % 20) == 0){
             //Wow!! You killed "value" zombies!!
-            std::cout << "Wow! You killed " << value << " zombies!" << std::endl;
             text = "Wow! You killed ";
             text += std::to_string(value);
             text += " zombies!";
