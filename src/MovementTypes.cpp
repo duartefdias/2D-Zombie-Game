@@ -5,7 +5,7 @@
 
 #include "../headers/Zombie.h"
 
-void Roaming::doMove(Player *player, std::shared_ptr<Game> game, Zombie* zombie, int speed) {
+void Roaming::doMove(std::shared_ptr<Player> player, std::shared_ptr<Game> game, Zombie* zombie, int speed) {
     float angle = 0;
     int X = zombie->getX(), Y = zombie->getY();
 
@@ -59,7 +59,7 @@ void Roaming::doMove(Player *player, std::shared_ptr<Game> game, Zombie* zombie,
     zombie->getSprite().setPosition(X, Y);
 }
 
-void Offensive::doMove(Player *player, std::shared_ptr<Game> game, Zombie* zombie, int speed) {
+void Offensive::doMove(std::shared_ptr<Player> player, std::shared_ptr<Game> game, Zombie* zombie, int speed) {
     //Zombie moves torwards player
     float angle = 0;
     int X = zombie->getX(), Y = zombie->getY();

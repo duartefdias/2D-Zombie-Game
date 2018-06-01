@@ -47,7 +47,7 @@ int main()
     game->getScoreString().setFont(game->getScoreStringFont());
 
     //Create player
-    Player* player = new Player((game->getWindow().getSize().x)/2, (game->getWindow().getSize().y)/2);
+    std::shared_ptr<Player> player = std::make_shared<Player>((game->getWindow().getSize().x)/2, (game->getWindow().getSize().y)/2);
     player->setupSprite();
 
     //Game Clock for bullets
@@ -65,7 +65,7 @@ int main()
     std::list<Zombie*> zombies;
 
     //PowerUp
-    PowerUp* powerUp; //NEW
+    PowerUp* powerUp;
     sf::Clock clockPowerUp;
     sf::Time elapsedTimePowerUp;
     bool powerUpOnMap = false;
@@ -97,13 +97,13 @@ int main()
         player->renderSprite(game);
 
         //Draw all bullets
-        for(std::list<Bullet*>::iterator it = bullets.begin(); it != bullets.end(); ++it){
+        for(auto it = bullets.begin(); it != bullets.end(); ++it){
             (*it)->renderSprite(game);
             (*it)->move(10);
         }
 
         //Draw all zombies
-        for(std::list<Zombie*>::iterator it = zombies.begin(); it != zombies.end(); ++it){
+        for(auto it = zombies.begin(); it != zombies.end(); ++it){
             (*it)->renderSprite(game);
             //(*it)->move(player, game, 2);
             (*it)->getMovementStrategy()->doMove(player, game, (*it), 2);//NEW
@@ -128,7 +128,7 @@ int main()
         }
 
         //Remove bullets that are out of the screen
-        for(std::list<Bullet*>::iterator it = bullets.begin(); it != bullets.end(); ++it){
+        for(auto it = bullets.begin(); it != bullets.end(); ++it){
             if((*it)->isOutOfScreen(game)){
                 delete (*it);
                 bullets.erase(it++); //remove from the list and take next
@@ -150,8 +150,8 @@ int main()
 
         //Check Zombie <-> Bullet collision and eliminate both
         //Compares every zombie to every bullet
-        for(std::list<Zombie*>::iterator itZombie = zombies.begin(); itZombie != zombies.end(); ++itZombie){
-            for(std::list<Bullet*>::iterator itBullet = bullets.begin(); itBullet != bullets.end(); ++itBullet){
+        for(auto itZombie = zombies.begin(); itZombie != zombies.end(); ++itZombie){
+            for(auto itBullet = bullets.begin(); itBullet != bullets.end(); ++itBullet){
                 if((*itZombie) != nullptr && (*itBullet) != nullptr){
                     if((*itZombie)->getX() > (*itBullet)->getBulletX() - 40 &&  (*itZombie)->getX() < (*itBullet)->getBulletX() + 40){
                         if((*itZombie)->getY() > (*itBullet)->getBulletY() - 40 &&  (*itZombie)->getY() < (*itBullet)->getBulletY() + 40){
@@ -176,7 +176,7 @@ int main()
 
         //Check Zombie <-> Player collision and kill Player
         //Iterates through every zombie and compares it to the player's position
-        for(std::list<Zombie*>::iterator itZombie = zombies.begin(); itZombie != zombies.end(); ++itZombie){
+        for(auto itZombie = zombies.begin(); itZombie != zombies.end(); ++itZombie){
             if((*itZombie)->getX() > player->getX() - 40 &&  (*itZombie)->getX() < player->getX() + 40){
                 if((*itZombie)->getY() > player->getY() - 40 &&  (*itZombie)->getY() < player->getY() + 40){
                     player->kill();
@@ -187,7 +187,7 @@ int main()
         }
 
         //Makes zombies aggressive when close to the player
-        for(std::list<Zombie*>::iterator itZombie = zombies.begin(); itZombie != zombies.end(); ++itZombie){
+        for(auto itZombie = zombies.begin(); itZombie != zombies.end(); ++itZombie){
             if((*itZombie)->getX() > player->getX() - 300 &&  (*itZombie)->getX() < player->getX() + 300){
                 if((*itZombie)->getY() > player->getY() - 300 &&  (*itZombie)->getY() < player->getY() + 300){
                     //(*itZombie)->becomeOffensive();

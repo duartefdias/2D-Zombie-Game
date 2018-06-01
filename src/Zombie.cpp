@@ -4,7 +4,7 @@
 
 #include "../headers/Zombie.h"
 
-void Zombie::setMovementStrategy(movementType type, Player *player, std::shared_ptr<Game> game, Zombie* zombie, int speed) {
+void Zombie::setMovementStrategy(movementType type, std::shared_ptr<Player> player, std::shared_ptr<Game> game, Zombie* zombie, int speed) {
     switch(type){
         case roaming:
             movementStrategy = new Roaming;
@@ -18,7 +18,7 @@ void Zombie::setMovementStrategy(movementType type, Player *player, std::shared_
     }
 }
 
-Zombie::Zombie(movementType type, Player* player, std::shared_ptr<Game> game, int speed) {
+Zombie::Zombie(movementType type, std::shared_ptr<Player> player, std::shared_ptr<Game> game, int speed) {
     X = 20;
     Y = 20;
 

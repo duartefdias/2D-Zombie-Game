@@ -13,25 +13,12 @@
   <component name="ChangeListManager">
     <list default="true" id="6a0b9a51-ded1-46b5-b13c-e67587d1c769" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/ZombieGame.dir/src/Achievements.cpp.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/ZombieGame.dir/src/MovementTypes.cpp.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/ZombieGame.dir/src/MovementTypes.cpp.o" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/ZombieGame.dir/src/Zombie.cpp.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/ZombieGame.dir/src/Zombie.cpp.o" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/ZombieGame.dir/src/main.cpp.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/ZombieGame.dir/src/main.cpp.o" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/ZombieGame" afterPath="$PROJECT_DIR$/cmake-build-debug/ZombieGame" />
-      <change beforePath="$PROJECT_DIR$/headers/Achievements.h" afterPath="$PROJECT_DIR$/headers/Achievements.h" />
-      <change beforePath="$PROJECT_DIR$/headers/Bullet.h" afterPath="$PROJECT_DIR$/headers/Bullet.h" />
-      <change beforePath="$PROJECT_DIR$/headers/Game.h" afterPath="$PROJECT_DIR$/headers/Game.h" />
-      <change beforePath="$PROJECT_DIR$/headers/GameCharacter.h" afterPath="$PROJECT_DIR$/headers/GameCharacter.h" />
-      <change beforePath="$PROJECT_DIR$/headers/Observer.h" afterPath="$PROJECT_DIR$/headers/Observer.h" />
-      <change beforePath="$PROJECT_DIR$/headers/Player.h" afterPath="$PROJECT_DIR$/headers/Player.h" />
-      <change beforePath="$PROJECT_DIR$/headers/PowerUp.h" afterPath="$PROJECT_DIR$/headers/PowerUp.h" />
-      <change beforePath="$PROJECT_DIR$/headers/Powers.h" afterPath="$PROJECT_DIR$/headers/Powers.h" />
       <change beforePath="$PROJECT_DIR$/headers/Zombie.h" afterPath="$PROJECT_DIR$/headers/Zombie.h" />
-      <change beforePath="$PROJECT_DIR$/src/Achievements.cpp" afterPath="$PROJECT_DIR$/src/Achievements.cpp" />
-      <change beforePath="$PROJECT_DIR$/src/Bullet.cpp" afterPath="$PROJECT_DIR$/src/Bullet.cpp" />
-      <change beforePath="$PROJECT_DIR$/src/Game.cpp" afterPath="$PROJECT_DIR$/src/Game.cpp" />
-      <change beforePath="$PROJECT_DIR$/src/GameCharacter.cpp" afterPath="$PROJECT_DIR$/src/GameCharacter.cpp" />
       <change beforePath="$PROJECT_DIR$/src/MovementTypes.cpp" afterPath="$PROJECT_DIR$/src/MovementTypes.cpp" />
-      <change beforePath="$PROJECT_DIR$/src/Player.cpp" afterPath="$PROJECT_DIR$/src/Player.cpp" />
-      <change beforePath="$PROJECT_DIR$/src/PowerUp.cpp" afterPath="$PROJECT_DIR$/src/PowerUp.cpp" />
-      <change beforePath="$PROJECT_DIR$/src/Powers.cpp" afterPath="$PROJECT_DIR$/src/Powers.cpp" />
       <change beforePath="$PROJECT_DIR$/src/Zombie.cpp" afterPath="$PROJECT_DIR$/src/Zombie.cpp" />
       <change beforePath="$PROJECT_DIR$/src/main.cpp" afterPath="$PROJECT_DIR$/src/main.cpp" />
     </list>
@@ -49,8 +36,8 @@
       <file leaf-file-name="main.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="469">
-              <caret line="49" column="10" lean-forward="true" selection-start-line="49" selection-start-column="10" selection-end-line="49" selection-end-column="10" />
+            <state relative-caret-position="450">
+              <caret line="67" column="21" lean-forward="false" selection-start-line="67" selection-start-column="21" selection-end-line="67" selection-end-column="21" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -61,7 +48,7 @@
       <file leaf-file-name="Game.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Game.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
+            <state relative-caret-position="231">
               <caret line="176" column="48" lean-forward="false" selection-start-line="176" selection-start-column="48" selection-end-line="176" selection-end-column="48" />
               <folding />
             </state>
@@ -91,8 +78,8 @@
       <file leaf-file-name="Powers.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/headers/Powers.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="18" column="45" lean-forward="false" selection-start-line="18" selection-start-column="45" selection-end-line="18" selection-end-column="45" />
+            <state relative-caret-position="234">
+              <caret line="13" column="39" lean-forward="false" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -108,21 +95,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameCharacter.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/headers/GameCharacter.h">
+      <file leaf-file-name="Zombie.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Zombie.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="42" column="26" lean-forward="false" selection-start-line="42" selection-start-column="20" selection-end-line="42" selection-end-column="26" />
+            <state relative-caret-position="144">
+              <caret line="20" column="64" lean-forward="false" selection-start-line="20" selection-start-column="64" selection-end-line="20" selection-end-column="64" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameCharacter.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/GameCharacter.cpp">
+      <file leaf-file-name="MovementTypes.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/MovementTypes.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="8" column="33" lean-forward="false" selection-start-line="8" selection-start-column="33" selection-end-line="8" selection-end-column="33" />
+            <state relative-caret-position="285">
+              <caret line="61" column="53" lean-forward="false" selection-start-line="61" selection-start-column="53" selection-end-line="61" selection-end-column="53" />
               <folding />
             </state>
           </provider>
@@ -131,9 +118,11 @@
       <file leaf-file-name="Player.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/headers/Player.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="42">
-              <caret line="7" column="10" lean-forward="false" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
-              <folding />
+            <state relative-caret-position="129">
+              <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+              <folding>
+                <element signature="e#97#114#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -141,8 +130,8 @@
       <file leaf-file-name="Zombie.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/headers/Zombie.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-508">
-              <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+            <state relative-caret-position="166">
+              <caret line="67" column="17" lean-forward="false" selection-start-line="67" selection-start-column="17" selection-end-line="67" selection-end-column="17" />
               <folding>
                 <element signature="e#97#114#0" expanded="true" />
               </folding>
@@ -163,12 +152,14 @@
       <find>Game*</find>
       <find>Game* game</find>
       <find>buffer</find>
+      <find>Player* player</find>
     </findStrings>
     <replaceStrings>
       <replace>iBullet</replace>
       <replace>ZombieOverload</replace>
       <replace>displayText</replace>
       <replace>std::shared_ptr&lt;Game&gt; game</replace>
+      <replace>std::shared_ptr&lt;Player&gt; player</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -183,7 +174,6 @@
         <option value="$PROJECT_DIR$/src/MovementStrategy.cpp" />
         <option value="$PROJECT_DIR$/headers/MovementStrategy.h" />
         <option value="$PROJECT_DIR$/headers/MovementTypes.h" />
-        <option value="$PROJECT_DIR$/src/MovementTypes.cpp" />
         <option value="$PROJECT_DIR$/headers/Achievements.h" />
         <option value="$PROJECT_DIR$/src/GameCharacter.cpp" />
         <option value="$PROJECT_DIR$/src/Powers.cpp" />
@@ -192,14 +182,15 @@
         <option value="$PROJECT_DIR$/src/PowerUp.cpp" />
         <option value="$PROJECT_DIR$/headers/Player.h" />
         <option value="$PROJECT_DIR$/headers/Observer.h" />
-        <option value="$PROJECT_DIR$/src/Zombie.cpp" />
-        <option value="$PROJECT_DIR$/headers/Zombie.h" />
         <option value="$PROJECT_DIR$/headers/Bullet.h" />
         <option value="$PROJECT_DIR$/headers/Game.h" />
         <option value="$PROJECT_DIR$/src/Game.cpp" />
         <option value="$PROJECT_DIR$/headers/Powers.h" />
         <option value="$PROJECT_DIR$/headers/GameCharacter.h" />
         <option value="$PROJECT_DIR$/src/Player.cpp" />
+        <option value="$PROJECT_DIR$/headers/Zombie.h" />
+        <option value="$PROJECT_DIR$/src/Zombie.cpp" />
+        <option value="$PROJECT_DIR$/src/MovementTypes.cpp" />
         <option value="$PROJECT_DIR$/src/main.cpp" />
       </list>
     </option>
@@ -305,12 +296,12 @@
       <workItem from="1527531331941" duration="1236000" />
       <workItem from="1527612980039" duration="1179000" />
       <workItem from="1527773997781" duration="3435000" />
-      <workItem from="1527887061444" duration="3624000" />
+      <workItem from="1527887061444" duration="4393000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="79529000" />
+    <option name="totallyTimeSpent" value="80298000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -533,14 +524,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MovementTypes.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="63" lean-forward="false" selection-start-line="2" selection-start-column="63" selection-end-line="2" selection-end-column="63" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Achievements.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="248">
@@ -583,14 +566,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Zombie.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Bullet.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
@@ -612,32 +587,6 @@
         <state relative-caret-position="162">
           <caret line="12" column="53" lean-forward="false" selection-start-line="12" selection-start-column="53" selection-end-line="12" selection-end-column="53" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Game.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="176" column="48" lean-forward="false" selection-start-line="176" selection-start-column="48" selection-end-line="176" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/headers/Player.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="7" column="10" lean-forward="false" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/headers/Zombie.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-508">
-          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding>
-            <element signature="e#97#114#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -665,10 +614,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/headers/Powers.h">
+    <entry file="file://$PROJECT_DIR$/src/Powers.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="18" column="45" lean-forward="false" selection-start-line="18" selection-start-column="45" selection-end-line="18" selection-end-column="45" />
+        <state relative-caret-position="198">
+          <caret line="23" column="4" lean-forward="false" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Game.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="176" column="48" lean-forward="false" selection-start-line="176" selection-start-column="48" selection-end-line="176" selection-end-column="48" />
           <folding />
         </state>
       </provider>
@@ -681,18 +638,54 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Powers.cpp">
+    <entry file="file://$PROJECT_DIR$/headers/Powers.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="23" column="4" lean-forward="false" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="4" />
+        <state relative-caret-position="234">
+          <caret line="13" column="39" lean-forward="false" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/headers/Player.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="129">
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding>
+            <element signature="e#97#114#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Zombie.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="20" column="64" lean-forward="false" selection-start-line="20" selection-start-column="64" selection-end-line="20" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/headers/Zombie.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="67" column="17" lean-forward="false" selection-start-line="67" selection-start-column="17" selection-end-line="67" selection-end-column="17" />
+          <folding>
+            <element signature="e#97#114#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MovementTypes.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="61" column="53" lean-forward="false" selection-start-line="61" selection-start-column="53" selection-end-line="61" selection-end-column="53" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="469">
-          <caret line="49" column="10" lean-forward="true" selection-start-line="49" selection-start-column="10" selection-end-line="49" selection-end-column="10" />
+        <state relative-caret-position="450">
+          <caret line="67" column="21" lean-forward="false" selection-start-line="67" selection-start-column="21" selection-end-line="67" selection-end-column="21" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>
