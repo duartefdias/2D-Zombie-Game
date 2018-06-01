@@ -19,6 +19,8 @@ SFML/Audio.hpp
 -
 iostream
 -
+tr1/memory
+-
 ../headers/Game.h
 /home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/Game.h
 ../headers/GameCharacter.h
@@ -28,6 +30,8 @@ iostream
 SFML/Graphics.hpp
 -
 SFML/Audio.hpp
+-
+list
 -
 Observer.h
 /home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/Observer.h
@@ -51,8 +55,12 @@ SFML/Audio.hpp
 -
 SFML/Graphics.hpp
 -
+tr1/memory
+-
 
 /home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/Player.h
+memory
+-
 Game.h
 /home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/Game.h
 GameCharacter.h
@@ -68,6 +76,10 @@ unistd.h
 iostream
 -
 math.h
+-
+memory
+-
+bits/shared_ptr.h
 -
 Game.h
 /home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/Game.h
@@ -88,6 +100,8 @@ Zombie.h
 iostream
 -
 math.h
+-
+tr1/memory
 -
 
 /home/bob/Desktop/2DZombies/2D-Zombie-Game/src/Achievements.cpp
@@ -150,6 +164,8 @@ chrono
 vector
 -
 list
+-
+memory
 -
 ../headers/Game.h
 /home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/Game.h

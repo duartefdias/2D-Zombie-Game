@@ -9,7 +9,7 @@ Player::Player(int x, int y) {
     Y = y - 40;
 }
 
-void Player::move(Game* game, float speed) {
+void Player::move(std::shared_ptr<Game> game, float speed) {
     int windowWidth = game->getWindow().getSize().x;
     int windowHeight = game->getWindow().getSize().y;
     //Move UP
@@ -47,7 +47,7 @@ void Player::move(Game* game, float speed) {
     sprite.setPosition(X, Y);
 }
 
-void Player::rotate(Game* game) {
+void Player::rotate(std::shared_ptr<Game> game) {
     int x = game->getMouse().getPosition(game->getWindow()).x;
     int y = game->getMouse().getPosition(game->getWindow()).y;
 
@@ -75,6 +75,6 @@ void Player::kill() {
         SFX.setVolume(100);
         SFX.play();
     }
-    usleep(1000000);
+    usleep(1500000);
     std::cout << "\nYou got killed by a zombie :(" << std::endl;
 }

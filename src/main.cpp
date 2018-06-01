@@ -6,6 +6,7 @@
 #include <chrono>
 #include <vector>
 #include <list>
+#include <memory>
 
 #include "../headers/Game.h"
 #include "../headers/GameCharacter.h"
@@ -18,7 +19,7 @@
 int main()
 {
     //Create Window
-    Game* game = new Game(1200, 900);
+    std::shared_ptr<Game> game = std::make_shared<Game>(1200, 900);
 
     //Create a rectangle for the background and set a texture for it
     game->setupBackground("../assets/textures/background1.jpg", 1200, 900);
@@ -108,8 +109,7 @@ int main()
             (*it)->getMovementStrategy()->doMove(player, game, (*it), 2);//NEW
         }
 
-        //Subject Observer design pattern - notifies all observers
-        game->notify(zombiesKilled, game->getZombiesKilled());
+
         game->getWindow().display();
 
         //W, D, S, A movement keys
@@ -214,9 +214,6 @@ int main()
                     powerUp->startPower(game);
                 }
             }
-        }
-
-        if(powerUpOnMap){
             //PowerUp ends after a few seconds
             elapsedTimePowerUp = clockPowerUp.getElapsedTime();
             if((int) elapsedTimePowerUp.asMilliseconds() > 4000){

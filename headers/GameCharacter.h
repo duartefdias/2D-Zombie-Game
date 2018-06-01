@@ -23,7 +23,7 @@ public:
     ~GameCharacter();
 
     virtual void setupSprite();
-    void renderSprite(Game* game);
+    void renderSprite(std::shared_ptr<Game> game);
     sf::Sprite & getSprite();
 
     int getX();

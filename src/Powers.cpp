@@ -6,7 +6,7 @@
 
 //AMMO
 
-Ammo::Ammo(Game *game) : PowerUp(game) {
+Ammo::Ammo(std::shared_ptr<Game> game) : PowerUp(game) {
     spriteTexture.loadFromFile("../assets/sprites/powerups/gun.png");
     sprite.setTexture(spriteTexture);
     //sprite.setTextureRect(sf::IntRect(30, 30, 220, 200)); //(minWidth, minHeight, maxWidth, maxHeight)
@@ -15,11 +15,11 @@ Ammo::Ammo(Game *game) : PowerUp(game) {
     sprite.setPosition(X, Y);
 }
 
-void Ammo::startPower(Game* game) {
+void Ammo::startPower(std::shared_ptr<Game> game) {
     game->setBulletFrequency(100);
 }
 
-void Ammo::endPower(Game *game) {
+void Ammo::endPower(std::shared_ptr<Game> game) {
     game->setBulletFrequency(game->getBulletFrequencyAux());
     delete this;
 }
@@ -27,7 +27,7 @@ void Ammo::endPower(Game *game) {
 
 //ZOMBIEOVERDOSE
 
-ZombieOverload::ZombieOverload(Game *game) : PowerUp(game) {
+ZombieOverload::ZombieOverload(std::shared_ptr<Game> game) : PowerUp(game) {
     spriteTexture.loadFromFile("../assets/sprites/powerups/graves.png");
     sprite.setTexture(spriteTexture);
     //sprite.setTextureRect(sf::IntRect(30, 30, 220, 200)); //(minWidth, minHeight, maxWidth, maxHeight)
@@ -36,12 +36,12 @@ ZombieOverload::ZombieOverload(Game *game) : PowerUp(game) {
     sprite.setPosition(X, Y);
 }
 
-void ZombieOverload::startPower(Game *game) {
+void ZombieOverload::startPower(std::shared_ptr<Game> game) {
     game->setZombieFrequencyAux(game->getZombieFrequency());
     game->setZombieFrequency(200);
 }
 
-void ZombieOverload::endPower(Game *game) {
+void ZombieOverload::endPower(std::shared_ptr<Game> game) {
     game->setZombieFrequency(game->getZombieFrequencyAux());
     delete this;
 }

@@ -5,7 +5,7 @@
 #include "../headers/Achievements.h"
 #include "../headers/Game.h"
 
-void ZombiesKilled::onNotify(Game* game, Event event, int value) {
+void ZombiesKilled::onNotify(std::shared_ptr<Game> game, Event event, int value) {
 
     if(!runOnce){
         if(!this->getTextFont().loadFromFile("../assets/fonts/Raleway-Medium.ttf")) {
@@ -50,7 +50,7 @@ void ZombiesKilled::onNotify(Game* game, Event event, int value) {
 
 }
 
-void TimeSurvived::onNotify(Game *game, Event event, int value) {
+void TimeSurvived::onNotify(std::shared_ptr<Game> game, Event event, int value) {
 
     if(event == timeSurvived){
         if(value > 5){

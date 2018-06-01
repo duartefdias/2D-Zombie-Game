@@ -40,7 +40,7 @@ void Bullet::move(int speed) {
     sprite.setPosition(bulletX, bulletY);
 }
 
-void Bullet::renderSprite(Game* game) {
+void Bullet::renderSprite(std::shared_ptr<Game> game) {
     game->getWindow().draw(sprite);
 }
 
@@ -52,7 +52,7 @@ int Bullet::getBulletY() {
     return bulletY;
 }
 
-bool Bullet::isOutOfScreen(Game* game) {
+bool Bullet::isOutOfScreen(std::shared_ptr<Game> game) {
     int windowX = game->getWindow().getSize().x;
     int windowY = game->getWindow().getSize().y;
 

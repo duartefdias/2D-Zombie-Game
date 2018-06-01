@@ -17,7 +17,7 @@ void GameCharacter::setupSprite() {
     sprite.setOrigin(75, 95);
 }
 
-void GameCharacter::renderSprite(Game* game) {
+void GameCharacter::renderSprite(std::shared_ptr<Game> game) {
     game->getWindow().draw(sprite);
 }
 

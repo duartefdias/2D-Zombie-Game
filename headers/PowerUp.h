@@ -13,6 +13,8 @@
 #include <unistd.h>
 #include <iostream>
 #include <math.h>
+#include <memory>
+#include <bits/shared_ptr.h>
 
 #include "Game.h"
 
@@ -20,19 +22,19 @@ enum poweUpType {ammo, zombieOverload};
 
 class PowerUp{
 public:
-    PowerUp(Game* game);
+    PowerUp(std::shared_ptr<Game> game);
 
     //This is a factory method
     //It creates different PowerUps based on the "type"
-    static PowerUp *makePowerUp(Game* game, int type);
+    static PowerUp *makePowerUp(std::shared_ptr<Game> game, int type);
 
     int getX();
     int getY();
 
-    virtual void startPower(Game* game){};
-    virtual void endPower(Game* game){};
+    virtual void startPower(std::shared_ptr<Game> game){};
+    virtual void endPower(std::shared_ptr<Game> game){};
 
-    void renderSprite(Game* game);
+    void renderSprite(std::shared_ptr<Game> game);
 
 protected:
 

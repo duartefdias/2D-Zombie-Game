@@ -7,13 +7,13 @@
 
 //POWERUP
 
-PowerUp::PowerUp(Game* game) {
+PowerUp::PowerUp(std::shared_ptr<Game> game) {
 
     X = rand() % game->getWindow().getSize().x;
     Y = rand() % game->getWindow().getSize().y;
 }
 
-PowerUp *PowerUp::makePowerUp(Game* game, int type){
+PowerUp *PowerUp::makePowerUp(std::shared_ptr<Game> game, int type){
     switch(type){
         case 0:
             return new Ammo(game);
@@ -32,6 +32,6 @@ int PowerUp::getY() {
     return Y;
 }
 
-void PowerUp::renderSprite(Game* game) {
+void PowerUp::renderSprite(std::shared_ptr<Game> game) {
     game->getWindow().draw(sprite);
 }

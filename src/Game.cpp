@@ -148,7 +148,9 @@ void Game::incrementZombiesSpawned() {
 }
 
 void Game::incrementZombiesKilled() {
-    zombiesKilled++;
+    numZombiesKilled++;
+    //Subject Observer design pattern - notifies all observers
+    notify(zombiesKilled, this->getZombiesKilled());
 }
 
 int Game::getZombiesSpawned() {
@@ -168,11 +170,11 @@ void Game::removeObserver(Observer *observer) {
 }
 
 void Game::notify(Event event, int value) {
-    for(std::vector<Observer*>::const_iterator iter = observers.begin(); iter != observers.end(); ++iter)
+    for(auto iter = observers.begin(); iter != observers.end(); ++iter)
     {
         if(*iter != 0)
         {
-            (*iter)->onNotify(this, event, value);
+            (*iter)->onNotify(shared_from_this(), event, value);
         }
     }
 }

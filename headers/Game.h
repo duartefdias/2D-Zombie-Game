@@ -7,9 +7,10 @@
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
+#include <list>
 #include "Observer.h"
 
-class Game {
+class Game : public std::enable_shared_from_this<Game> {
 public:
 
     Game(int windowWidth = 900, int windowHeight = 700);
@@ -83,10 +84,10 @@ private:
     int zombieFrequency = 1000;
     int zombieFrequencyAux = 1000;
 
-    std::vector<Observer*> observers; //Vector of observers
+    std::list<Observer*> observers; //Vector of observers
 
     int zombiesSpawned = 0;
-    int zombiesKilled = 0;
+    int numZombiesKilled = 0;
 
     sf::Clock gameClock;
 };

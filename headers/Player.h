@@ -5,6 +5,7 @@
 #ifndef ZOMBIEGAME_PLAYER_H
 #define ZOMBIEGAME_PLAYER_H
 
+#include <memory>
 #include "Game.h"
 #include "GameCharacter.h"
 
@@ -14,8 +15,8 @@ public:
     Player(int x, int y);
 
     //Movement
-    void move(Game* game, float speed = 1);
-    void rotate(Game* game);
+    void move(std::shared_ptr<Game> game, float speed = 1);
+    void rotate(std::shared_ptr<Game> game);
 
     bool shoot();
 

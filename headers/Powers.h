@@ -9,15 +9,15 @@
 
 class Ammo : public PowerUp {
 public:
-    Ammo(Game *game);
-    void startPower(Game* game) override ;
-    void endPower(Game* game) override ;
+    Ammo(std::shared_ptr<Game> game);
+    void startPower(std::shared_ptr<Game> game) override ;
+    void endPower(std::shared_ptr<Game> game) override ;
 };
 
 class ZombieOverload : public PowerUp {
 public:
-    ZombieOverload(Game * game);
-    void startPower(Game* game) override ;
-    void endPower(Game* game) override ;
+    ZombieOverload(std::shared_ptr<Game> game);
+    void startPower(std::shared_ptr<Game> game) override ;
+    void endPower(std::shared_ptr<Game> game) override ;
 };
 #endif //ZOMBIEGAME_POWERS_H

@@ -4,7 +4,7 @@
 
 #include "../headers/Zombie.h"
 
-void Zombie::setMovementStrategy(movementType type, Player *player, Game *game, Zombie* zombie, int speed) {
+void Zombie::setMovementStrategy(movementType type, Player *player, std::shared_ptr<Game> game, Zombie* zombie, int speed) {
     switch(type){
         case roaming:
             movementStrategy = new Roaming;
@@ -18,7 +18,7 @@ void Zombie::setMovementStrategy(movementType type, Player *player, Game *game, 
     }
 }
 
-Zombie::Zombie(movementType type, Player* player, Game* game, int speed) {
+Zombie::Zombie(movementType type, Player* player, std::shared_ptr<Game> game, int speed) {
     X = 20;
     Y = 20;
 
@@ -76,7 +76,7 @@ Zombie::Zombie(movementType type, Player* player, Game* game, int speed) {
     setMovementStrategy(type, player, game, this, speed);
 }
 
-/*void Zombie::move(Player* player, Game* game, int speed) {
+/*void Zombie::move(Player* player, std::shared_ptr<Game> game, int speed) {
     float angle = 0;
 
     if(!offensive) {
@@ -146,7 +146,7 @@ Zombie::Zombie(movementType type, Player* player, Game* game, int speed) {
     sprite.setPosition(X, Y);
 }*/
 
-void Zombie::renderSprite(Game* game) {
+void Zombie::renderSprite(std::shared_ptr<Game> game) {
     game->getWindow().draw(sprite);
 }
 

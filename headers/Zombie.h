@@ -12,6 +12,8 @@
 
 #include <iostream>
 #include <math.h>
+#include <tr1/memory>
+
 
 #define PI 3.14159265
 
@@ -23,7 +25,7 @@ class Zombie;
 class MovementStrategy {
 public:
 
-    virtual void doMove(Player* player, Game* game, Zombie* zombie, int speed) = 0;
+    virtual void doMove(Player* player, std::shared_ptr<Game> game, Zombie* zombie, int speed) = 0;
 
 protected:
 
@@ -36,11 +38,11 @@ protected:
 class Zombie : public GameCharacter{
 public:
 
-    Zombie(movementType type, Player* player, Game* game, int speed);
+    Zombie(movementType type, Player* player, std::shared_ptr<Game> game, int speed);
 
-    //void move(Player* player, Game* game, int speed = 1);
+    //void move(Player* player, std::shared_ptr<Game> game, int speed = 1);
 
-    void renderSprite(Game* game);
+    void renderSprite(std::shared_ptr<Game> game);
 
 
     int getX();
@@ -48,7 +50,7 @@ public:
     void setX(int newX);
     void setY(int newY);
 
-    void setMovementStrategy(movementType type, Player* player, Game* game, Zombie* zombie, int speed);
+    void setMovementStrategy(movementType type, Player* player, std::shared_ptr<Game> game, Zombie* zombie, int speed);
     MovementStrategy* getMovementStrategy();
 
     MovementStrategy* movementStrategy;
@@ -63,7 +65,7 @@ protected:
 class Roaming : public MovementStrategy{
 public:
     Roaming(){ randDirection = rand() % 4; }
-    virtual void doMove(Player* player, Game* game, Zombie* zombie, int speed);
+    virtual void doMove(Player* player, std::shared_ptr<Game> game, Zombie* zombie, int speed);
 
 private:
 
@@ -72,7 +74,7 @@ private:
 
 class Offensive : public MovementStrategy{
 public:
-    virtual void doMove(Player* player, Game* game, Zombie* zombie, int speed);
+    virtual void doMove(Player* player, std::shared_ptr<Game> game, Zombie* zombie, int speed);
 };
 
 #endif //ZOMBIEGAME_ZOMBIE_H

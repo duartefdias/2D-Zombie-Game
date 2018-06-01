@@ -9,6 +9,8 @@
 #include <SFML/Audio.hpp>
 
 #include <iostream>
+#include <tr1/memory>
+
 
 #include "../headers/Game.h"
 #include "../headers/GameCharacter.h"
@@ -20,12 +22,12 @@ public:
     void move(int speed = 1);
 
     //void createBullet(List* bulletList);
-    void renderSprite(Game* game);
+    void renderSprite(std::shared_ptr<Game> game);
 
     int getBulletX();
     int getBulletY();
 
-    bool isOutOfScreen(Game* game);
+    bool isOutOfScreen(std::shared_ptr<Game> game);
 
 private:
     int bulletX;
