@@ -55,7 +55,7 @@ int main()
     sf::Time elapsedTime;
 
     //List of bullets
-    std::list<Bullet*> bullets;
+    std::list<std::shared_ptr<Bullet>> bullets;
 
     //Game Clock for zombies
     sf::Clock clockZombies;
@@ -65,7 +65,7 @@ int main()
     std::list<Zombie*> zombies;
 
     //PowerUp
-    PowerUp* powerUp;
+    std::shared_ptr<PowerUp> powerUp;
     sf::Clock clockPowerUp;
     sf::Time elapsedTimePowerUp;
     bool powerUpOnMap = false;
@@ -73,8 +73,8 @@ int main()
     sf::Time elapsedTimePowerUpSpawn;
     int powerUpSpawnDelay = 2000; //In milliseconds
 
-    game->addObserver(new ZombiesKilled);
-    game->addObserver(new TimeSurvived);
+    game->addObserver(std::make_shared<ZombiesKilled>());
+    game->addObserver(std::make_shared<TimeSurvived>());
 
     while (game->getWindow().isOpen())
     {
@@ -120,7 +120,7 @@ int main()
         if(player->shoot()) {
             elapsedTime = clock.getElapsedTime();
             if((int) elapsedTime.asMilliseconds() > game->getBulletFrequency()) {
-                bullets.push_back(new Bullet(player->getX(), player->getY(), game->getMouse().getPosition(game->getWindow()).x, game->getMouse().getPosition(game->getWindow()).y));
+                bullets.push_back(std::make_shared<Bullet>(player->getX(), player->getY(), game->getMouse().getPosition(game->getWindow()).x, game->getMouse().getPosition(game->getWindow()).y) );
                 game->bulletSFX();
                 clock.restart();
                 std::cout << "BAAAAAM" << std::endl;
@@ -130,7 +130,7 @@ int main()
         //Remove bullets that are out of the screen
         for(auto it = bullets.begin(); it != bullets.end(); ++it){
             if((*it)->isOutOfScreen(game)){
-                delete (*it);
+                it->reset();
                 bullets.erase(it++); //remove from the list and take next
             }
         }
@@ -156,10 +156,9 @@ int main()
                     if((*itZombie)->getX() > (*itBullet)->getBulletX() - 40 &&  (*itZombie)->getX() < (*itBullet)->getBulletX() + 40){
                         if((*itZombie)->getY() > (*itBullet)->getBulletY() - 40 &&  (*itZombie)->getY() < (*itBullet)->getBulletY() + 40){
                             //Deletion of bullet
-                            delete (*itBullet);
+                            itBullet->reset();
                             itBullet = bullets.erase(itBullet); //remove from the list and take next
                             //Deletion of zombie
-                            delete (*itZombie)->movementStrategy;
                             delete (*itZombie);
                             itZombie = zombies.erase(itZombie); //remove from the list and take next
                             game->zombieSFX();
@@ -230,6 +229,8 @@ int main()
         //zombie->movementStrategy->move();
 
     } //End of game loop
+
+    game->removeAllObservers();
 
     return 0;
 }

@@ -26,7 +26,7 @@ public:
 
     //This is a factory method
     //It creates different PowerUps based on the "type"
-    static PowerUp *makePowerUp(std::shared_ptr<Game> game, int type);
+    static std::shared_ptr<PowerUp> makePowerUp(std::shared_ptr<Game> game, int type);
 
     int getX();
     int getY();

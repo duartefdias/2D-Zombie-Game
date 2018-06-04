@@ -13,13 +13,13 @@ PowerUp::PowerUp(std::shared_ptr<Game> game) {
     Y = rand() % game->getWindow().getSize().y;
 }
 
-PowerUp *PowerUp::makePowerUp(std::shared_ptr<Game> game, int type){
+std::shared_ptr<PowerUp> PowerUp::makePowerUp(std::shared_ptr<Game> game, int type){
     switch(type){
         case 0:
-            return new Ammo(game);
+            return std::make_shared<Ammo>(game);
             break;
         default:
-            return new ZombieOverload(game);
+            return std::make_shared<ZombieOverload>(game);
             break;
     }
 }

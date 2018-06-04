@@ -55,8 +55,9 @@ public:
     int getZombiesSpawned();
     int getZombiesKilled();
 
-    void addObserver(Observer* observer);
-    void removeObserver(Observer* observer);
+    void addObserver(std::shared_ptr<Observer> observer);
+    void removeObserver(std::shared_ptr<Observer> observer);
+    void removeAllObservers();
     void notify(Event event, int value);
 
     int getTimeSurvived();
@@ -84,7 +85,7 @@ private:
     int zombieFrequency = 1000;
     int zombieFrequencyAux = 1000;
 
-    std::list<Observer*> observers; //Vector of observers
+    std::list<std::shared_ptr<Observer>> observers; //Vector of observers
 
     int zombiesSpawned = 0;
     int numZombiesKilled = 0;

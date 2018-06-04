@@ -7,13 +7,13 @@
 void Zombie::setMovementStrategy(movementType type, std::shared_ptr<Player> player, std::shared_ptr<Game> game, Zombie* zombie, int speed) {
     switch(type){
         case roaming:
-            movementStrategy = new Roaming;
+            movementStrategy = std::make_shared<Roaming>();
             break;
         case offensive:
-            movementStrategy = new Offensive;
+            movementStrategy = std::make_shared<Offensive>();
             break;
         default:
-            movementStrategy = new Offensive;
+            movementStrategy = std::make_shared<Offensive>();
             break;
     }
 }
@@ -166,6 +166,6 @@ void Zombie::setY(int newY) {
     Y = newY;
 }
 
-MovementStrategy* Zombie::getMovementStrategy() {
+std::shared_ptr<MovementStrategy> Zombie::getMovementStrategy() {
     return movementStrategy;
 }
