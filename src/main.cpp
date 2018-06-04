@@ -55,7 +55,7 @@ int main()
     sf::Time elapsedTime;
 
     //List of bullets
-    std::list<std::shared_ptr<Bullet>> bullets;
+    std::list<Bullet*> bullets;
 
     //Game Clock for zombies
     sf::Clock clockZombies;
@@ -76,7 +76,9 @@ int main()
     game->addObserver(std::make_shared<ZombiesKilled>());
     game->addObserver(std::make_shared<TimeSurvived>());
 
-    while (game->getWindow().isOpen())
+    bool endGame = false;
+
+    while (game->getWindow().isOpen() && !endGame)
     {
         sf::Event event;
         while(game->getWindow().pollEvent(event)){
@@ -120,7 +122,7 @@ int main()
         if(player->shoot()) {
             elapsedTime = clock.getElapsedTime();
             if((int) elapsedTime.asMilliseconds() > game->getBulletFrequency()) {
-                bullets.push_back(std::make_shared<Bullet>(player->getX(), player->getY(), game->getMouse().getPosition(game->getWindow()).x, game->getMouse().getPosition(game->getWindow()).y) );
+                bullets.push_back(new Bullet(player->getX(), player->getY(), game->getMouse().getPosition(game->getWindow()).x, game->getMouse().getPosition(game->getWindow()).y) );
                 game->bulletSFX();
                 clock.restart();
                 std::cout << "BAAAAAM" << std::endl;
@@ -130,7 +132,7 @@ int main()
         //Remove bullets that are out of the screen
         for(auto it = bullets.begin(); it != bullets.end(); ++it){
             if((*it)->isOutOfScreen(game)){
-                it->reset();
+                delete (*it);
                 bullets.erase(it++); //remove from the list and take next
             }
         }
@@ -156,7 +158,7 @@ int main()
                     if((*itZombie)->getX() > (*itBullet)->getBulletX() - 40 &&  (*itZombie)->getX() < (*itBullet)->getBulletX() + 40){
                         if((*itZombie)->getY() > (*itBullet)->getBulletY() - 40 &&  (*itZombie)->getY() < (*itBullet)->getBulletY() + 40){
                             //Deletion of bullet
-                            itBullet->reset();
+                            delete (*itBullet);
                             itBullet = bullets.erase(itBullet); //remove from the list and take next
                             //Deletion of zombie
                             delete (*itZombie);
@@ -180,7 +182,7 @@ int main()
                 if((*itZombie)->getY() > player->getY() - 40 &&  (*itZombie)->getY() < player->getY() + 40){
                     player->kill();
                     std::cout << "Your score was: " << game->getGameScore() << std::endl;
-                    return 0;
+                    endGame = true;
                 }
             }
         }
@@ -229,6 +231,14 @@ int main()
         //zombie->movementStrategy->move();
 
     } //End of game loop
+
+    //Clean lists
+    for(auto itZombie = zombies.begin(); itZombie != zombies.end(); ++itZombie){
+        delete (*itZombie);
+    }
+    for(auto itBullet = bullets.begin(); itBullet != bullets.end(); ++itBullet){
+        delete (*itBullet);
+    }
 
     game->removeAllObservers();
 

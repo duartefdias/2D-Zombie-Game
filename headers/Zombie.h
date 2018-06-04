@@ -40,8 +40,6 @@ public:
 
     Zombie(movementType type, std::shared_ptr<Player> player, std::shared_ptr<Game> game, int speed);
 
-    //void move(std::shared_ptr<Player> player, std::shared_ptr<Game> game, int speed = 1);
-
     void renderSprite(std::shared_ptr<Game> game);
 
 
@@ -54,11 +52,6 @@ public:
     std::shared_ptr<MovementStrategy> getMovementStrategy();
 
     std::shared_ptr<MovementStrategy> movementStrategy;
-
-protected:
-
-    //bool offensive = true;
-    //int randDirection = 0;
 };
 
 //TYPES OF ZOMBIE MOVEMENT

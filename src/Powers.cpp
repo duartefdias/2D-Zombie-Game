@@ -21,7 +21,7 @@ void Ammo::startPower(std::shared_ptr<Game> game) {
 
 void Ammo::endPower(std::shared_ptr<Game> game) {
     game->setBulletFrequency(game->getBulletFrequencyAux());
-    delete this;
+    //delete this;
 }
 
 
@@ -43,5 +43,5 @@ void ZombieOverload::startPower(std::shared_ptr<Game> game) {
 
 void ZombieOverload::endPower(std::shared_ptr<Game> game) {
     game->setZombieFrequency(game->getZombieFrequencyAux());
-    delete this;
+    //delete this;
 }
