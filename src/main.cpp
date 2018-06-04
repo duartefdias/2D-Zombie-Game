@@ -108,10 +108,10 @@ int main()
         for(auto it = zombies.begin(); it != zombies.end(); ++it){
             (*it)->renderSprite(game);
             //(*it)->move(player, game, 2);
-            (*it)->getMovementStrategy()->doMove(player, game, (*it), 2);//NEW
+            (*it)->getMovementStrategy()->doMove(player, game, (*it), 2);
         }
 
-
+        game->renderObserverText();
         game->getWindow().display();
 
         //W, D, S, A movement keys
@@ -169,6 +169,7 @@ int main()
                             if(itZombie == zombies.end()){
                                 itZombie = zombies.begin(); //This prevents segmentation fault
                             }
+                            std::cout << "Zombies killed: " << game->getZombiesKilled() << std::endl;
                         }
                     }
                 }
@@ -192,7 +193,7 @@ int main()
             if((*itZombie)->getX() > player->getX() - 300 &&  (*itZombie)->getX() < player->getX() + 300){
                 if((*itZombie)->getY() > player->getY() - 300 &&  (*itZombie)->getY() < player->getY() + 300){
                     //(*itZombie)->becomeOffensive();
-                    (*itZombie)->setMovementStrategy(offensive, player, game, (*itZombie), 1);
+                    (*itZombie)->setMovementStrategy(offensive);
                 }
             }
         }
@@ -227,8 +228,6 @@ int main()
                 game->notify(timeSurvived, game->getTimeSurvived());
             }
         }
-
-        //zombie->movementStrategy->move();
 
     } //End of game loop
 

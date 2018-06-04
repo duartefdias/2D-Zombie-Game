@@ -62,6 +62,9 @@ public:
 
     int getTimeSurvived();
 
+    void setObserverText(sf::Text text);
+    void renderObserverText();
+
 private:
     sf::RenderWindow window;
     sf::RectangleShape background;
@@ -91,6 +94,8 @@ private:
     int numZombiesKilled = 0;
 
     sf::Clock gameClock;
+
+    sf::Text observerText;
 };
 
 #endif //ZOMBIEGAME_GAME_H

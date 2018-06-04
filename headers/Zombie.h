@@ -48,7 +48,7 @@ public:
     void setX(int newX);
     void setY(int newY);
 
-    void setMovementStrategy(movementType type, std::shared_ptr<Player> player, std::shared_ptr<Game> game, Zombie* zombie, int speed);
+    void setMovementStrategy(movementType type);
     std::shared_ptr<MovementStrategy> getMovementStrategy();
 
     std::shared_ptr<MovementStrategy> movementStrategy;

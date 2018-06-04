@@ -149,6 +149,7 @@ void Game::incrementZombiesSpawned() {
 
 void Game::incrementZombiesKilled() {
     numZombiesKilled++;
+
     //Subject Observer design pattern - notifies all observers
     notify(zombiesKilled, this->getZombiesKilled());
 }
@@ -158,7 +159,7 @@ int Game::getZombiesSpawned() {
 }
 
 int Game::getZombiesKilled() {
-    return zombiesKilled;
+    return numZombiesKilled;
 }
 
 void Game::addObserver(std::shared_ptr<Observer> observer) {
@@ -194,4 +195,12 @@ void Game::setBulletFrequencyAux(int value) {
 
 int Game::getBulletFrequencyAux() {
     return bulletFrequencyAux;
+}
+
+void Game::setObserverText(sf::Text text) {
+    observerText = text;
+}
+
+void Game::renderObserverText() {
+    window.draw(observerText);
 }

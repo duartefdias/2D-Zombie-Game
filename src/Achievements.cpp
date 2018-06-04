@@ -21,7 +21,7 @@ void ZombiesKilled::onNotify(std::shared_ptr<Game> game, Event event, int value)
 
     if(event == zombiesKilled){
 
-        if(value == 0){
+        if(value < 10){
             text = "The zombies are coming!";
         }
         else if(value == 10){
@@ -44,7 +44,8 @@ void ZombiesKilled::onNotify(std::shared_ptr<Game> game, Event event, int value)
         }
         displayText.setString(text);
         displayText.setOrigin(displayText.getLocalBounds().width, 0);
-        game->getWindow().draw(displayText);
+        //game->getWindow().draw(displayText);
+        game->setObserverText(displayText);
         runOnce = true;
     }
 
