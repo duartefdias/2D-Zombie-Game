@@ -16,7 +16,7 @@ class Game;
 class Observer{
 public:
     virtual ~Observer();
-    virtual void onNotify(std::shared_ptr<Game> game, Event event, int amount) = 0;
+    virtual void onNotify(Game* game, Event event, int amount) = 0;
 
     sf::Font & getTextFont(){ return textFont; }
 

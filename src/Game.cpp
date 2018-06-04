@@ -179,7 +179,7 @@ void Game::notify(Event event, int value) {
     {
         if(*iter != 0)
         {
-            (*iter)->onNotify(shared_from_this(), event, value);
+            (*iter)->onNotify(this, event, value);
         }
     }
 }

@@ -5,11 +5,11 @@
 #include "../headers/Achievements.h"
 #include "../headers/Game.h"
 
-ZombiesKilled::ZombiesKilled(std::shared_ptr<Game> game) {
+ZombiesKilled::ZombiesKilled(Game* game) {
     gamePointer = game;
 }
 
-void ZombiesKilled::onNotify(std::shared_ptr<Game> game, Event event, int value) {
+void ZombiesKilled::onNotify(Game* game, Event event, int value) {
 
     if(!runOnce){
         if(!this->getTextFont().loadFromFile("../assets/fonts/Raleway-Medium.ttf")) {
@@ -55,11 +55,11 @@ void ZombiesKilled::onNotify(std::shared_ptr<Game> game, Event event, int value)
 
 }
 
-TimeSurvived::TimeSurvived(std::shared_ptr<Game> game) {
+TimeSurvived::TimeSurvived(Game* game) {
     gamePointer = game;
 }
 
-void TimeSurvived::onNotify(std::shared_ptr<Game> game, Event event, int value) {
+void TimeSurvived::onNotify(Game*, Event event, int value) {
 
     if(event == timeSurvived){
         if(value > 5){
