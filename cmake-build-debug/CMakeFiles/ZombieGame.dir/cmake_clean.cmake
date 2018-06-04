@@ -9,6 +9,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/ZombieGame.dir/src/Powers.cpp.o"
   "CMakeFiles/ZombieGame.dir/src/MovementTypes.cpp.o"
   "CMakeFiles/ZombieGame.dir/src/Achievements.cpp.o"
+  "CMakeFiles/ZombieGame.dir/src/Observer.cpp.o"
   "ZombieGame.pdb"
   "ZombieGame"
 )

@@ -132,6 +132,10 @@ SFML/Audio.hpp
 ../headers/Zombie.h
 /home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/Zombie.h
 
+/home/bob/Desktop/2DZombies/2D-Zombie-Game/src/Observer.cpp
+../headers/Observer.h
+/home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/Observer.h
+
 /home/bob/Desktop/2DZombies/2D-Zombie-Game/src/Player.cpp
 ../headers/Player.h
 /home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/Player.h

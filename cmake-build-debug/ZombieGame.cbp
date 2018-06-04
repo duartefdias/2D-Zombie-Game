@@ -126,6 +126,9 @@
 		<Unit filename="/home/bob/Desktop/2DZombies/2D-Zombie-Game/src/MovementTypes.cpp">
 			<Option target="ZombieGame"/>
 		</Unit>
+		<Unit filename="/home/bob/Desktop/2DZombies/2D-Zombie-Game/src/Observer.cpp">
+			<Option target="ZombieGame"/>
+		</Unit>
 		<Unit filename="/home/bob/Desktop/2DZombies/2D-Zombie-Game/src/Player.cpp">
 			<Option target="ZombieGame"/>
 		</Unit>

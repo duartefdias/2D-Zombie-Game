@@ -5,6 +5,10 @@
 #include "../headers/Achievements.h"
 #include "../headers/Game.h"
 
+ZombiesKilled::ZombiesKilled(std::shared_ptr<Game> game) {
+    gamePointer = game;
+}
+
 void ZombiesKilled::onNotify(std::shared_ptr<Game> game, Event event, int value) {
 
     if(!runOnce){
@@ -49,6 +53,10 @@ void ZombiesKilled::onNotify(std::shared_ptr<Game> game, Event event, int value)
         runOnce = true;
     }
 
+}
+
+TimeSurvived::TimeSurvived(std::shared_ptr<Game> game) {
+    gamePointer = game;
 }
 
 void TimeSurvived::onNotify(std::shared_ptr<Game> game, Event event, int value) {

@@ -28,6 +28,9 @@ CMakeFiles/ZombieGame.dir/src/MovementTypes.cpp.o: ../headers/Player.h
 CMakeFiles/ZombieGame.dir/src/MovementTypes.cpp.o: ../headers/Zombie.h
 CMakeFiles/ZombieGame.dir/src/MovementTypes.cpp.o: ../src/MovementTypes.cpp
 
+CMakeFiles/ZombieGame.dir/src/Observer.cpp.o: ../headers/Observer.h
+CMakeFiles/ZombieGame.dir/src/Observer.cpp.o: ../src/Observer.cpp
+
 CMakeFiles/ZombieGame.dir/src/Player.cpp.o: ../headers/Game.h
 CMakeFiles/ZombieGame.dir/src/Player.cpp.o: ../headers/GameCharacter.h
 CMakeFiles/ZombieGame.dir/src/Player.cpp.o: ../headers/Observer.h

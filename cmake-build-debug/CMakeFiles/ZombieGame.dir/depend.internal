@@ -28,6 +28,9 @@ CMakeFiles/ZombieGame.dir/src/MovementTypes.cpp.o
  /home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/Player.h
  /home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/Zombie.h
  /home/bob/Desktop/2DZombies/2D-Zombie-Game/src/MovementTypes.cpp
+CMakeFiles/ZombieGame.dir/src/Observer.cpp.o
+ /home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/Observer.h
+ /home/bob/Desktop/2DZombies/2D-Zombie-Game/src/Observer.cpp
 CMakeFiles/ZombieGame.dir/src/Player.cpp.o
  /home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/Game.h
  /home/bob/Desktop/2DZombies/2D-Zombie-Game/headers/GameCharacter.h

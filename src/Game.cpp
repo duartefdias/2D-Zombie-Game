@@ -162,11 +162,11 @@ int Game::getZombiesKilled() {
     return numZombiesKilled;
 }
 
-void Game::addObserver(std::shared_ptr<Observer> observer) {
+void Game::addObserver(Observer* observer) {
     observers.push_back(observer);
 }
 
-void Game::removeObserver(std::shared_ptr<Observer> observer) {
+void Game::removeObserver(Observer* observer) {
     observers.erase(std::remove(observers.begin(), observers.end(), observer), observers.end());
 }
 

@@ -19,7 +19,7 @@
 int main()
 {
     //Create Window
-    std::shared_ptr<Game> game = std::make_shared<Game>(1200, 900);
+    Game* game = new Game(1200, 900);
 
     //Create a rectangle for the background and set a texture for it
     game->setupBackground("../assets/textures/background1.jpg", 1200, 900);
@@ -73,8 +73,8 @@ int main()
     sf::Time elapsedTimePowerUpSpawn;
     int powerUpSpawnDelay = 2000; //In milliseconds
 
-    game->addObserver(std::make_shared<ZombiesKilled>());
-    game->addObserver(std::make_shared<TimeSurvived>());
+    game->addObserver(new ZombiesKilled(game));
+    game->addObserver(new TimeSurvived(game));
 
     bool endGame = false;
 

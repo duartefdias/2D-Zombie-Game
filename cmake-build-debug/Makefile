@@ -258,6 +258,33 @@ src/MovementTypes.cpp.s:
 	$(MAKE) -f CMakeFiles/ZombieGame.dir/build.make CMakeFiles/ZombieGame.dir/src/MovementTypes.cpp.s
 .PHONY : src/MovementTypes.cpp.s
 
+src/Observer.o: src/Observer.cpp.o
+
+.PHONY : src/Observer.o
+
+# target to build an object file
+src/Observer.cpp.o:
+	$(MAKE) -f CMakeFiles/ZombieGame.dir/build.make CMakeFiles/ZombieGame.dir/src/Observer.cpp.o
+.PHONY : src/Observer.cpp.o
+
+src/Observer.i: src/Observer.cpp.i
+
+.PHONY : src/Observer.i
+
+# target to preprocess a source file
+src/Observer.cpp.i:
+	$(MAKE) -f CMakeFiles/ZombieGame.dir/build.make CMakeFiles/ZombieGame.dir/src/Observer.cpp.i
+.PHONY : src/Observer.cpp.i
+
+src/Observer.s: src/Observer.cpp.s
+
+.PHONY : src/Observer.s
+
+# target to generate assembly for a file
+src/Observer.cpp.s:
+	$(MAKE) -f CMakeFiles/ZombieGame.dir/build.make CMakeFiles/ZombieGame.dir/src/Observer.cpp.s
+.PHONY : src/Observer.cpp.s
+
 src/Player.o: src/Player.cpp.o
 
 .PHONY : src/Player.o
@@ -417,6 +444,9 @@ help:
 	@echo "... src/MovementTypes.o"
 	@echo "... src/MovementTypes.i"
 	@echo "... src/MovementTypes.s"
+	@echo "... src/Observer.o"
+	@echo "... src/Observer.i"
+	@echo "... src/Observer.s"
 	@echo "... src/Player.o"
 	@echo "... src/Player.i"
 	@echo "... src/Player.s"
