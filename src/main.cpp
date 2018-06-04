@@ -73,8 +73,8 @@ int main()
     sf::Time elapsedTimePowerUpSpawn;
     int powerUpSpawnDelay = 2000; //In milliseconds
 
-    game->addObserver(std::make_shared<ZombiesKilled>());
-    game->addObserver(std::make_shared<TimeSurvived>());
+    game->addObserver(new ZombiesKilled());
+    game->addObserver(new TimeSurvived());
 
     bool endGame = false;
 
