@@ -42,14 +42,6 @@ Or to compile and run it using [Valgrind](http://valgrind.org/) to check memory 
 
 ![UML](https://github.com/DuarteDx/2D-Zombie-Game/blob/master/UML/UML1.jpg)
 
-This might not be the most updated version of the UML but it will probabbly be quite similar.
-
-## Development environment
-
-This game was developed in C++ using mainly the text editor [Atom](atom.io) and the [DDD](www.gnu.org/software/ddd/) debuger.
-
-I eventually changed to using [CLion](www.jetbrains.com/clion/).
-
 ## Bug Reporting
 
 If you find any bugs please describe them in the ["Issues" section](https://github.com/DuarteDx/2D-Zombie-Game/issues) of this repository.
